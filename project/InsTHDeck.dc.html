@@ -229,7 +229,7 @@ body{margin:0}
 </div>
 
 <div class="{{tc2}}" style="left: 5040px; top: 1000px">
-<dc-import name="InsTH-04-Clients" live="{{ true }}" active="{{a04}}" hint-size="1920px,1080px"></dc-import>
+<dc-import name="InsTH-04-Clients" cur="{{curRe}}" live="{{ true }}" active="{{a04}}" hint-size="1920px,1080px"></dc-import>
 </div>
 
 <div class="{{tc3}}" style="left: 720px; top: 2560px">
@@ -238,8 +238,8 @@ body{margin:0}
 
 <div class="{{tc4}}" style="left: 2880px; top: 2560px">
 <sc-if value="{{isIns}}" hint-placeholder-val="{{ true }}">
-<div class="{{l4c}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-08-Result" live="{{ true }}" active="{{a08}}" hint-size="1920px,1080px"></dc-import></div>
-<div class="{{l4b}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-07-Challenge" live="{{ true }}" active="{{a07}}" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l4c}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-08-Result" cur="{{curRe}}" live="{{ true }}" active="{{a08}}" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l4b}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-07-Challenge" cur="{{curRe}}" live="{{ true }}" active="{{a07}}" hint-size="1920px,1080px"></dc-import></div>
 <div class="{{l4a}}" style="transform-origin: 1505px 540px"><dc-import name="InsTH-06-Case-File" live="{{ true }}" active="{{a06}}" go-next="{{goNext}}" hint-size="1920px,1080px"></dc-import></div>
 </sc-if>
 <sc-if value="{{isRe}}" hint-placeholder-val="{{ false }}">
@@ -432,7 +432,7 @@ return {
 rootRef: this.rootRef,
 isIns: !reV, isRe: reV,
 caseHub: reV ? 'Case study · Real estate' : 'Case study · Insurance',
-cur: this.props.cur || 'USD', curRe: reV ? (this.props.cur || 'USD') : 'USD', variantV: reV ? 're' : 'ins',
+cur: this.props.cur || 'USD', curRe: this.props.cur || 'USD', variantV: reV ? 're' : 'ins',
 onKey: this.onKey,
 wake: this.wake,
 cam: cam,

@@ -81,6 +81,13 @@ body{margin:0}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"live":{"editor":null},"active":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+// FX: figures are written in USD and converted by location. Rates are units per 1 USD; edit them when the market moves.
+const RATE = { USD: 1, GBP: 0.74, EUR: 0.87, AED: 3.6725, HKD: 7.8, THB: 33.8 };
+const SYM = { USD: '$', GBP: '£', EUR: '€', AED: 'AED ', HKD: 'HK$', THB: 'THB ' };
+const curOf = (p) => String((p && p.cur) || 'USD').toUpperCase();
+const kfmt = (usd, cur) => { const v = usd * (RATE[cur] || 1), sym = SYM[cur] || '$', k = v / 1000; if (k >= 1000) return sym + String(Math.ceil(v / 1e4 - 1e-9) / 100) + 'M'; return sym + (k >= 10 ? Math.ceil(k - 1e-9) : Math.ceil(k * 10 - 1e-9) / 10) + 'k'; };
+const nice = (x, up) => { if (!(x > 0)) return 0; const m = Math.pow(10, Math.floor(Math.log10(x)) - 1); const r = x / m; return Math.round(up ? Math.ceil(r - 1e-9) : Math.round(r)) * m; };
+const nstep = (x) => { const m = Math.pow(10, Math.floor(Math.log10(x))); const r = x / m; return (r < 1.5 ? 1 : r < 3.5 ? 2 : r < 7.5 ? 5 : 10) * m; };
 class Component extends DCLogic {
 constructor(props) {
 super(props);
@@ -165,7 +172,7 @@ xBack: st.ph ? 'xbk on' : 'xbk',
 fade: st.ph ? 'fadein on' : 'fadein',
 cards: cards,
 dots: dots,
-d: { num: String((has ? sel : 0) + 1).padStart(2, '0'), name: c.name, what: c.what, market: c.market, services: c.services, result: c.result, did: c.did, quote: c.quote, by: c.by, hasQuote: !!c.quote, hasWhat: !!c.what, hasMarket: !!c.market, hasServices: !!c.services, hasResult: !!c.result, hasDid: !!c.did, howOn: !!st.how && !!c.did, howLabel: st.how ? '− Hide' : '+ How we did it' },
+d: { num: String((has ? sel : 0) + 1).padStart(2, '0'), name: c.name, what: c.what, market: c.market, services: c.services, result: String(c.result || '').replace(/\$(\d+)k/g, (m, n) => kfmt(Number(n) * 1000, curOf(this.props))), did: c.did, quote: c.quote, by: c.by, hasQuote: !!c.quote, hasWhat: !!c.what, hasMarket: !!c.market, hasServices: !!c.services, hasResult: !!c.result, hasDid: !!c.did, howOn: !!st.how && !!c.did, howLabel: st.how ? '− Hide' : '+ How we did it' },
 closeX: this.closeX,
 toggleHow: this.toggleHow,
 prevX: this.stepX(-1),

@@ -159,7 +159,7 @@ body{margin:0}
 </div>
 <div style="position: absolute; left: 8px; top: 123px; width: 104px; height: 36px; box-sizing: border-box; padding: 7px; background: #F3ECDC; border-radius: 6px">
 <div style="font-size: 10px; font-weight: 700; line-height: 1.3; color: #142C49">Annual travel</div>
-<div style="font-size: 8px; line-height: 1.3; color: #5F594E">From $65 / trip</div>
+<div style="font-size: 8px; line-height: 1.3; color: #5F594E">From {{trip}} / trip</div>
 </div>
 <div style="position: absolute; left: 8px; top: 224px; width: 104px; height: 25px; background: #C6A667; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #142C49">Upgrade cover</div>
 </div>
@@ -232,6 +232,13 @@ body{margin:0}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"live":{"editor":null},"active":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+// FX: figures are written in USD and converted by location. Rates are units per 1 USD; edit them when the market moves.
+const RATE = { USD: 1, GBP: 0.74, EUR: 0.87, AED: 3.6725, HKD: 7.8, THB: 33.8 };
+const SYM = { USD: '$', GBP: '£', EUR: '€', AED: 'AED ', HKD: 'HK$', THB: 'THB ' };
+const curOf = (p) => String((p && p.cur) || 'USD').toUpperCase();
+const kfmt = (usd, cur) => { const v = usd * (RATE[cur] || 1), sym = SYM[cur] || '$', k = v / 1000; if (k >= 1000) return sym + String(Math.ceil(v / 1e4 - 1e-9) / 100) + 'M'; return sym + (k >= 10 ? Math.ceil(k - 1e-9) : Math.ceil(k * 10 - 1e-9) / 10) + 'k'; };
+const nice = (x, up) => { if (!(x > 0)) return 0; const m = Math.pow(10, Math.floor(Math.log10(x)) - 1); const r = x / m; return Math.round(up ? Math.ceil(r - 1e-9) : Math.round(r)) * m; };
+const nstep = (x) => { const m = Math.pow(10, Math.floor(Math.log10(x))); const r = x / m; return (r < 1.5 ? 1 : r < 3.5 ? 2 : r < 7.5 ? 5 : 10) * m; };
 class Component extends DCLogic {
 constructor(props) {
 super(props);
@@ -325,6 +332,7 @@ const names = [{ name: 'AXA', me: false }, { name: 'CIGNA', me: false }, { name:
 const order = won ? [2, 0, 1] : [0, 1, 2];
 const board = names.map((x, i) => { const pos = order.indexOf(i); return { name: x.name, rank: String(pos + 1), y: pos * 80, bg: x.me ? '#C6A667' : 'rgba(255,255,255,0.08)', fg: x.me ? '#142C49' : 'rgba(255,255,255,0.7)' }; });
 return {
+trip: SYM[curOf(this.props)] + Math.ceil(65 * (RATE[curOf(this.props)] || 1) - 1e-9).toLocaleString('en-US'),
 rootClass: on ? 'srs on' : 'srs',
 qClass: open ? 'qband' : 'qband qc',
 toggleQ: () => this.setState({ q: !open }),

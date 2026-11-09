@@ -176,6 +176,10 @@ body{margin:0}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"live":{"editor":null},"active":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+const RATE = { USD: 1, GBP: 0.74, EUR: 0.87, AED: 3.6725, HKD: 7.8, THB: 33.8 };
+const SYM = { USD: '$', GBP: '£', EUR: '€', AED: 'AED ', HKD: 'HK$', THB: 'THB ' };
+const niceUp = (x) => { if (!(x > 0)) return 0; const m = Math.pow(10, Math.floor(Math.log10(x)) - 1); return Math.ceil(x / m - 1e-9) * m; };
+const nstep = (x) => { const m = Math.pow(10, Math.floor(Math.log10(x))); const r = x / m; return (r < 1.5 ? 1 : r < 3.5 ? 2 : r < 7.5 ? 5 : 10) * m; };
 class Component extends DCLogic {
 constructor(props) {
 super(props);
@@ -195,6 +199,7 @@ expats: { k: 'EXPATS', title: 'Roughly how many expats live in your market?', hi
 buy: { k: 'BUY COVER', title: 'How many of them buy or switch cover each year?', hint: 'As a share of all expats in your market.', min: 0, max: 50, step: 1, post: '%' },
 pol: { k: 'POLICIES', title: 'How many policies do you sell a month?', hint: 'New policies, on average.', min: 0, max: 100, step: 1 }
 };
+this.applyCur(); this.state.v.value = this.baseV.value; this.state.v.spend = this.baseV.spend;
 this.fmt = (k, x) => { const w = this.Q[k]; return (w.pre || '') + Math.round(x).toLocaleString('en-US') + (w.post || ''); };
 this.goStep = (i) => this.setState({ cs: i });
 this.bump = (k, dir) => () => { const w = this.Q[k]; const v = Object.assign({}, this.state.v); v[k] = Math.max(w.min, Math.min(w.max, Math.round((v[k] + dir * w.step) / w.step) * w.step)); this.setState({ v: v }); };
@@ -211,7 +216,16 @@ v[k] = num;
 this.setState({ v: v });
 };
 }
+applyCur() {
+const cur = String(this.props.cur || 'USD').toUpperCase(); const r = RATE[cur] || 1;
+this.curNow = cur; this.sym = SYM[cur] || '$';
+const base = { value: [20000, 250, 1000], spend: [50000, 250, 3000] };
+['value', 'spend'].forEach((k) => { this.Q[k].pre = this.sym; this.Q[k].max = niceUp(base[k][0] * r); this.Q[k].step = nstep(base[k][1] * r); });
+this.Q.spend.hint = 'Ads, agencies, tools. ' + this.sym + '0 is fine.';
+this.baseV = { value: niceUp(base.value[2] * r), spend: niceUp(base.spend[2] * r) };
+}
 componentDidUpdate(prev) {
+if (String(this.props.cur || 'USD').toUpperCase() !== this.curNow) { this.applyCur(); this.setState({ v: Object.assign({}, this.state.v, this.baseV) }); }
 if (prev && prev.active && !this.props.active && (this.state.sel != null || this.state.q !== undefined)) { clearTimeout(this.tm); this.setState({ sel: null, ph: 0, q: undefined, cs: 0 }); }
 }
 componentWillUnmount() { clearTimeout(this.tm); }
@@ -219,8 +233,9 @@ calc(idx, v) {
 const money = (x) => {
 if (!isFinite(x)) return '—';
 const a = Math.abs(x);
-if (a > 0 && a < 10 && Math.round(x) !== x) return '$' + x.toFixed(2);
-return (x < 0 ? '-$' : '$') + Math.round(a).toLocaleString('en-US');
+const sy = this.sym;
+if (a > 0 && a < 10 && Math.round(x) !== x) return sy + x.toFixed(2);
+return (x < 0 ? '-' + sy : sy) + Math.round(a).toLocaleString('en-US');
 };
 const num = (x) => {
 if (!isFinite(x)) return '—';
@@ -253,10 +268,10 @@ const per = (x) => (isFinite(x) ? money(x) : '—');
 if (v.spend <= 0) {
 return {
 label: 'YOU PAY PER LEAD',
-hero: '$0',
+hero: this.sym + '0',
 line1: 'No paid marketing, so your enquiries come from referrals. Cheap, but you cannot turn it up when you need more.',
 line2: 'That is cheap, but you cannot turn it up when you need more policies.',
-stats: st3({ v: '$0', k: 'PER ENQUIRY' }, { v: '$0', k: 'PER RIGHT-FIT ENQUIRY' }, { v: '$0', k: 'PER NEW POLICY' })
+stats: st3({ v: this.sym + '0', k: 'PER ENQUIRY' }, { v: this.sym + '0', k: 'PER RIGHT-FIT ENQUIRY' }, { v: this.sym + '0', k: 'PER NEW POLICY' })
 };
 }
 return {

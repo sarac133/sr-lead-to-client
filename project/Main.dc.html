@@ -1814,9 +1814,10 @@ class Component extends DCLogic {
     if (this[roKey]) { try { this[roKey].disconnect(); } catch (err) {} }
     this[boxKey] = box;
     const fit = () => {
-      const r = box.getBoundingClientRect();
-      if (!r.width || !r.height) return;
-      const sc = Math.round(Math.min(r.width / 1920, r.height / 1080) * 10000) / 10000;
+      // offsetWidth/Height ignore CSS transforms, so the view's zoom-in animation can't make the first fit come out small.
+      const w = box.offsetWidth, h = box.offsetHeight;
+      if (!w || !h) return;
+      const sc = Math.round(Math.min(w / 1920, h / 1080) * 10000) / 10000;
       if (sc !== this.state[stateKey]) this.setState({ [stateKey]: sc });
     };
     try { this[roKey] = new ResizeObserver(fit); this[roKey].observe(box); } catch (err) {}
@@ -2256,7 +2257,7 @@ class Component extends DCLogic {
       hasUpNext: !liveDeck,
       showImageNote: hasDeck && !(deck && deck.html),
       liveVariant: deck && deck.variant ? deck.variant : 'ins',
-      liveCur: deck && deck.cur ? deck.cur : 'USD',
+      liveCur: deck && deck.cur ? deck.cur : ({ 'Dubai': 'AED', 'Marbella': 'EUR', 'UK': 'GBP', 'Hong Kong': 'HKD', 'Thailand': 'THB' }[LOC] || 'USD'),
       onLiveMove: (idx) => { if (this.state.liveAt !== idx) this.setState({ liveAt: idx }); },
       liveCmd: this.state.liveCmd || null,
       pvScale: this.state.pvScale || 0.5,
