@@ -78,14 +78,22 @@ class Component extends DCLogic {
 renderVals() {
 const live = !!this.props.live;
 const on = !live || !!this.props.active;
-const cur = String(this.props.cur || 'USD').toUpperCase();
-const SPEND = { USD: '$12k+', EUR: '\u20ac10k+', AED: 'AED 43k+' };
-const COMM = { USD: '$218,000+', EUR: '\u20ac188,000+', AED: 'AED 800,000+' };
+const CUR = String(this.props.cur || 'USD').toUpperCase();
+// Dollar figures are written in USD and converted here. Rates are units per 1 USD; edit them when the market moves.
+const RATE = { USD: 1, GBP: 0.74, EUR: 0.87, AED: 3.6725, HKD: 7.8, THB: 33.8 };
+const SYM = { USD: '$', GBP: '£', EUR: '€', AED: 'AED ', HKD: 'HK$', THB: 'THB ' };
+// money(usd, 'k') gives "$14k" style, money(usd) gives "$211,000" style. Always rounded up to a clean number.
+const money = (usd, kind) => {
+  const v = usd * (RATE[CUR] || 1), sym = SYM[CUR] || '$';
+  if (kind === 'k') { const k = v / 1000; if (k >= 1000) return sym + String(Math.ceil(v / 1e4 - 1e-9) / 100) + 'M'; return sym + (k >= 10 ? Math.ceil(k - 1e-9) : Math.ceil(k * 10 - 1e-9) / 10) + 'k'; }
+  const mag = Math.pow(10, Math.floor(Math.log10(v)) - 2);
+  return sym + Math.round(Math.ceil(v / mag - 1e-9) * mag).toLocaleString('en-US');
+};
 return {
 rootClass: on ? 'srs on' : 'srs',
-spend: SPEND[cur] || SPEND.USD,
-spendStamp: (SPEND[cur] || SPEND.USD).toUpperCase() + ' SPENT',
-comm: COMM[cur] || COMM.USD,
+spend: money(12000, 'k') + '+',
+spendStamp: (money(12000, 'k') + '+ SPENT').toUpperCase(),
+comm: money(218000) + '+',
 goNext: () => { if (typeof this.props.goNext === 'function') this.props.goNext(); }
 };
 }

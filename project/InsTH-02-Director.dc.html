@@ -17,17 +17,28 @@ body{margin:0}
 <div class="rv d2" style="position: absolute; left: 755px; top: 353px; font-size: 14px; font-weight: 700; letter-spacing: 3px; line-height: 1.2; color: #1E3A5F">DIRECTOR</div>
 <h1 class="rv d3" style="position: absolute; left: 755px; top: 382px; margin: 0; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: 84px; line-height: 1.12; letter-spacing: -1.68px; color: #17140F; white-space: nowrap">Josh Ramsay</h1>
 <a class="rv d4" href="mailto:josh@saracramsay.com" style="position: absolute; left: 755px; top: 476px; font-size: 18px; line-height: 1.2; color: #B0914E; text-decoration: none">josh@saracramsay.com</a>
-<p class="rv d5" style="position: absolute; left: 755px; top: 535px; width: 666px; margin: 0; font-size: 24px; line-height: 1.45; color: #3F3A32">Josh has spent six years in high-end business consulting. In the last three months alone, Josh and his team have generated over <strong style="color: #142C49">$300k</strong> in new business for their clients.</p>
+<p class="rv d5" style="position: absolute; left: 755px; top: 535px; width: 666px; margin: 0; font-size: 24px; line-height: 1.45; color: #3F3A32">Josh has spent six years in high-end business consulting. In the last three months alone, Josh and his team have generated over <strong style="color: #142C49">{{m300}}</strong> in new business for their clients.</p>
 <div class="rv d6" style="position: absolute; left: 750px; top: 698px; width: 177px; height: 2px; background: #142C49"></div>
 <div class="rv d6" style="position: absolute; left: 755px; top: 726px; font-size: 14px; font-weight: 700; letter-spacing: 3px; line-height: 1.2; color: #8A8478">SARACRAMSAY.COM</div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"live":{"editor":null},"active":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+<script type="text/x-dc" data-dc-script data-props='{"live":{"editor":null},"active":{"editor":null},"cur":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
 class Component extends DCLogic {
 renderVals() {
+const CUR = String(this.props.cur || 'USD').toUpperCase();
+// Dollar figures are written in USD and converted here. Rates are units per 1 USD; edit them when the market moves.
+const RATE = { USD: 1, GBP: 0.74, EUR: 0.87, AED: 3.6725, HKD: 7.8, THB: 33.8 };
+const SYM = { USD: '$', GBP: '£', EUR: '€', AED: 'AED ', HKD: 'HK$', THB: 'THB ' };
+// money(usd, 'k') gives "$14k" style, money(usd) gives "$211,000" style. Always rounded up to a clean number.
+const money = (usd, kind) => {
+  const v = usd * (RATE[CUR] || 1), sym = SYM[CUR] || '$';
+  if (kind === 'k') { const k = v / 1000; if (k >= 1000) return sym + String(Math.ceil(v / 1e4 - 1e-9) / 100) + 'M'; return sym + (k >= 10 ? Math.ceil(k - 1e-9) : Math.ceil(k * 10 - 1e-9) / 10) + 'k'; }
+  const mag = Math.pow(10, Math.floor(Math.log10(v)) - 2);
+  return sym + Math.round(Math.ceil(v / mag - 1e-9) * mag).toLocaleString('en-US');
+};
 const live = !!this.props.live;
 const on = !live || !!this.props.active;
-return { rootClass: on ? 'srs on' : 'srs' };
+return { rootClass: on ? 'srs on' : 'srs', m300: money(300000, 'k') };
 }
 }
 </script>

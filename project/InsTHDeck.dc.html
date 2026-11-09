@@ -225,7 +225,7 @@ body{margin:0}
 
 <div class="{{tc1}}" style="left: 2880px; top: 1000px">
 <div class="{{l1b}}" style="transform-origin: 960px 540px"><dc-import name="InsTH-03-About" live="{{ true }}" active="{{a03}}" hint-size="1920px,1080px"></dc-import></div>
-<div class="{{l1a}}" style="transform-origin: 1090px 520px"><dc-import name="InsTH-02-Director" live="{{ true }}" active="{{a02}}" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l1a}}" style="transform-origin: 1090px 520px"><dc-import name="InsTH-02-Director" live="{{ true }}" active="{{a02}}" cur="{{curRe}}" hint-size="1920px,1080px"></dc-import></div>
 </div>
 
 <div class="{{tc2}}" style="left: 5040px; top: 1000px">
@@ -233,7 +233,7 @@ body{margin:0}
 </div>
 
 <div class="{{tc3}}" style="left: 720px; top: 2560px">
-<dc-import name="InsTH-05-Results" live="{{ true }}" active="{{a05}}" hint-size="1920px,1080px"></dc-import>
+<dc-import name="InsTH-05-Results" live="{{ true }}" active="{{a05}}" cur="{{curRe}}" variant="{{variantV}}" hint-size="1920px,1080px"></dc-import>
 </div>
 
 <div class="{{tc4}}" style="left: 2880px; top: 2560px">
@@ -409,6 +409,8 @@ this.clearAll();
 clearTimeout(this.hudT);
 }
 renderVals() {
+this.RE = !!(this.props && this.props.variant === 're');
+if (this.SECS) this.SECS[4].t = this.RE ? 'Case study · Real estate' : 'Case study · Insurance, Asia';
 const st = this.state;
 const S = this.SECS;
 const hub = st.view === 'hub';
@@ -430,7 +432,7 @@ return {
 rootRef: this.rootRef,
 isIns: !reV, isRe: reV,
 caseHub: reV ? 'Case study · Real estate' : 'Case study · Insurance',
-cur: this.props.cur || 'USD',
+cur: this.props.cur || 'USD', curRe: reV ? (this.props.cur || 'USD') : 'USD', variantV: reV ? 're' : 'ins',
 onKey: this.onKey,
 wake: this.wake,
 cam: cam,

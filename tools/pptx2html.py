@@ -105,7 +105,7 @@ class Conv:
                 sp = ppr.find('a:lnSpc/a:spcPct', NS); spt = ppr.find('a:lnSpc/a:spcPts', NS)
                 if sp is not None: lh = 'line-height: %s' % q(int(sp.get('val'))/100000*1.2)
                 elif spt is not None: lh = 'line-height: %s' % cq(int(spt.get('val'))/100*4/3)
-            runs = []; size_px = None
+            runs = []; size_px = None; sizes = []
             for r in p.findall('a:r', NS):
                 rp = r.find('a:rPr', NS); t0 = r.find('a:t', NS).text or ''
                 t = fix(t0)
@@ -114,6 +114,7 @@ class Conv:
                 if rp is not None:
                     if rp.get('sz'):
                         size_px = int(rp.get('sz'))/100*4/3
+                        sizes.append(size_px)
                         if grow > 1.05 and size_px >= 24:   # a longer converted figure in a big display number: shrink it to keep the same width
                             css.append('font-size: %s' % cq(size_px * max(1/grow, 0.45))); css.append('white-space: nowrap')
                         else: css.append('font-size: %s' % cq(size_px))
@@ -132,7 +133,8 @@ class Conv:
             if not runs:
                 e = p.find('a:endParaRPr', NS); szp = int(e.get('sz'))/100*4/3 if e is not None and e.get('sz') else 16
                 runs.append('<span style="font-size: %s">&#160;</span>' % cq(szp))
-            paras.append('<p style="margin: 0; text-align: %s%s">%s</p>' % (ta, ('; ' + lh) if lh else '', ''.join(runs)))
+            fs = ('; font-size: %s' % cq(max(sizes))) if sizes else ''   # paragraph font-size = strut, so line-height matches the runs
+            paras.append('<p style="margin: 0; text-align: %s%s%s">%s</p>' % (ta, ('; ' + lh) if lh else '', fs, ''.join(runs)))
         st = ['padding: %s %s %s %s' % tuple(emu_cq(v) for v in ins), 'display: flex', 'flex-direction: column',
               'justify-content: %s' % {'t': 'flex-start', 'ctr': 'center', 'b': 'flex-end'}.get(anchor, 'flex-start')]
         if nowrap: st.append('white-space: nowrap')

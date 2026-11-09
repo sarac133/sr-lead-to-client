@@ -2006,21 +2006,23 @@ class Component extends DCLogic {
       { title: 'Six months later', src: '/_blob/117b742a5effce7890dde109cbf7cf63', cue: 'Which result they’d most like.' },
       { title: 'A few questions before we go', src: '/_blob/f2ebfbe7c4a209dd6a06c4b892d07fb6', cue: 'The four closing questions.' }
     ] };
+    // Real Estate intro: one interactive deck per location, each in its own currency (conversion lives in the slides: InsRE-07, InsRE-08, InsTH-02, InsTH-05).
+    // The ready-made PDF only exists in AED, EUR and USD, so the PDF button shows only where it matches the currency on screen.
+    const reDeck = (base, cur, keepPdf) => Object.assign({}, base, { cur, live: 'InsTHDeck', variant: 're', pdf: keepPdf ? base.pdf : undefined });
     const INTRO_DECKS = [
       { industry: 'Generic', location: 'Thailand', deck: GENERIC_THAILAND_DECK },
       { industry: 'Insurance', location: 'Thailand', deck: INSURANCE_THAILAND_DECK },
       { industry: 'Insurance', location: '*', deck: INSURANCE_DECK },
-      { industry: 'Real Estate', location: 'Dubai', deck: RE_INTRO_AED },
-      { industry: 'Real Estate', location: 'Marbella', deck: RE_INTRO_EUR },
-      { industry: 'Real Estate', location: 'UK', deck: RE_INTRO_USD },
-      { industry: 'Real Estate', location: 'Hong Kong', deck: RE_INTRO_USD },
-      { industry: 'Real Estate', location: 'Thailand', deck: RE_INTRO_USD }
+      { industry: 'Real Estate', location: 'Dubai', deck: reDeck(RE_INTRO_AED, 'AED', true) },
+      { industry: 'Real Estate', location: 'Marbella', deck: reDeck(RE_INTRO_EUR, 'EUR', true) },
+      { industry: 'Real Estate', location: 'UK', deck: reDeck(RE_INTRO_USD, 'GBP', false) },
+      { industry: 'Real Estate', location: 'Hong Kong', deck: reDeck(RE_INTRO_USD, 'HKD', false) },
+      { industry: 'Real Estate', location: 'Thailand', deck: reDeck(RE_INTRO_USD, 'THB', false) }
     ];
     // Every intro deck runs as the interactive slide funnel (InsTHDeck). variant 're' swaps the case-study chapter for the
     // Real Estate slide pictures (slides 6, 7 and 8 of that deck, in its own currency). The pictures above stay for the PDF.
     [GENERIC_THAILAND_DECK, INSURANCE_DECK, INSURANCE_THAILAND_DECK].forEach((d) => { d.live = 'InsTHDeck'; d.variant = 'ins'; });
-    RE_INTRO_AED.cur = 'AED'; RE_INTRO_EUR.cur = 'EUR'; RE_INTRO_USD.cur = 'USD';
-    [RE_INTRO_AED, RE_INTRO_EUR, RE_INTRO_USD].forEach((d) => { d.live = 'InsTHDeck'; d.variant = 're'; });
+
     // PROPOSAL DECKS. Google Ads (Real Estate): one editable deck per location, in local currency. Each lives in its own artboard
     // (GAdsUK / GAdsDubai / GAdsMarbella / GAdsHongKong / GAdsThailand .dc.html). Add { service, industry, location, deck } as more decks are ready.
     const GADS_TITLES = ["Cover", "Director", "About Sarac Ramsay", "Clients", "Results", "How investors find an agency", "The strategy", "The channels", "The opportunity", "The problem", "The plan: 3 components", "From where you are", "The route", "Component 1: The intent", "The keywords", "Campaign structure", "Why we build it this way", "Component 2: Stand out", "Same budget, better ad", "What an investor sees", "Component 3: The system", "The target: 30", "The 30 system", "Smart bidding", "Month 3: Hold the fort", "The math", "Google Ads plans", "Our guarantee", "Case study", "Before", "The result"];
@@ -2034,8 +2036,8 @@ class Component extends DCLogic {
     };
     const PROPOSAL_DECKS = Object.keys(GADS).map((loc) => ({ service: 'Google Ads', industry: 'Real Estate', location: loc, deck: GADS[loc] }));
     // Meta Ads and SEO/AEO proposal decks: editable text, same slides for every location (edits are saved per location).
-    // MetaAdsDeck and SEOAEODeck are artboards on the canvas. They hold the cover and guarantee slides from the PDFs; add slides there as they are made.
-    const MORE_DECKS = [['Meta Ads', 'MetaAdsDeck', 'Meta-Ads', [['Cover', 'Meta Ads growth proposal.']]], ['SEO/AEO', 'SEOAEODeck', 'SEO-AEO', [['Our guarantee', 'Fill in the guarantee wording before the call.']]]];
+    // MetaAdsDeck and SEOAEODeck are artboards on the canvas. They are blank placeholders until the right decks are pasted in.
+    const MORE_DECKS = [['Meta Ads', 'MetaAdsDeck', 'Meta-Ads', [['Blank', 'Meta Ads deck is blank for now. Paste the real deck here.']]], ['SEO/AEO', 'SEOAEODeck', 'SEO-AEO', [['Blank', 'SEO/AEO deck is blank for now. Paste the real deck here.']]]];
     MORE_DECKS.forEach(([svc, html, file, sl]) => Object.keys(GADS).forEach((loc) => PROPOSAL_DECKS.push({ service: svc, industry: 'Real Estate', location: loc, deck: { html, pdfName: 'Sarac-Ramsay-' + file + '-Proposal-' + loc.replace(/ /g, '') + '.pdf', slides: sl.map(([title, cue]) => ({ title, src: '', cue })) } })));
     // CONTRACTS: add { service, industry, location, title, url } for each contract PDF.
     const CONTRACTS = [];
