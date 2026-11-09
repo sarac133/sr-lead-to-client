@@ -445,7 +445,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <p style="margin: 8px 0 0; font-size: 13px; color: #9B9B97">{{deckLabel}}</p>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
-<sc-if value="{{showPresentBtn}}" hint-placeholder-val="{{ true }}"><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button></sc-if><sc-if value="{{hasLiveUrl}}" hint-placeholder-val="{{ false }}"><a class="btn-solid" href="{{liveUrl}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Open full-screen copy</a></sc-if>
+<button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button></sc-if><sc-if value="{{showPresentBtn}}" hint-placeholder-val="{{ true }}"><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button></sc-if><sc-if value="{{hasLiveUrl}}" hint-placeholder-val="{{ false }}"><a class="btn-solid" href="{{liveUrl}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Open full-screen copy</a></sc-if>
 <sc-if value="{{hasPdf}}" hint-placeholder-val="{{ true }}"><a class="btn" href="{{pdfUrl}}" download="{{pdfName}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</a></sc-if>
 <sc-if value="{{noPdf}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" disabled="{{ true }}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</button></sc-if>
 </div>
@@ -460,7 +460,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <div class="deck-row" style="display: flex; align-items: center; justify-content: center; gap: 22px">
 <button class="nav-btn" type="button" aria-label="Previous slide" onClick="{{prevSlide}}" disabled="{{atStart}}" style="flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #529CCA; background-color: transparent; color: #E6E6E4; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3.5L5.5 9l5.5 5.5"></path></svg></button>
 <div class="book-wrap" style="flex: 1 1 auto; max-width: 960px; min-width: 0; padding: 6px 10px 10px 8px; box-sizing: border-box">
-<div class="book" tabIndex="0" role="region" aria-label="Intro deck. Use the left and right arrow keys to turn pages." onKeyDown="{{bookKey}}" style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 6px 6px 6px 2px; background-color: #202020; box-shadow: 3px 3px 0 -1px #2C2C2C, 6px 6px 0 -2px #252525, 9px 9px 0 -3px #242424, 0 40px 80px -30px rgba(0,0,0,0.9)">
+<div class="book" data-deck-root="1" tabIndex="0" role="region" aria-label="Intro deck. Use the left and right arrow keys to turn pages." onKeyDown="{{bookKey}}" style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 6px 6px 6px 2px; background-color: #202020; box-shadow: 3px 3px 0 -1px #2C2C2C, 6px 6px 0 -2px #252525, 9px 9px 0 -3px #242424, 0 40px 80px -30px rgba(0,0,0,0.9)">
 <sc-for list="{{slides}}" as="s" hint-placeholder-count="1">
 <div class="page {{s.cls}}" style="position: absolute; inset: 0; z-index: {{s.z}}; overflow: hidden; border-radius: 6px 6px 6px 2px; background-color: #191919">
 <img src="{{s.src}}" alt="{{s.alt}}" style="display: block; width: 100%; height: 100%; object-fit: cover">
@@ -490,9 +490,9 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <!-- INTERACTIVE DECK (every intro deck): the Claude Design presentation, fully clickable. Its slides are the InsTH artboards on this canvas: edit the words there. Real Estate decks swap the case-study chapter for the Real Estate slide pictures. -->
 <sc-if value="{{showInlineLive}}" hint-placeholder-val="{{ false }}">
 <div style="width: 100%; max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px">
-<div id="ix-box" class="ix-box {{lvClass}}">
+<div id="ix-box" data-deck-root="1" class="ix-box {{lvClass}}">
 <div style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{ixScale}})">
-<sc-if value="{{liveInsTH}}" hint-placeholder-val="{{ false }}"><dc-import name="InsTHDeck" variant="{{liveVariant}}" pic6="{{livePic6}}" pic7="{{livePic7}}" pic8="{{livePic8}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hint-size="1920px,1080px"></dc-import></sc-if>
+<sc-if value="{{liveInsTH}}" hint-placeholder-val="{{ false }}"><dc-import name="InsTHDeck" variant="{{liveVariant}}" cur="{{liveCur}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hint-size="1920px,1080px"></dc-import></sc-if>
 </div>
 <sc-if value="{{livePresenting}}" hint-placeholder-val="{{ false }}"><button class="ix-exit" type="button" onClick="{{stopPresent}}" aria-label="Exit presentation" style="position: absolute; right: 14px; bottom: 14px; z-index: 5; min-height: 32px; padding: 0 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; background-color: rgba(0,0,0,0.5); color: #FFFFFF; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 600; cursor: pointer">Exit</button></sc-if>
 </div>
@@ -722,7 +722,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <p style="margin: 8px 0 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 600; font-size: 15px; color: #E6E6E4">{{deckLabel}}</p>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
-<button class="btn" type="button" onClick="{{openObjections}}" aria-label="Open objection handling (only you can see it)" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h10v6.5H7L4 12V9.5H2z"></path><path d="M5 5.5h4M5 7.3h2.5"></path></svg>Objections</button><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button>
+<button class="btn" type="button" onClick="{{openObjections}}" aria-label="Open objection handling (only you can see it)" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h10v6.5H7L4 12V9.5H2z"></path><path d="M5 5.5h4M5 7.3h2.5"></path></svg>Objections</button><button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button></sc-if><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button>
 <sc-if value="{{hasPdf}}" hint-placeholder-val="{{ false }}"><a class="btn" href="{{pdfUrl}}" download="{{pdfName}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</a></sc-if>
 <sc-if value="{{noPdf}}" hint-placeholder-val="{{ true }}"><button class="btn" type="button" disabled="{{ true }}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</button></sc-if>
 </div>
@@ -733,7 +733,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <button class="nav-btn" type="button" aria-label="Previous slide" onClick="{{prevSlide}}" disabled="{{atStart}}" style="flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #529CCA; background-color: transparent; color: #E6E6E4; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3.5L5.5 9l5.5 5.5"></path></svg></button>
 <div class="book-wrap" style="flex: 1 1 auto; max-width: 960px; min-width: 0; padding: 6px 10px 10px 8px; box-sizing: border-box">
 <sc-if value="{{isImageDeck}}" hint-placeholder-val="{{ false }}">
-<div class="book" tabIndex="0" role="region" aria-label="Proposal deck. Use the left and right arrow keys to turn pages." onKeyDown="{{bookKey}}" style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 6px 6px 6px 2px; background-color: #202020; box-shadow: 3px 3px 0 -1px #2C2C2C, 6px 6px 0 -2px #252525, 9px 9px 0 -3px #242424, 0 40px 80px -30px rgba(0,0,0,0.9)">
+<div class="book" data-deck-root="1" tabIndex="0" role="region" aria-label="Proposal deck. Use the left and right arrow keys to turn pages." onKeyDown="{{bookKey}}" style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 6px 6px 6px 2px; background-color: #202020; box-shadow: 3px 3px 0 -1px #2C2C2C, 6px 6px 0 -2px #252525, 9px 9px 0 -3px #242424, 0 40px 80px -30px rgba(0,0,0,0.9)">
 <sc-for list="{{slides}}" as="s" hint-placeholder-count="1">
 <div class="page {{s.cls}}" style="position: absolute; inset: 0; z-index: {{s.z}}; overflow: hidden; border-radius: 6px 6px 6px 2px; background-color: #191919">
 <img src="{{s.src}}" alt="{{s.alt}}" style="display: block; width: 100%; height: 100%; object-fit: cover">
@@ -745,12 +745,14 @@ a{color:#529CCA}a:hover{color:#529CCA}
 </sc-if>
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}">
 <!-- Editable HTML deck: the slides live in their own artboards (GAds<Location>.dc.html) on this canvas. Edit text and numbers there. -->
-<div class="book" tabIndex="0" role="region" aria-label="Proposal deck. Use the left and right arrow keys to change slides." onKeyDown="{{bookKey}}" style="position: relative; width: 100%; overflow: hidden; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #191919; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.9)">
+<div class="book" data-deck-root="1" tabIndex="0" role="region" aria-label="Proposal deck. Use the left and right arrow keys to change slides." onKeyDown="{{bookKey}}" style="position: relative; width: 100%; overflow: hidden; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #191919; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.9)">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsDubai" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsMarbella" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 </div>
 </sc-if>
 </div>
@@ -1113,8 +1115,8 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <span style="font-size: 16px; font-weight: 700; color: #529CCA">{{slideNum}}</span><span style="font-size: 13px; color: #9B9B97">/ {{slideTotal}}</span>
 <span style="font-size: 15px; font-weight: 600; color: #E6E6E4">{{slideTitle}}</span>
 </div>
-<div id="pv-current" style="position: relative; width: 100%; max-width: calc((100vh - 240px) * 16 / 9); aspect-ratio: 16 / 9; overflow: hidden; border: 2px solid #2F80C8; border-radius: 8px; background-color: #000000">
-<sc-if value="{{isLivePv}}" hint-placeholder-val="{{ false }}"><div id="pv-live" style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{pvScale}})"><dc-import name="InsTHDeck" variant="{{liveVariant}}" pic6="{{livePic6}}" pic7="{{livePic7}}" pic8="{{livePic8}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hint-size="1920px,1080px"></dc-import></div></sc-if>
+<div id="pv-current" data-deck-root="1" style="position: relative; width: 100%; max-width: calc((100vh - 240px) * 16 / 9); aspect-ratio: 16 / 9; overflow: hidden; border: 2px solid #2F80C8; border-radius: 8px; background-color: #000000">
+<sc-if value="{{isLivePv}}" hint-placeholder-val="{{ false }}"><div id="pv-live" data-deck-root="1" style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{pvScale}})"><dc-import name="InsTHDeck" variant="{{liveVariant}}" cur="{{liveCur}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hint-size="1920px,1080px"></dc-import></div></sc-if>
 <sc-if value="{{isImageDeck}}" hint-placeholder-val="{{ false }}"><img src="{{currentSrc}}" alt="{{currentAlt}}" style="display: block; width: 100%; height: 100%; object-fit: contain"></sc-if>
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
@@ -1122,6 +1124,8 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{htmlMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsMarbella" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 </sc-if>
 </div>
 <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
@@ -1143,6 +1147,8 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{htmlMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsMarbella" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
+<sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
+<sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 </sc-if>
 </button>
 <span style="font-size: 13px; color: #9B9B97">{{nextTitle}}</span>
@@ -1162,6 +1168,8 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{htmlMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsMarbella" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
+<sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
+<sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 </sc-if>
 <sc-if value="{{showImageNote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 17px; line-height: 1.55; color: #E6E6E4">{{imageNote}}</p></sc-if>
 </sc-if>
@@ -1314,6 +1322,8 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{htmlMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsMarbella" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 </button></sc-if>
 <div class="present-bar" style="position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; background-color: rgba(25,25,25,0.94); border: 1px solid #3A3A3A">
 <button class="nav-btn" type="button" aria-label="Previous slide" onClick="{{prevSlide}}" disabled="{{atStart}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #529CCA; background-color: transparent; color: #E6E6E4; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3.5L5.5 9l5.5 5.5"></path></svg></button>
@@ -1352,6 +1362,7 @@ class Component extends DCLogic {
       if (this.fsOn) { this.fsOn = false; if (this.state.presenting && (this.state.presentMode === 'solo' || this.state.presentMode === 'live')) this.stopPresent(); }
     };
     try { document.addEventListener('fullscreenchange', this.onFullscreen); } catch (e) {}
+    this.syncEdit();
   }
   componentWillUnmount() {
     clearTimeout(this.timer);
@@ -1362,6 +1373,7 @@ class Component extends DCLogic {
   }
   componentDidUpdate() {
     this.watchLiveBox();
+    this.syncEdit();
     // Keep the audience window showing exactly the slide on your screen.
     if (!(this.state.presenting && this.state.presentMode === 'presenter')) return;
     const box = document.getElementById('pv-current');
@@ -1638,6 +1650,160 @@ class Component extends DCLogic {
       }
     } catch (err) {}
   }
+  // ---- TEXT EDITING (intro and proposal decks) ----
+  // Edit text turns every piece of text on the slides into a click-to-edit field. Changes are saved in this browser, per deck
+  // (kind, service, industry, location), as "original words -> your words", and are re-applied whenever the slides redraw,
+  // including in the presenter view and the audience window.
+  getEdits() {
+    const key = 'sr-text-edits:' + (this.editKey || '');
+    if (this.editCache && this.editCache.key === key) return this.editCache.map;
+    let map = {};
+    try { map = JSON.parse(window.localStorage.getItem(key) || '{}') || {}; } catch (e) { map = {}; }
+    this.editCache = { key, map };
+    return map;
+  }
+  saveEdits() {
+    try { window.localStorage.setItem('sr-text-edits:' + (this.editKey || ''), JSON.stringify(this.getEdits())); } catch (e) {}
+  }
+  resetTextEdits() {
+    this.getEdits();
+    this.editCache.map = {};
+    try { window.localStorage.removeItem('sr-text-edits:' + (this.editKey || '')); } catch (e) {}
+    // Put the original words back on every slide that is on screen.
+    if (this.rev) {
+      this.applyingEdits = true;
+      try {
+        document.querySelectorAll('[data-deck-root]').forEach((root) => {
+          this.textNodes(root).forEach((n) => {
+            const o = this.rev.get(n);
+            if (o != null) { n.nodeValue = n.nodeValue.match(/^\s*/)[0] + o + n.nodeValue.match(/\s*$/)[0]; this.rev.delete(n); }
+          });
+        });
+      } finally { this.applyingEdits = false; }
+    }
+    this.rev = new WeakMap();
+  }
+  textNodes(root) {
+    const out = [];
+    if (!root) return out;
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) => {
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const p = n.parentElement;
+        if (!p || /^(SCRIPT|STYLE|TEXTAREA|INPUT|SELECT|OPTION|NOSCRIPT)$/.test(p.tagName)) return NodeFilter.FILTER_REJECT;
+        if (p.closest('[data-no-edit]')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    let n; while ((n = w.nextNode())) out.push(n);
+    return out;
+  }
+  applyEdits() {
+    if (this.applyingEdits) return;
+    const map = this.getEdits();
+    if (!this.rev) this.rev = new WeakMap();
+    this.applyingEdits = true;
+    try {
+      document.querySelectorAll('[data-deck-root]').forEach((root) => {
+        const focus = document.activeElement;
+        this.textNodes(root).forEach((n) => {
+          if (focus && focus.contains && focus.contains(n) && focus.isContentEditable) return;
+          const raw = n.nodeValue, core = raw.trim();
+          const orig = this.rev.get(n) || core;
+          if (Object.prototype.hasOwnProperty.call(map, orig) && map[orig] !== core) {
+            const lead = raw.match(/^\s*/)[0], trail = raw.match(/\s*$/)[0];
+            n.nodeValue = lead + map[orig] + trail;
+            this.rev.set(n, orig);
+          }
+        });
+      });
+    } finally { this.applyingEdits = false; }
+  }
+  tagEditable(on) {
+    if (!document.getElementById('sr-edit-style')) {
+      const st = document.createElement('style'); st.id = 'sr-edit-style';
+      st.textContent = '[data-sr-edit]{outline:1px dashed rgba(198,166,103,.65);outline-offset:3px;cursor:text !important;-webkit-user-select:text !important;user-select:text !important}[data-sr-edit]:hover{background:rgba(198,166,103,.18)}[data-sr-edit]:focus{outline:2px solid #C6A667;background:rgba(198,166,103,.22)}';
+      document.head.appendChild(st);
+    }
+    document.querySelectorAll('[data-deck-root]').forEach((root) => {
+      if (!on) { root.querySelectorAll('[data-sr-edit]').forEach((el) => { el.removeAttribute('data-sr-edit'); el.removeAttribute('contenteditable'); }); return; }
+      this.textNodes(root).forEach((n) => {
+        const el = n.parentElement;
+        if (el.hasAttribute('data-sr-edit')) return;
+        el.setAttribute('data-sr-edit', '1');
+        try { el.contentEditable = 'plaintext-only'; } catch (e) {}
+        if (el.contentEditable !== 'plaintext-only') el.contentEditable = 'true';
+        el.setAttribute('spellcheck', 'false');
+      });
+    });
+  }
+  syncEdit() {
+    const on = !!this.state.editing;
+    // Watch the slides so edits survive redraws; connect once per deck box that exists.
+    const roots = Array.prototype.slice.call(document.querySelectorAll('[data-deck-root]'));
+    const same = this.editRoots && this.editRoots.length === roots.length && roots.every((r, i) => r === this.editRoots[i]);
+    if (!same || !this.editMO) {
+      if (this.editMO) { try { this.editMO.disconnect(); } catch (e) {} }
+      this.editRoots = roots;
+      try {
+        this.editMO = new MutationObserver(() => {
+          if (this.applyingEdits) return;
+          clearTimeout(this.editTimer);
+          this.editTimer = setTimeout(() => { this.applyEdits(); if (this.state.editing) this.tagEditable(true); }, 60);
+        });
+        roots.forEach((r) => this.editMO.observe(r, { subtree: true, childList: true, characterData: true }));
+      } catch (e) {}
+    }
+    if (!this.editHandlers) {
+      this.editHandlers = {
+        focusin: (e) => {
+          const el = e.target;
+          if (!el || !el.getAttribute || !el.getAttribute('data-sr-edit')) return;
+          if (!this.rev) this.rev = new WeakMap();
+          el.__srSnap = Array.prototype.slice.call(el.childNodes).filter((n) => n.nodeType === 3).map((n) => ({ n, v: n.nodeValue, o: this.rev.get(n) || n.nodeValue.trim() }));
+        },
+        focusout: (e) => {
+          const el = e.target;
+          if (!el || !el.__srSnap) return;
+          const snap = el.__srSnap; el.__srSnap = null;
+          const map = this.getEdits();
+          const nodes = Array.prototype.slice.call(el.childNodes).filter((n) => n.nodeType === 3);
+          const hasKids = Array.prototype.some.call(el.childNodes, (n) => n.nodeType === 1);
+          if (snap.length === 1 && nodes.length === 1) {
+            const now = nodes[0].nodeValue.trim(), orig = snap[0].o;
+            if (!this.rev) this.rev = new WeakMap();
+            this.rev.set(nodes[0], orig);
+            if (now === orig || !now) { delete map[orig]; if (!now) nodes[0].nodeValue = snap[0].v; } else map[orig] = now;
+          } else if (snap.length === 1 && !hasKids) {
+            // The browser split or removed the text node: keep whatever it reads now as one piece of text.
+            const now = el.textContent.trim(), orig = snap[0].o;
+            el.textContent = now || snap[0].v;
+            if (el.firstChild) { if (!this.rev) this.rev = new WeakMap(); this.rev.set(el.firstChild, orig); }
+            if (!now || now === orig) delete map[orig]; else map[orig] = now;
+          } else {
+            nodes.forEach((n) => {
+              const sn = snap.find((x) => x.n === n); if (!sn) return;
+              const now = n.nodeValue.trim();
+              if (now && now !== sn.v.trim()) { map[sn.o] = now; if (!this.rev) this.rev = new WeakMap(); this.rev.set(n, sn.o); }
+            });
+          }
+          this.saveEdits();
+        },
+        // While editing, clicks and keys inside a text field must not drive the deck (open a card, change slide) or the page.
+        click: (e) => { if (e.target && e.target.closest && e.target.closest('[data-sr-edit]')) { e.stopPropagation(); } },
+        keydown: (e) => { if (e.target && e.target.closest && e.target.closest('[data-sr-edit]')) { if (e.key === 'Escape') { e.target.blur(); } e.stopPropagation(); } },
+        keyup: (e) => { if (e.target && e.target.closest && e.target.closest('[data-sr-edit]')) e.stopPropagation(); }
+      };
+    }
+    // Listeners sit on every deck box (capture) so they run before the deck's own handlers.
+    roots.forEach((r) => {
+      if (r.__srEditWired) return;
+      r.__srEditWired = true;
+      ['focusin', 'focusout', 'click', 'keydown', 'keyup'].forEach((t) => r.addEventListener(t, this.editHandlers[t], true));
+    });
+    this.applyEdits();
+    this.tagEditable(on);
+  }
   watchLiveBox() {
     this.watchBox('ix-box', 'ixBox', 'ixRO', 'ixScale');
     this.watchBox('pv-current', 'pvBox', 'pvRO', 'pvScale');
@@ -1772,6 +1938,7 @@ class Component extends DCLogic {
     const usesPropList = view === 'proposal' || view === 'contracts';
     const IND = usesPropList && PROPOSAL_INDUSTRIES.indexOf(INDUSTRIES[industry]) < 0 ? 'Real Estate' : INDUSTRIES[industry];
     const LOC = LOCATIONS[location], SVC = SERVICES[service];
+    this.editKey = (view + '|' + (view === 'proposal' ? SVC + '|' : '') + IND + '|' + LOC);
     // '*' in an entry means "every industry / location / service".
     const fits = (e, useService) => (e.industry === '*' || e.industry === IND) && (e.location === '*' || e.location === LOC) && (!useService || e.service === '*' || e.service === SVC);
 
@@ -1852,6 +2019,7 @@ class Component extends DCLogic {
     // Every intro deck runs as the interactive slide funnel (InsTHDeck). variant 're' swaps the case-study chapter for the
     // Real Estate slide pictures (slides 6, 7 and 8 of that deck, in its own currency). The pictures above stay for the PDF.
     [GENERIC_THAILAND_DECK, INSURANCE_DECK, INSURANCE_THAILAND_DECK].forEach((d) => { d.live = 'InsTHDeck'; d.variant = 'ins'; });
+    RE_INTRO_AED.cur = 'AED'; RE_INTRO_EUR.cur = 'EUR'; RE_INTRO_USD.cur = 'USD';
     [RE_INTRO_AED, RE_INTRO_EUR, RE_INTRO_USD].forEach((d) => { d.live = 'InsTHDeck'; d.variant = 're'; });
     // PROPOSAL DECKS. Google Ads (Real Estate): one editable deck per location, in local currency. Each lives in its own artboard
     // (GAdsUK / GAdsDubai / GAdsMarbella / GAdsHongKong / GAdsThailand .dc.html). Add { service, industry, location, deck } as more decks are ready.
@@ -1865,6 +2033,10 @@ class Component extends DCLogic {
       'Thailand': gadsDeck('GAdsThailand', '/_blob/b4da7c762b4f272722ac4c7c163a6d64', 'Thailand'),
     };
     const PROPOSAL_DECKS = Object.keys(GADS).map((loc) => ({ service: 'Google Ads', industry: 'Real Estate', location: loc, deck: GADS[loc] }));
+    // Meta Ads and SEO/AEO proposal decks: editable text, same slides for every location (edits are saved per location).
+    // MetaAdsDeck and SEOAEODeck are artboards on the canvas. They hold the cover and guarantee slides from the PDFs; add slides there as they are made.
+    const MORE_DECKS = [['Meta Ads', 'MetaAdsDeck', 'Meta-Ads', [['Cover', 'Meta Ads growth proposal.']]], ['SEO/AEO', 'SEOAEODeck', 'SEO-AEO', [['Our guarantee', 'Fill in the guarantee wording before the call.']]]];
+    MORE_DECKS.forEach(([svc, html, file, sl]) => Object.keys(GADS).forEach((loc) => PROPOSAL_DECKS.push({ service: svc, industry: 'Real Estate', location: loc, deck: { html, pdfName: 'Sarac-Ramsay-' + file + '-Proposal-' + loc.replace(/ /g, '') + '.pdf', slides: sl.map(([title, cue]) => ({ title, src: '', cue })) } })));
     // CONTRACTS: add { service, industry, location, title, url } for each contract PDF.
     const CONTRACTS = [];
 
@@ -2028,6 +2200,8 @@ class Component extends DCLogic {
       htmlMarbella: !!(deck && deck.html === 'GAdsMarbella'),
       htmlHongKong: !!(deck && deck.html === 'GAdsHongKong'),
       htmlThailand: !!(deck && deck.html === 'GAdsThailand'),
+      htmlMeta: !!(deck && deck.html === 'MetaAdsDeck'),
+      htmlSEO: !!(deck && deck.html === 'SEOAEODeck'),
       noPdf: !(deck && deck.pdf),
       pdfUrl: deck && deck.pdf ? deck.pdf : '#',
       pdfName: deck && deck.pdfName ? deck.pdfName : 'Sarac-Ramsay-Intro.pdf',
@@ -2080,9 +2254,7 @@ class Component extends DCLogic {
       hasUpNext: !liveDeck,
       showImageNote: hasDeck && !(deck && deck.html),
       liveVariant: deck && deck.variant ? deck.variant : 'ins',
-      livePic6: deck && deck.variant === 're' ? deck.slides[5].src : '',
-      livePic7: deck && deck.variant === 're' ? deck.slides[6].src : '',
-      livePic8: deck && deck.variant === 're' ? deck.slides[7].src : '',
+      liveCur: deck && deck.cur ? deck.cur : 'USD',
       onLiveMove: (idx) => { if (this.state.liveAt !== idx) this.setState({ liveAt: idx }); },
       liveCmd: this.state.liveCmd || null,
       pvScale: this.state.pvScale || 0.5,
@@ -2115,6 +2287,13 @@ class Component extends DCLogic {
       showNotesTab: (this.state.pvTab || 'notes') === 'notes',
       showObjTab: this.state.pvTab === 'objections',
       showSlidesTab: this.state.pvTab === 'slides',
+      editing: !!this.state.editing,
+      editLabel: this.state.editing ? 'Done editing' : 'Edit text',
+      editBorder: this.state.editing ? '#C6A667' : '#2F2F2F',
+      editBg: this.state.editing ? 'rgba(198,166,103,0.18)' : '#202020',
+      editColor: this.state.editing ? '#E6CD94' : '#E6E6E4',
+      toggleEdit: () => this.setState((s) => ({ editing: !s.editing })),
+      resetEdits: () => this.resetTextEdits(),
       showQTab: this.state.pvTab === 'questions',
       pvQuestions: QUESTIONS.map((text, i) => ({ id: 'pv-q' + (i + 1), num: pad(i + 1), text, value: this.state.notes[i] || '', onChange: (e) => this.setNote(i, e && e.target ? e.target.value : '') })),
       slideList: SLIDES.map((x, i) => ({ num: pad(i + 1), title: x.title, cls: i === slide ? 'is-on' : '', current: i === slide ? 'true' : 'false', go: () => (liveDeck ? this.liveGo(i) : this.setState({ slide: i })) })),

@@ -243,9 +243,9 @@ body{margin:0}
 <div class="{{l4a}}" style="transform-origin: 1505px 540px"><dc-import name="InsTH-06-Case-File" live="{{ true }}" active="{{a06}}" go-next="{{goNext}}" hint-size="1920px,1080px"></dc-import></div>
 </sc-if>
 <sc-if value="{{isRe}}" hint-placeholder-val="{{ false }}">
-<div class="{{l4c}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-Pic" live="{{ true }}" active="{{a08}}" src="{{pic8}}" alt="Real estate case study: six months later" hint-size="1920px,1080px"></dc-import></div>
-<div class="{{l4b}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-Pic" live="{{ true }}" active="{{a07}}" src="{{pic7}}" alt="Real estate case study: where they were before we started" hint-size="1920px,1080px"></dc-import></div>
-<div class="{{l4a}}" style="transform-origin: 960px 540px"><dc-import name="InsTH-Pic" live="{{ true }}" active="{{a06}}" src="{{pic6}}" alt="Real estate case study" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l4c}}" style="transform-origin: 960px 560px"><dc-import name="InsRE-08-Result" live="{{ true }}" active="{{a08}}" cur="{{cur}}" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l4b}}" style="transform-origin: 960px 560px"><dc-import name="InsRE-07-Challenge" live="{{ true }}" active="{{a07}}" cur="{{cur}}" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l4a}}" style="transform-origin: 960px 540px"><dc-import name="InsRE-06-Case-File" live="{{ true }}" active="{{a06}}" go-next="{{goNext}}" hint-size="1920px,1080px"></dc-import></div>
 </sc-if>
 </div>
 
@@ -311,7 +311,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":null},"pic6":{"editor":null},"pic7":{"editor":null},"pic8":{"editor":null},"onMove":{"editor":null},"cmd":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":null},"cur":{"editor":null},"onMove":{"editor":null},"cmd":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
 class Component extends DCLogic {
 constructor(props) {
 super(props);
@@ -430,7 +430,7 @@ return {
 rootRef: this.rootRef,
 isIns: !reV, isRe: reV,
 caseHub: reV ? 'Case study · Real estate' : 'Case study · Insurance',
-pic6: this.props.pic6 || '', pic7: this.props.pic7 || '', pic8: this.props.pic8 || '',
+cur: this.props.cur || 'USD',
 onKey: this.onKey,
 wake: this.wake,
 cam: cam,
