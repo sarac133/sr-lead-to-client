@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Picture slide</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<!-- PICTURE SLIDE: one 16:9 slide picture shown full size inside the interactive deck. Used for the Real Estate case-study chapter until its slides are rebuilt as interactive ones. -->
+<div class="{{rootClass}}" style="position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #142C49">
+<img src="{{src}}" alt="{{alt}}" style="display: block; width: 1920px; height: 1080px; object-fit: cover">
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"live":{"editor":null},"active":{"editor":null},"src":{"editor":null},"alt":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const live = !!this.props.live;
+const on = !live || !!this.props.active;
+return { rootClass: on ? 'srs on' : 'srs', src: this.props.src || '', alt: this.props.alt || '' };
+}
+}
+</script>
+</body>
+</html>

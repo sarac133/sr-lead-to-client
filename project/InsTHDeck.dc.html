@@ -237,9 +237,16 @@ body{margin:0}
 </div>
 
 <div class="{{tc4}}" style="left: 2880px; top: 2560px">
+<sc-if value="{{isIns}}" hint-placeholder-val="{{ true }}">
 <div class="{{l4c}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-08-Result" live="{{ true }}" active="{{a08}}" hint-size="1920px,1080px"></dc-import></div>
 <div class="{{l4b}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-07-Challenge" live="{{ true }}" active="{{a07}}" hint-size="1920px,1080px"></dc-import></div>
 <div class="{{l4a}}" style="transform-origin: 1505px 540px"><dc-import name="InsTH-06-Case-File" live="{{ true }}" active="{{a06}}" go-next="{{goNext}}" hint-size="1920px,1080px"></dc-import></div>
+</sc-if>
+<sc-if value="{{isRe}}" hint-placeholder-val="{{ false }}">
+<div class="{{l4c}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-Pic" live="{{ true }}" active="{{a08}}" src="{{pic8}}" alt="Real estate case study: six months later" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l4b}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-Pic" live="{{ true }}" active="{{a07}}" src="{{pic7}}" alt="Real estate case study: where they were before we started" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l4a}}" style="transform-origin: 960px 540px"><dc-import name="InsTH-Pic" live="{{ true }}" active="{{a06}}" src="{{pic6}}" alt="Real estate case study" hint-size="1920px,1080px"></dc-import></div>
+</sc-if>
 </div>
 
 <div class="{{tc5}}" style="left: 5040px; top: 2560px">
@@ -263,7 +270,7 @@ body{margin:0}
 <div style="font-size: 48px; color: rgba(255,255,255,0.6)">1 slide</div>
 </div>
 <div class="{{hubTx}}" style="position: absolute; left: 2880px; top: 3710px; width: 1920px; display: flex; align-items: baseline; justify-content: space-between">
-<div style="display: flex; align-items: baseline; gap: 40px"><span style="font-family: 'Courier New', Courier, monospace; font-size: 64px; font-weight: 700; letter-spacing: 6px; color: #C6A667">05</span><span style="font-family: Georgia, 'Times New Roman', serif; font-size: 104px; color: #FFFFFF; white-space: nowrap">Case study · Insurance</span></div>
+<div style="display: flex; align-items: baseline; gap: 40px"><span style="font-family: 'Courier New', Courier, monospace; font-size: 64px; font-weight: 700; letter-spacing: 6px; color: #C6A667">05</span><span style="font-family: Georgia, 'Times New Roman', serif; font-size: 104px; color: #FFFFFF; white-space: nowrap">{{caseHub}}</span></div>
 <div style="display: flex; gap: 20px; align-self: center"><div class="{{p4a}}"></div><div class="{{p4b}}"></div><div class="{{p4c}}"></div></div>
 </div>
 <div class="{{hubTx}}" style="position: absolute; left: 5040px; top: 3710px; width: 1920px; display: flex; align-items: baseline; justify-content: space-between">
@@ -304,16 +311,18 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":null},"pic6":{"editor":null},"pic7":{"editor":null},"pic8":{"editor":null},"onMove":{"editor":null},"cmd":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
 class Component extends DCLogic {
 constructor(props) {
 super(props);
+const RE = props && props.variant === 're';
+this.RE = RE;
 this.SECS = [
 { n: '01', t: 'Introduction', s: 1 },
 { n: '02', t: 'Who we are', s: 2 },
 { n: '03', t: 'Our clients', s: 1 },
 { n: '04', t: 'Results', s: 1 },
-{ n: '05', t: 'Case study · Insurance, Asia', s: 3 },
+{ n: '05', t: RE ? 'Case study · Real estate' : 'Case study · Insurance, Asia', s: 3 },
 { n: '06', t: 'Before we build your proposal', s: 1 }
 ];
 this.POS = [[720, 1000], [2880, 1000], [5040, 1000], [720, 2560], [2880, 2560], [5040, 2560]];
@@ -377,6 +386,24 @@ componentDidMount() {
 this.wake();
 if (this.rootEl && this.rootEl.focus) { try { this.rootEl.focus({ preventScroll: true }); } catch (e) {} }
 }
+componentDidUpdate() {
+const st = this.state;
+const hub = st.view === 'hub';
+const base = [0, 1, 3, 4, 5, 8][st.sec];
+const idx = hub ? -1 : base + st.pos[st.sec];
+const key = (hub ? 'h' : 's') + idx;
+if (key !== this.lastKey) {
+this.lastKey = key;
+if (typeof this.props.onMove === 'function') { try { this.props.onMove(idx); } catch (e) {} }
+}
+const cmd = this.props.cmd;
+if (cmd && cmd.id !== this.lastCmd) {
+this.lastCmd = cmd.id;
+if (cmd.hub) this.overview();
+else if (typeof cmd.sec === 'number') this.goTo(cmd.sec, cmd.pos || 0);
+else if (typeof cmd.step === 'number') { if (cmd.step > 0) this.next(); else this.prev(); }
+}
+}
 componentWillUnmount() {
 this.clearAll();
 clearTimeout(this.hudT);
@@ -386,6 +413,7 @@ const st = this.state;
 const S = this.SECS;
 const hub = st.view === 'hub';
 const xy = this.POS[st.sec];
+const reV = !!this.RE;
 const cam = hub ? 'translate(0px, 0px) scale(0.25)' : 'translate(' + (-xy[0]) + 'px, ' + (-xy[1]) + 'px) scale(1)';
 const act = (k, j) => {
 const inCur = !hub && k === st.sec;
@@ -400,6 +428,9 @@ const tcl = (k) => (hub || k === st.sec ? 'tile' : 'tile dim');
 const tile = (k) => (k === st.sec ? 'tilebtn cur' : 'tilebtn');
 return {
 rootRef: this.rootRef,
+isIns: !reV, isRe: reV,
+caseHub: reV ? 'Case study · Real estate' : 'Case study · Insurance',
+pic6: this.props.pic6 || '', pic7: this.props.pic7 || '', pic8: this.props.pic8 || '',
 onKey: this.onKey,
 wake: this.wake,
 cam: cam,

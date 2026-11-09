@@ -445,7 +445,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <p style="margin: 8px 0 0; font-size: 13px; color: #9B9B97">{{deckLabel}}</p>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
-<sc-if value="{{hasStaticOrNone}}" hint-placeholder-val="{{ true }}"><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button></sc-if><sc-if value="{{isLiveDeck}}" hint-placeholder-val="{{ false }}"><a class="btn-solid" href="{{liveUrl}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present full screen</a></sc-if>
+<sc-if value="{{showPresentBtn}}" hint-placeholder-val="{{ true }}"><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button></sc-if><sc-if value="{{hasLiveUrl}}" hint-placeholder-val="{{ false }}"><a class="btn-solid" href="{{liveUrl}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Open full-screen copy</a></sc-if>
 <sc-if value="{{hasPdf}}" hint-placeholder-val="{{ true }}"><a class="btn" href="{{pdfUrl}}" download="{{pdfName}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</a></sc-if>
 <sc-if value="{{noPdf}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" disabled="{{ true }}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</button></sc-if>
 </div>
@@ -487,16 +487,16 @@ a{color:#529CCA}a:hover{color:#529CCA}
 </sc-if>
 </sc-if>
 
-<!-- INTERACTIVE DECK (Insurance · Thailand): the real Claude Design presentation, fully clickable. Its slides are the InsTH artboards on this canvas: edit the words there. -->
-<sc-if value="{{isLiveDeck}}" hint-placeholder-val="{{ false }}">
+<!-- INTERACTIVE DECK (every intro deck): the Claude Design presentation, fully clickable. Its slides are the InsTH artboards on this canvas: edit the words there. Real Estate decks swap the case-study chapter for the Real Estate slide pictures. -->
+<sc-if value="{{showInlineLive}}" hint-placeholder-val="{{ false }}">
 <div style="width: 100%; max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px">
 <div id="ix-box" class="ix-box {{lvClass}}">
 <div style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{ixScale}})">
-<sc-if value="{{liveInsTH}}" hint-placeholder-val="{{ false }}"><dc-import name="InsTHDeck" hint-size="1920px,1080px"></dc-import></sc-if>
+<sc-if value="{{liveInsTH}}" hint-placeholder-val="{{ false }}"><dc-import name="InsTHDeck" variant="{{liveVariant}}" pic6="{{livePic6}}" pic7="{{livePic7}}" pic8="{{livePic8}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hint-size="1920px,1080px"></dc-import></sc-if>
 </div>
 <sc-if value="{{livePresenting}}" hint-placeholder-val="{{ false }}"><button class="ix-exit" type="button" onClick="{{stopPresent}}" aria-label="Exit presentation" style="position: absolute; right: 14px; bottom: 14px; z-index: 5; min-height: 32px; padding: 0 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; background-color: rgba(0,0,0,0.5); color: #FFFFFF; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 600; cursor: pointer">Exit</button></sc-if>
 </div>
-<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97">Fully interactive: click the slides, use the arrow keys, Esc for the chapter overview. Present full screen opens the deck in its own tab: press Start, then share that tab on the call.</p>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97">Fully interactive: click the slides, use the arrow keys, Esc for the chapter overview. Present opens your presenter view (notes, questions, objections) and a separate window for the prospect: share only that window on the call.</p>
 </div>
 </sc-if>
 
@@ -1114,6 +1114,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <span style="font-size: 15px; font-weight: 600; color: #E6E6E4">{{slideTitle}}</span>
 </div>
 <div id="pv-current" style="position: relative; width: 100%; max-width: calc((100vh - 240px) * 16 / 9); aspect-ratio: 16 / 9; overflow: hidden; border: 2px solid #2F80C8; border-radius: 8px; background-color: #000000">
+<sc-if value="{{isLivePv}}" hint-placeholder-val="{{ false }}"><div id="pv-live" style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{pvScale}})"><dc-import name="InsTHDeck" variant="{{liveVariant}}" pic6="{{livePic6}}" pic7="{{livePic7}}" pic8="{{livePic8}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hint-size="1920px,1080px"></dc-import></div></sc-if>
 <sc-if value="{{isImageDeck}}" hint-placeholder-val="{{ false }}"><img src="{{currentSrc}}" alt="{{currentAlt}}" style="display: block; width: 100%; height: 100%; object-fit: contain"></sc-if>
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
@@ -1130,6 +1131,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 </div>
 </section>
 <aside aria-label="Your notes" style="min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: 14px">
+<sc-if value="{{hasUpNext}}" hint-placeholder-val="{{ true }}">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #9B9B97">Up next</span>
 <sc-if value="{{hasNext}}" hint-placeholder-val="{{ true }}">
@@ -1147,6 +1149,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 </sc-if>
 <sc-if value="{{atEnd}}" hint-placeholder-val="{{ false }}"><div style="max-width: 360px; padding: 18px; border: 1px dashed #2F2F2F; border-radius: 6px; font-size: 13px; color: #9B9B97">Last slide. Time to close.</div></sc-if>
 </div>
+</sc-if>
 <div role="group" aria-label="Show" style="display: flex; gap: 6px; flex-wrap: wrap; padding-top: 4px; border-top: 1px solid #2B2B2B">
 <sc-for list="{{pvTabs}}" as="pt" hint-placeholder-count="3"><button class="step-tab {{pt.cls}}" type="button" onClick="{{pt.go}}" aria-pressed="{{pt.pressed}}" style="margin-top: 10px; min-height: 32px; box-sizing: border-box; padding: 0 12px; border: 1px solid #3A3A3A; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{pt.label}}</button></sc-for>
 </div>
@@ -1160,7 +1163,135 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 </sc-if>
-<sc-if value="{{isImageDeck}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 17px; line-height: 1.55; color: #E6E6E4">{{imageNote}}</p></sc-if>
+<sc-if value="{{showImageNote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 17px; line-height: 1.55; color: #E6E6E4">{{imageNote}}</p></sc-if>
+</sc-if>
+<sc-if value="{{showQTab}}" hint-placeholder-val="{{ false }}">
+<!-- Questions tab: the same answers as Step 03 on the page, so you can type them while presenting. -->
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="pv-prospect" style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9B9B97">Prospect and company</label><input id="pv-prospect" class="note-in" type="text" value="{{prospect}}" onChange="{{onProspect}}" placeholder="[NAME, COMPANY]" autocomplete="off" style="width: 100%; min-height: 36px; box-sizing: border-box; padding: 8px 10px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 14px"></div>
+<sc-for list="{{pvQuestions}}" as="q" hint-placeholder-count="6"><div style="display: flex; flex-direction: column; gap: 6px"><label for="{{q.id}}" style="display: flex; gap: 8px; font-size: 13px; line-height: 1.4; color: #E6E6E4"><span style="flex: none; font-weight: 700; color: #529CCA">{{q.num}}</span><span>{{q.text}}</span></label><input id="{{q.id}}" class="note-in" type="text" value="{{q.value}}" onChange="{{q.onChange}}" placeholder="Their answer" autocomplete="off" style="width: 100%; min-height: 36px; box-sizing: border-box; padding: 8px 10px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 14px"></div></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{showObjTab}}" hint-placeholder-val="{{ false }}">
+<!-- Objection handling, shown here where the speaker notes are (presenter view only). Same wording as the Proposal drawer: keep the two in step. -->
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div role="group" aria-label="Filter objections" style="display: flex; gap: 6px; flex-wrap: wrap">
+<sc-for list="{{objCats}}" as="oc" hint-placeholder-count="6"><button class="step-tab {{oc.cls}}" type="button" onClick="{{oc.go}}" aria-pressed="{{oc.pressed}}" style="min-height: 30px; box-sizing: border-box; padding: 0 10px; border: 1px solid {{oc.bd}}; border-radius: 6px; background-color: {{oc.bg}}; color: #E6E6E4; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer">{{oc.label}}</button></sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<!-- STALL · THINK ABOUT IT -->
+<details class="obj" style="border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; overflow: hidden; display: {{ov.stall}}">
+<summary style="list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer"><span class="obj-cat cat-stall" style="flex: none; padding: 3px 7px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap">Stall</span><span class="obj-q" style="flex: 1; font-size: 15px; font-weight: 600; line-height: 1.35; color: #E6E6E4">“I need to think about it”</span><svg class="obj-chev" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"></path></svg></summary>
+<div class="obj-body" style="padding: 4px 16px 16px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #2B2B2B">
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Okay, <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[NAME]</span>, no problem. I definitely want you to think about it. But look, at the end of the day, you have me right here; I just walked you through this complete game plan. I know I presented a bunch of cool stuff to you now, it might be a bit overwhelming, so what exactly do you still have questions about? I’m right here, happy to answer them.”</p></div></div>
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Okay <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[NAME]</span>, I’m happy for you to think about it. But where are you on the scale? Are you closer to moving forward with this, or more like, nah, I don’t think this is right for me right now?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If closer to yes</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“What’s stopping it from being a yes today?”</p></div>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If closer to no</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Fair enough. What part didn’t sit right with you?”</p></div>
+</div></div>
+</div>
+</details>
+
+<!-- STALL · SEND AN EMAIL -->
+<details class="obj" style="border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; overflow: hidden; display: {{ov.stall}}">
+<summary style="list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer"><span class="obj-cat cat-stall" style="flex: none; padding: 3px 7px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap">Stall</span><span class="obj-q" style="flex: 1; font-size: 15px; font-weight: 600; line-height: 1.35; color: #E6E6E4">“Send me something in an email so I can look through it”</span><svg class="obj-chev" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"></path></svg></summary>
+<div class="obj-body" style="padding: 4px 16px 16px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #2B2B2B">
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Of course, I’ll send it over today. But just so I know what to put in it, what specifically do you want to look through? Is it the price, the process, or whether this will actually work for you?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If they name it</span><p class="br-note" style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97">Handle it right there, then <span class="go" style="display: inline-block; padding: 1px 8px; border-radius: 6px; background-color: #1F302C; color: #4DAB9A; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Close</span></p></div>
+</div></div>
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Yeah, for sure. Just so I don’t send you a generic PDF, is there one part you’re still a bit unsure about? Might be quicker if I just answer it now while we’re both here.”</p></div></div>
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Of course, I’ll send it over tonight. Realistically, when do you think you’ll have time to go through it?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If they give a day</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Perfect. Let’s put 10 minutes in on <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[DAY AFTER]</span> so you can ask me anything that wasn’t clear, and just tell me where you’re at.”</p></div>
+</div></div>
+</div>
+</details>
+
+<!-- DECISION MAKERS · INTERNAL -->
+<details class="obj" style="border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; overflow: hidden; display: {{ov.decision}}">
+<summary style="list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer"><span class="obj-cat cat-decision" style="flex: none; padding: 3px 7px; border-radius: 6px; background-color: #1F2D38; color: #529CCA; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap">Decision makers</span><span class="obj-q" style="flex: 1; font-size: 15px; font-weight: 600; line-height: 1.35; color: #E6E6E4">“We need to discuss it internally”</span><svg class="obj-chev" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"></path></svg></summary>
+<div class="obj-body" style="padding: 4px 16px 16px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #2B2B2B">
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Of course, makes sense. Who else is involved in the decision?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If they name them</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“And what do you think will be their first question when you bring this up?”</p><p class="br-note" style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97">Answer that question now, so they aren’t pitching it without you.</p></div>
+</div></div>
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Okay, but looking at this from your side, are you leaning more towards, yeah, this could be good, or nah, I don’t think this will be the right thing for me?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If yes</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Great. When do you think you’ll get the chance to speak with them?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If they give a day</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Perfect. Then let’s put 15 minutes in on <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[DAY AFTER]</span> with you and <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[NAME / TEAM]</span>. I’ll walk them through the same thing so you don’t have to explain it for me.”</p></div>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If not sure of their schedule</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“No worries. Roughly, is it more likely this week or next?” … “Okay, let’s pencil in <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[DAY]</span> for now. If it moves, just shoot me a message and we’ll find another time.”</p></div>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If they want to speak to them alone first</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Totally fine. Then let’s put 10 minutes in on <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[DAY AFTER]</span>, just you and me, so you can tell me what they said and we can go from there.”</p></div>
+</div>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If not sure</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Fair enough. On a scale of 1 to 10, where are you at personally?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If they give a number</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“What would it take to get that to a 10?”</p></div>
+</div>
+</div></div>
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Fair enough. What would happen if they said no?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If “We’d do it anyway”</span><p class="br-note" style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97"><span class="go" style="display: inline-block; padding: 1px 8px; border-radius: 6px; background-color: #1F302C; color: #4DAB9A; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Close</span></p></div>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If “We probably wouldn’t go ahead”</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Why do you think they’d be against it?”</p></div>
+</div></div>
+</div>
+</details>
+
+<!-- DECISION MAKERS · PARTNER -->
+<details class="obj" style="border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; overflow: hidden; display: {{ov.decision}}">
+<summary style="list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer"><span class="obj-cat cat-decision" style="flex: none; padding: 3px 7px; border-radius: 6px; background-color: #1F2D38; color: #529CCA; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap">Decision makers</span><span class="obj-q" style="flex: 1; font-size: 15px; font-weight: 600; line-height: 1.35; color: #E6E6E4">“I need to speak to my wife / husband”</span><svg class="obj-chev" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"></path></svg></summary>
+<div class="obj-body" style="padding: 4px 16px 16px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #2B2B2B">
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Well, what would happen if they said no?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If “I would do it anyway”</span><p class="br-note" style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97"><span class="go" style="display: inline-block; padding: 1px 8px; border-radius: 6px; background-color: #1F302C; color: #4DAB9A; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Close</span></p></div>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If “I don’t think I would do it if they said no”</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Why do you think they’d be opposed to this?”</p></div>
+</div></div>
+</div>
+</details>
+
+<!-- DECISION MAKERS · BUSINESS PARTNER -->
+<details class="obj" style="border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; overflow: hidden; display: {{ov.decision}}">
+<summary style="list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer"><span class="obj-cat cat-decision" style="flex: none; padding: 3px 7px; border-radius: 6px; background-color: #1F2D38; color: #529CCA; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap">Decision makers</span><span class="obj-q" style="flex: 1; font-size: 15px; font-weight: 600; line-height: 1.35; color: #E6E6E4">“I need to speak to my business partner”</span><svg class="obj-chev" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"></path></svg></summary>
+<div class="obj-body" style="padding: 4px 16px 16px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #2B2B2B">
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Well, what would happen if they said no?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If “I would do it anyway”</span><p class="br-note" style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97"><span class="go" style="display: inline-block; padding: 1px 8px; border-radius: 6px; background-color: #1F302C; color: #4DAB9A; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Close</span></p></div>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If “I don’t think I would do it if they said no”</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Why do you think they’d be opposed to this?”</p></div>
+</div></div>
+</div>
+</details>
+
+<!-- TIMING -->
+<details class="obj" style="border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; overflow: hidden; display: {{ov.timing}}">
+<summary style="list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer"><span class="obj-cat cat-timing" style="flex: none; padding: 3px 7px; border-radius: 6px; background-color: #2A2440; color: #A78BFA; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap">Timing</span><span class="obj-q" style="flex: 1; font-size: 15px; font-weight: 600; line-height: 1.35; color: #E6E6E4">“Now’s not really the right time” / “Let’s touch back in X months”</span><svg class="obj-chev" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"></path></svg></summary>
+<div class="obj-body" style="padding: 4px 16px 16px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #2B2B2B">
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“It sounds like something specific is happening in <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[X]</span> months. Do you mind if I ask what that might be?”</p></div></div>
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Sure. What will be different in <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[X]</span> months that makes it the right time then?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ Then follow up</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Okay, makes sense. But just so I understand, is the timing the only thing holding you back? Or is there something else about this that doesn’t feel quite right yet?”</p>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If only timing</span><p class="br-say" style="margin: 0; font-size: 14px; line-height: 1.5; color: #E6E6E4">“Got it. What needs to be in place by then for you to start?”</p></div>
+<div class="branch" style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01; display: flex; flex-direction: column; gap: 6px"><span class="if" style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">↳ If something else</span><p class="br-note" style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97">Handle that objection instead.</p></div>
+</div>
+</div></div>
+</div>
+</details>
+
+<!-- MONEY · NO BUDGET -->
+<details class="obj" style="border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; overflow: hidden; display: {{ov.money}}">
+<summary style="list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer"><span class="obj-cat cat-money" style="flex: none; padding: 3px 7px; border-radius: 6px; background-color: #1F302C; color: #4DAB9A; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap">Money</span><span class="obj-q" style="flex: 1; font-size: 15px; font-weight: 600; line-height: 1.35; color: #E6E6E4">“We don’t have the budget right now”</span><svg class="obj-chev" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"></path></svg></summary>
+<div class="obj-body" style="padding: 4px 16px 16px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #2B2B2B">
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“If you had a budget, how big of a priority would this be to you?”</p></div></div>
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Does this mean that you can afford to carry on as things are right now?”</p></div></div>
+</div>
+</details>
+
+<!-- MONEY · TOO EXPENSIVE -->
+<details class="obj" style="border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; overflow: hidden; display: {{ov.money}}">
+<summary style="list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer"><span class="obj-cat cat-money" style="flex: none; padding: 3px 7px; border-radius: 6px; background-color: #1F302C; color: #4DAB9A; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap">Money</span><span class="obj-q" style="flex: 1; font-size: 15px; font-weight: 600; line-height: 1.35; color: #E6E6E4">“It’s too expensive”</span><svg class="obj-chev" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"></path></svg></summary>
+<div class="obj-body" style="padding: 4px 16px 16px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #2B2B2B">
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Too expensive compared to what?”</p></div></div>
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Is it the price or the cost? The cost is what happens in <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[X]</span> months when you don’t solve <span class="sr-ph" style="padding: 0 5px; border-radius: 6px; background-color: #3A3220; color: #DFAB01; white-space: nowrap">[Y problem]</span>. The price is what you invest today to never have to deal with that.”</p></div></div>
+</div>
+</details>
+
+<!-- TRUST -->
+<details class="obj" style="border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; overflow: hidden; display: {{ov.trust}}">
+<summary style="list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer"><span class="obj-cat cat-trust" style="flex: none; padding: 3px 7px; border-radius: 6px; background-color: #3A2321; color: #FF7369; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap">Trust</span><span class="obj-q" style="flex: 1; font-size: 15px; font-weight: 600; line-height: 1.35; color: #E6E6E4">“How do I know this will actually work?” / “Can you guarantee results?”</span><svg class="obj-chev" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"></path></svg></summary>
+<div class="obj-body" style="padding: 4px 16px 16px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #2B2B2B">
+<div class="opt" style="display: flex; gap: 12px; align-items: flex-start; padding-top: 12px"><span class="opt-n" style="flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background-color: #2F80C8; color: #FFFFFF; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><div class="opt-main" style="flex: 1; min-width: 0"><p class="opt-say" style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #E6E6E4">“Fair question. What would you need to see to be confident this works?”</p></div></div>
+</div>
+</details>
+</div>
+</div>
 </sc-if>
 <sc-if value="{{showSlidesTab}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; flex-direction: column; gap: 2px">
@@ -1239,7 +1370,7 @@ class Component extends DCLogic {
       this.moBox = box;
       try {
         this.mo = new MutationObserver(() => { clearTimeout(this.moTimer); this.moTimer = setTimeout(() => this.syncAudience(false), 40); });
-        this.mo.observe(box, { subtree: true, childList: true, attributes: true, attributeFilter: ['style', 'src'] });
+        this.mo.observe(box, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['style', 'src', 'class'] });
       } catch (e) {}
     }
     this.syncAudience(false);
@@ -1268,59 +1399,73 @@ class Component extends DCLogic {
     try {
       const clean = (s) => String(s || '')
         .replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/[–—]/g, '-')
-        .replace(/[^\x20-\x7E\xA0-\xFF]/g, '').trim();
-      const navy = [20, 44, 73], gold = [198, 166, 103], ink = [23, 20, 15], grey = [111, 104, 92];
-      const W = 210, M = 18, CW = W - M * 2, BOTTOM = 276;
+        .replace(/[^\x20-\x7E\xA0-\xFF\n]/g, '').trim();
+      const navy = [20, 44, 73], gold = [198, 166, 103], ink = [38, 45, 56], grey = [110, 118, 130], rule = [221, 226, 233];
+      const W = 210, M = 20, CW = W - M * 2, BOTTOM = 274;
       const now = new Date();
       const dateLabel = now.getDate() + ' ' + now.toLocaleDateString('en-GB', { month: 'long' }) + ' ' + now.getFullYear();
       const iso = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
       const prospect = clean(this.state.prospect);
       doc = new Pdf({ unit: 'mm', format: 'a4' });
+      const track = (n) => { if (doc.setCharSpace) doc.setCharSpace(n); };
 
-      // Header band
-      doc.setFillColor(navy[0], navy[1], navy[2]); doc.rect(0, 0, W, 40, 'F');
-      doc.setFillColor(gold[0], gold[1], gold[2]); doc.rect(0, 40, W, 1.2, 'F');
-      doc.setTextColor(255, 255, 255); doc.setFont('helvetica', 'bold'); doc.setFontSize(8);
-      if (doc.setCharSpace) doc.setCharSpace(0.8);
-      doc.text('SARAC RAMSAY', M, 14);
-      if (doc.setCharSpace) doc.setCharSpace(0);
-      doc.setFont('times', 'normal'); doc.setFontSize(24); doc.text('Intro call overview', M, 29);
+      // Top bar (every page)
+      const bar = () => {
+        doc.setFillColor(navy[0], navy[1], navy[2]); doc.rect(0, 0, W, 16, 'F');
+        doc.setFillColor(gold[0], gold[1], gold[2]); doc.rect(0, 16, W, 0.7, 'F');
+        doc.setFont('helvetica', 'bold'); doc.setFontSize(8); doc.setTextColor(255, 255, 255);
+        track(1.2); doc.text('SARAC RAMSAY', M, 10); track(0);
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(7); doc.setTextColor(185, 196, 212);
+        track(1); doc.text('INTRO CALL OVERVIEW', W - M, 10, { align: 'right' }); track(0);
+      };
+      bar();
 
-      // Meta rows
-      let y = 54;
-      const meta = [['Prospect', prospect || '[Not given]'], ['Deck', clean(deckName)], ['Date', dateLabel]];
-      meta.forEach(([label, value]) => {
-        doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(gold[0], gold[1], gold[2]);
-        doc.text(label.toUpperCase(), M, y);
-        doc.setFont('helvetica', 'normal'); doc.setFontSize(11); doc.setTextColor(ink[0], ink[1], ink[2]);
-        const lines = doc.splitTextToSize(value, CW - 32);
-        doc.text(lines, M + 32, y);
-        y += Math.max(1, lines.length) * 5 + 2.5;
+      // Title
+      doc.setTextColor(navy[0], navy[1], navy[2]); doc.setFontSize(30);
+      doc.setFont('times', 'normal'); doc.text('Intro call ', M, 42);
+      const tw = doc.getTextWidth('Intro call ');
+      doc.setFont('times', 'italic'); doc.text('overview', M + tw, 42);
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(11); doc.setTextColor(grey[0], grey[1], grey[2]);
+      doc.text(prospect ? 'Prepared for ' + prospect : 'Prepared for the prospect', M, 51);
+
+      // Details strip
+      let y = 62;
+      doc.setDrawColor(gold[0], gold[1], gold[2]); doc.setLineWidth(0.6); doc.line(M, y, W - M, y);
+      const cols = [['Market', clean(deckName), 0], ['Date', dateLabel, 0.4], ['Prepared by', 'Sarac Ramsay', 0.7]];
+      cols.forEach(([label, value, at]) => {
+        const x = M + CW * at;
+        doc.setFont('helvetica', 'bold'); doc.setFontSize(6.5); doc.setTextColor(grey[0], grey[1], grey[2]);
+        track(0.9); doc.text(label.toUpperCase(), x, y + 6.5); track(0);
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(navy[0], navy[1], navy[2]);
+        doc.text(value, x, y + 12.5);
       });
-      y += 3;
-      doc.setDrawColor(gold[0], gold[1], gold[2]); doc.setLineWidth(0.4); doc.line(M, y, M + 24, y);
-      y += 10;
+      doc.setDrawColor(rule[0], rule[1], rule[2]); doc.setLineWidth(0.25); doc.line(M, y + 17, W - M, y + 17);
+      y += 32;
+
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(7); doc.setTextColor(gold[0], gold[1], gold[2]);
+      track(1.2); doc.text('THEIR SITUATION', M, y); track(0);
+      y += 9;
 
       // Questions and answers
+      const QX = M + 15, QW = CW - 15, LH = 5.1;
       questions.forEach((q, i) => {
-        doc.setFont('times', 'bold'); doc.setFontSize(12);
-        const qLines = doc.splitTextToSize(clean(q), CW - 12);
+        doc.setFont('helvetica', 'bold'); doc.setFontSize(10.5);
+        const qLines = doc.splitTextToSize(clean(q), QW);
         const answer = clean(this.state.notes[i]);
-        doc.setFont('helvetica', answer ? 'normal' : 'italic'); doc.setFontSize(11);
-        const aLines = doc.splitTextToSize(answer || '[Not answered]', CW - 12);
-        const need = qLines.length * 5.2 + aLines.length * 5.4 + 9;
-        if (y + need > BOTTOM) { doc.addPage(); y = 22; }
-        doc.setFillColor(gold[0], gold[1], gold[2]); doc.rect(M, y - 3.6, 8, 4.8, 'F');
-        doc.setFont('courier', 'bold'); doc.setFontSize(8.5); doc.setTextColor(navy[0], navy[1], navy[2]);
-        doc.text(String(i + 1).padStart(2, '0'), M + 4, y, { align: 'center' });
-        doc.setFont('times', 'bold'); doc.setFontSize(12); doc.setTextColor(navy[0], navy[1], navy[2]);
-        doc.text(qLines, M + 12, y);
-        y += qLines.length * 5.2 + 1.5;
-        doc.setFont('helvetica', answer ? 'normal' : 'italic'); doc.setFontSize(11);
-        if (answer) doc.setTextColor(ink[0], ink[1], ink[2]); else doc.setTextColor(grey[0], grey[1], grey[2]);
-        doc.text(aLines, M + 12, y);
-        y += aLines.length * 5.4 + 3;
-        doc.setDrawColor(225, 218, 200); doc.setLineWidth(0.2); doc.line(M, y, W - M, y);
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(10.5);
+        const aLines = doc.splitTextToSize(answer || 'Not covered on the call.', QW);
+        const need = qLines.length * LH + aLines.length * LH + 14;
+        if (y + need > BOTTOM) { doc.addPage(); bar(); y = 34; }
+        doc.setFont('times', 'normal'); doc.setFontSize(17); doc.setTextColor(gold[0], gold[1], gold[2]);
+        doc.text(String(i + 1).padStart(2, '0'), M, y + 1);
+        doc.setFont('helvetica', 'bold'); doc.setFontSize(10.5); doc.setTextColor(navy[0], navy[1], navy[2]);
+        doc.text(qLines, QX, y);
+        y += qLines.length * LH + 1.5;
+        doc.setFont('helvetica', answer ? 'normal' : 'italic'); doc.setFontSize(10.5);
+        if (answer) doc.setTextColor(ink[0], ink[1], ink[2]); else doc.setTextColor(150, 157, 168);
+        doc.text(aLines, QX, y);
+        y += aLines.length * LH + 4;
+        doc.setDrawColor(rule[0], rule[1], rule[2]); doc.setLineWidth(0.25); doc.line(QX, y, W - M, y);
         y += 8;
       });
 
@@ -1328,10 +1473,12 @@ class Component extends DCLogic {
       const pages = doc.getNumberOfPages();
       for (let p = 1; p <= pages; p++) {
         doc.setPage(p);
-        doc.setFont('helvetica', 'bold'); doc.setFontSize(7); doc.setTextColor(grey[0], grey[1], grey[2]);
-        doc.text('INTERNAL USE ONLY', M, 289);
-        doc.setFont('helvetica', 'normal');
-        doc.text('Page ' + p + ' of ' + pages, W - M, 289, { align: 'right' });
+        doc.setDrawColor(rule[0], rule[1], rule[2]); doc.setLineWidth(0.25); doc.line(M, 281, W - M, 281);
+        doc.setFont('helvetica', 'bold'); doc.setFontSize(7); doc.setTextColor(navy[0], navy[1], navy[2]);
+        doc.text('Sarac Ramsay', M, 287);
+        doc.setFont('helvetica', 'normal'); doc.setTextColor(grey[0], grey[1], grey[2]);
+        doc.text(dateLabel, M + 21, 287);
+        doc.text('Page ' + p + ' of ' + pages, W - M, 287, { align: 'right' });
       }
 
       const slug = (prospect || 'prospect').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'prospect';
@@ -1365,7 +1512,7 @@ class Component extends DCLogic {
   // PRESENTING. Present opens presenter view here and a separate audience window that shows only the slide.
   startPresent(e) {
     if (this.state.presenting) return;
-    this.setState({ presenting: true, presentMode: 'presenter', pvTab: 'notes', popupBlocked: false, showObjections: false });
+    this.setState({ presenting: true, presentMode: 'presenter', pvTab: 'notes', popupBlocked: false, showObjections: false, liveAt: 0, liveCmd: null });
     this.presentStart = Date.now();
     clearInterval(this.clock);
     this.clock = setInterval(() => {
@@ -1395,6 +1542,12 @@ class Component extends DCLogic {
       try {
         const d = w.document;
         if (!d.getElementById('sr-frame')) { d.open(); d.write(this.audienceHtml()); d.close(); }
+        if (!w.__srStyled) {
+          w.__srStyled = true;
+          // The interactive deck is styled by the page's own <style> blocks: give the audience window a copy (ahead of its own rules).
+          try { Array.prototype.slice.call(document.querySelectorAll('style, link[rel="stylesheet"]')).reverse().forEach((n) => { d.head.insertBefore(d.importNode(n, true), d.head.firstChild); }); } catch (e3) {}
+          try { w.addEventListener('resize', () => this.syncAudience(true)); } catch (e4) {}
+        }
         if (!w.__srWired) {
           w.__srWired = true;
           d.addEventListener('keydown', (ev) => {
@@ -1425,6 +1578,23 @@ class Component extends DCLogic {
     try {
       const box = document.getElementById('pv-current');
       if (!box) return;
+      const liveEl = document.getElementById('pv-live');
+      if (liveEl) {
+        // Interactive deck: mirror its whole picture, scaled to the audience window.
+        const dd = w.document, fr = dd.getElementById('sr-frame');
+        if (!fr) return;
+        const sc = fr.clientWidth / 1920;
+        const html = liveEl.innerHTML;
+        if (!force && html === this.lastMirror && sc === this.lastScale) return;
+        const cl = dd.importNode(liveEl, true);
+        cl.removeAttribute('id');
+        cl.style.transform = 'translate(-50%, -50%) scale(' + sc + ')';
+        const from0 = liveEl.querySelectorAll('img'), to0 = cl.querySelectorAll('img');
+        for (let i = 0; i < to0.length; i++) if (from0[i]) to0[i].src = from0[i].src;
+        fr.replaceChildren(cl);
+        this.lastMirror = html; this.lastScale = sc;
+        return;
+      }
       let node = null;
       const secs = box.querySelectorAll('section');
       for (let i = 0; i < secs.length; i++) { if (secs[i].getClientRects().length) { node = secs[i]; break; } }
@@ -1448,7 +1618,11 @@ class Component extends DCLogic {
       this.lastMirror = key;
     } catch (err) {}
   }
+  // Interactive deck: the presenter view sends the deck a command (next, back or jump) and it moves like a click would.
+  liveStep(d) { this.setState({ liveCmd: { id: Date.now() + Math.random(), step: d } }); }
+  liveGo(i) { const p = (this.livePos || [])[i]; if (p) this.setState({ liveCmd: { id: Date.now() + Math.random(), sec: p[0], pos: p[1] } }); }
   step(d) {
+    if (this.liveNow) { this.liveStep(d); return; }
     const last = this.lastSlideIdx || 0;
     this.setState((s) => ({ slide: Math.min(Math.max((s.slide || 0) + d, 0), last) }));
   }
@@ -1465,23 +1639,27 @@ class Component extends DCLogic {
     } catch (err) {}
   }
   watchLiveBox() {
-    const box = document.getElementById('ix-box');
-    if (!box || box === this.ixBox) return;
-    if (this.ixRO) { try { this.ixRO.disconnect(); } catch (err) {} }
-    this.ixBox = box;
+    this.watchBox('ix-box', 'ixBox', 'ixRO', 'ixScale');
+    this.watchBox('pv-current', 'pvBox', 'pvRO', 'pvScale');
+  }
+  watchBox(id, boxKey, roKey, stateKey) {
+    const box = document.getElementById(id);
+    if (!box || box === this[boxKey]) return;
+    if (this[roKey]) { try { this[roKey].disconnect(); } catch (err) {} }
+    this[boxKey] = box;
     const fit = () => {
       const r = box.getBoundingClientRect();
       if (!r.width || !r.height) return;
       const sc = Math.round(Math.min(r.width / 1920, r.height / 1080) * 10000) / 10000;
-      if (sc !== this.state.ixScale) this.setState({ ixScale: sc });
+      if (sc !== this.state[stateKey]) this.setState({ [stateKey]: sc });
     };
-    try { this.ixRO = new ResizeObserver(fit); this.ixRO.observe(box); } catch (err) {}
+    try { this[roKey] = new ResizeObserver(fit); this[roKey].observe(box); } catch (err) {}
     fit();
   }
   soloPresent(e) {
     try { if (this.aud && !this.aud.closed) this.aud.close(); } catch (err) {}
     this.aud = null;
-    this.setState({ presentMode: 'solo', audienceOpen: false, popupBlocked: false });
+    this.setState({ presentMode: this.liveNow ? 'live' : 'solo', audienceOpen: false, popupBlocked: false });
     try {
       const doc = (e && e.currentTarget && e.currentTarget.ownerDocument) || document;
       const el = doc.documentElement;
@@ -1671,6 +1849,10 @@ class Component extends DCLogic {
       { industry: 'Real Estate', location: 'Hong Kong', deck: RE_INTRO_USD },
       { industry: 'Real Estate', location: 'Thailand', deck: RE_INTRO_USD }
     ];
+    // Every intro deck runs as the interactive slide funnel (InsTHDeck). variant 're' swaps the case-study chapter for the
+    // Real Estate slide pictures (slides 6, 7 and 8 of that deck, in its own currency). The pictures above stay for the PDF.
+    [GENERIC_THAILAND_DECK, INSURANCE_DECK, INSURANCE_THAILAND_DECK].forEach((d) => { d.live = 'InsTHDeck'; d.variant = 'ins'; });
+    [RE_INTRO_AED, RE_INTRO_EUR, RE_INTRO_USD].forEach((d) => { d.live = 'InsTHDeck'; d.variant = 're'; });
     // PROPOSAL DECKS. Google Ads (Real Estate): one editable deck per location, in local currency. Each lives in its own artboard
     // (GAdsUK / GAdsDubai / GAdsMarbella / GAdsHongKong / GAdsThailand .dc.html). Add { service, industry, location, deck } as more decks are ready.
     const GADS_TITLES = ["Cover", "Director", "About Sarac Ramsay", "Clients", "Results", "How investors find an agency", "The strategy", "The channels", "The opportunity", "The problem", "The plan: 3 components", "From where you are", "The route", "Component 1: The intent", "The keywords", "Campaign structure", "Why we build it this way", "Component 2: Stand out", "Same budget, better ad", "What an investor sees", "Component 3: The system", "The target: 30", "The 30 system", "Smart bidding", "Month 3: Hold the fort", "The math", "Google Ads plans", "Our guarantee", "Case study", "Before", "The result"];
@@ -1705,7 +1887,12 @@ class Component extends DCLogic {
     const COUNTRY = { 'UK': 'the UK', 'Dubai': 'the UAE', 'Marbella': 'Spain', 'Hong Kong': 'Hong Kong', 'Thailand': 'Thailand' };
     const fv = Object.assign({ location: LOC, locationIn: LOC_IN[LOC] || LOC, country: COUNTRY[LOC] || LOC }, INDUSTRY_COPY[callIND]);
     const isCold = view === 'cold';
-    const SLIDES = deck && deck.slides ? deck.slides : [];
+    const liveDeck = !!(deck && deck.live);
+    // The interactive deck has 9 slides in 6 chapters. Insurance and Generic decks share the Insurance · Thailand wording for notes.
+    const SLIDES = liveDeck ? (deck.variant === 're' ? deck.slides : INSURANCE_THAILAND_DECK.slides) : (deck && deck.slides ? deck.slides : []);
+    this.liveNow = liveDeck;
+    const LIVE_POS = [[0, 0], [1, 0], [1, 1], [2, 0], [3, 0], [4, 0], [4, 1], [4, 2], [5, 0]];
+    this.livePos = LIVE_POS;
     const lastSlide = Math.max(SLIDES.length - 1, 0);
     // INTRO CALL: the six questions in step 03.
     const QUESTIONS = [
@@ -1716,9 +1903,11 @@ class Component extends DCLogic {
       'What marketing are you currently running to do this?',
       'How has the performance been?'
     ];
-    const slide = Math.min(Math.max(this.state.slide || 0, 0), lastSlide);
+    const liveAt = this.state.liveAt == null ? 0 : this.state.liveAt;
+    const inHub = liveDeck && liveAt < 0;
+    const slide = Math.min(Math.max(liveDeck ? liveAt : (this.state.slide || 0), 0), lastSlide);
     this.lastSlideIdx = lastSlide;
-    const goSlide = (d) => this.setState((s) => ({ slide: Math.min(Math.max((s.slide || 0) + d, 0), lastSlide) }));
+    const goSlide = (d) => (liveDeck ? this.liveStep(d) : this.setState((s) => ({ slide: Math.min(Math.max((s.slide || 0) + d, 0), lastSlide) })));
     const cur = SLIDES[slide] || { title: '', src: '', cue: '' };
     const hasDeck = SLIDES.length > 0;
     const pad = (n) => String(n).padStart(2, '0');
@@ -1818,7 +2007,7 @@ class Component extends DCLogic {
       hasDeck,
       noDeck: !hasDeck,
       hasPdf: !!(deck && deck.pdf),
-      showObjections: !!this.state.showObjections && (isProposal || this.state.presentMode === 'presenter'),
+      showObjections: !!this.state.showObjections && isProposal && !this.state.presenting,
       objCats: [['all', 'All'], ['stall', 'Stall'], ['decision', 'Decision makers'], ['timing', 'Timing'], ['money', 'Money'], ['trust', 'Trust']].map(([key, label]) => ({
         label,
         cls: (this.state.objCat || 'all') === key ? 'is-on' : '',
@@ -1832,7 +2021,7 @@ class Component extends DCLogic {
       closeObjections: () => this.setState({ showObjections: false }),
       objKey: (e) => { if (e.key === 'Escape') this.setState({ showObjections: false }); },
       isHtmlDeck: hasDeck && !!(deck && deck.html),
-      isImageDeck: hasDeck && !(deck && deck.html),
+      isImageDeck: hasDeck && !(deck && deck.html) && !liveDeck,
       slideIndex: slide,
       htmlUK: !!(deck && deck.html === 'GAdsUK'),
       htmlDubai: !!(deck && deck.html === 'GAdsDubai'),
@@ -1869,10 +2058,10 @@ class Component extends DCLogic {
         cls: x.i === slide ? 'is-on' : '',
         go: () => this.setState({ slide: x.i })
       })),
-      slideNum: pad(slide + 1),
+      slideNum: inHub ? '--' : pad(slide + 1),
       slideTotal: SLIDES.length,
-      slideTitle: cur.title,
-      hasCue: !!cur.cue,
+      slideTitle: inHub ? 'Chapter overview' : cur.title,
+      hasCue: !inHub && !!cur.cue,
       cue: cur.cue,
       progress: (hasDeck ? (slide + 1) / SLIDES.length * 100 : 0).toFixed(2) + '%',
       atStart: slide === 0,
@@ -1883,7 +2072,20 @@ class Component extends DCLogic {
         if (e.key === 'ArrowRight') { e.preventDefault(); goSlide(1); }
         else if (e.key === 'ArrowLeft') { e.preventDefault(); goSlide(-1); }
       },
-      isLiveDeck: hasDeck && !!(deck && deck.live),
+      isLiveDeck: hasDeck && liveDeck,
+      showPresentBtn: true,
+      hasLiveUrl: !!(deck && deck.liveUrl),
+      showInlineLive: hasDeck && liveDeck && !(this.state.presenting && this.state.presentMode !== 'live'),
+      isLivePv: hasDeck && liveDeck && !!this.state.presenting && this.state.presentMode === 'presenter',
+      hasUpNext: !liveDeck,
+      showImageNote: hasDeck && !(deck && deck.html),
+      liveVariant: deck && deck.variant ? deck.variant : 'ins',
+      livePic6: deck && deck.variant === 're' ? deck.slides[5].src : '',
+      livePic7: deck && deck.variant === 're' ? deck.slides[6].src : '',
+      livePic8: deck && deck.variant === 're' ? deck.slides[7].src : '',
+      onLiveMove: (idx) => { if (this.state.liveAt !== idx) this.setState({ liveAt: idx }); },
+      liveCmd: this.state.liveCmd || null,
+      pvScale: this.state.pvScale || 0.5,
       hasStaticOrNone: !(hasDeck && deck && deck.live),
       liveUrl: deck && deck.liveUrl ? deck.liveUrl : '#',
       hasStaticDeck: hasDeck && !(deck && deck.live),
@@ -1903,23 +2105,28 @@ class Component extends DCLogic {
       nextSrc: (SLIDES[slide + 1] || cur).src,
       nextTitle: SLIDES[slide + 1] ? pad(slide + 2) + '  ' + SLIDES[slide + 1].title : '',
       nextLabel: SLIDES[slide + 1] ? 'Go to the next slide: ' + SLIDES[slide + 1].title : 'Next slide',
-      imageNote: cur.cue || 'No notes for this slide.',
-      pvTabs: [['notes', 'Speaker notes'], ['objections', 'Objections'], ['slides', 'All slides']].map(([key, label]) => ({
+      imageNote: inHub ? 'Pick a chapter in the deck, or press the arrow keys to start.' : (cur.cue || 'No notes for this slide.'),
+      pvTabs: [['notes', 'Speaker notes'], ['questions', 'Questions'], ['objections', 'Objections'], ['slides', 'All slides']].map(([key, label]) => ({
         label,
-        cls: (key !== 'objections' && (this.state.pvTab || 'notes') === key) ? 'is-on' : '',
-        pressed: (key !== 'objections' && (this.state.pvTab || 'notes') === key) ? 'true' : 'false',
-        go: () => (key === 'objections' ? this.setState({ showObjections: true }) : this.setState({ pvTab: key }))
+        cls: (this.state.pvTab || 'notes') === key ? 'is-on' : '',
+        pressed: (this.state.pvTab || 'notes') === key ? 'true' : 'false',
+        go: () => this.setState({ pvTab: key })
       })),
       showNotesTab: (this.state.pvTab || 'notes') === 'notes',
       showObjTab: this.state.pvTab === 'objections',
       showSlidesTab: this.state.pvTab === 'slides',
-      slideList: SLIDES.map((x, i) => ({ num: pad(i + 1), title: x.title, cls: i === slide ? 'is-on' : '', current: i === slide ? 'true' : 'false', go: () => this.setState({ slide: i }) })),
+      showQTab: this.state.pvTab === 'questions',
+      pvQuestions: QUESTIONS.map((text, i) => ({ id: 'pv-q' + (i + 1), num: pad(i + 1), text, value: this.state.notes[i] || '', onChange: (e) => this.setNote(i, e && e.target ? e.target.value : '') })),
+      slideList: SLIDES.map((x, i) => ({ num: pad(i + 1), title: x.title, cls: i === slide ? 'is-on' : '', current: i === slide ? 'true' : 'false', go: () => (liveDeck ? this.liveGo(i) : this.setState({ slide: i })) })),
       currentSrc: cur.src,
       currentAlt: 'Slide ' + (slide + 1) + ': ' + cur.title,
-      startPresent: (e) => { if (!hasDeck) return; if (deck && deck.live) this.livePresent(e); else this.startPresent(e); },
+      startPresent: (e) => { if (!hasDeck) return; this.startPresent(e); },
       stopPresent: () => this.stopPresent(),
       presentKey: (e) => {
         const k = e.key;
+        // The interactive deck handles its own keys when it has focus; typing in the Questions tab must not turn slides.
+        if (e.defaultPrevented || (e.isDefaultPrevented && e.isDefaultPrevented())) return;
+        if (k !== 'Escape' && e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
         if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === ' ') { e.preventDefault(); goSlide(1); }
         else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp') { e.preventDefault(); goSlide(-1); }
         else if (k === 'Escape') { e.preventDefault(); this.stopPresent(); }
