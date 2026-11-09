@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Introduction</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="{{rootClass}}" style="position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #142C49; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF">
+<div class="rs d1" aria-hidden="true" style="position: absolute; left: 797px; top: 560px; font-family: Georgia, 'Times New Roman', serif; font-size: 533px; line-height: 1; letter-spacing: -16px; color: rgba(255,255,255,0.05); white-space: nowrap">SR</div>
+<div class="rv d1" style="position: absolute; left: 145px; top: 98px; font-size: 14px; font-weight: 700; letter-spacing: 3px; line-height: 1.2">SARAC RAMSAY</div>
+<div class="rv d1" style="position: absolute; right: 126px; top: 98px; font-size: 14px; font-weight: 700; letter-spacing: 3px; line-height: 1.2">INTRODUCTION</div>
+<h1 class="rv d2" style="position: absolute; left: 145px; top: 392px; width: 1390px; margin: 0; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: 88px; line-height: 1.12; letter-spacing: -1.76px">The best sales and marketing advisors for expat service companies<br><span style="color: #C6A667">around the world.</span></h1>
+<div class="rv d4" style="position: absolute; left: 145px; top: 983px; font-size: 14px; font-weight: 700; letter-spacing: 3px; line-height: 1.2">AN INTRODUCTION TO SARAC RAMSAY</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"live":{"editor":null},"active":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const live = !!this.props.live;
+const on = !live || !!this.props.active;
+return { rootClass: on ? 'srs on' : 'srs' };
+}
+}
+</script>
+</body>
+</html>

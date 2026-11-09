@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The challenge</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.cstp{position:absolute;left:0;top:0;width:1720px;height:680px;transition:opacity .5s ease,translate .7s cubic-bezier(.65,0,.35,1),visibility 0s linear 0s}
+.cstp.past{opacity:0;translate:-160px 0;visibility:hidden;pointer-events:none;transition:opacity .4s ease,translate .7s cubic-bezier(.65,0,.35,1),visibility 0s linear .7s}
+.cstp.fut{opacity:0;translate:160px 0;visibility:hidden;pointer-events:none;transition:opacity .4s ease,translate .7s cubic-bezier(.65,0,.35,1),visibility 0s linear .7s}
+.cseg{flex:1 1 0;height:6px;background:rgba(255,255,255,.15);transition:background-color .4s ease}
+.cseg.on{background:#C6A667}
+.cbig{-webkit-appearance:none;appearance:none;flex:1 1 0;min-width:0;height:18px;margin:0;border-radius:9px;outline:none;cursor:pointer}
+.cbig::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:66px;height:66px;border-radius:50%;background:#E6CD94;border:5px solid #142C49;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.cbig::-moz-range-thumb{width:56px;height:56px;border-radius:50%;background:#E6CD94;border:5px solid #142C49;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.cbig:focus-visible::-webkit-slider-thumb{outline:3px solid #FFFFFF}
+.cstep{width:64px;height:64px;flex-shrink:0;border-radius:50%;border:2px solid rgba(198,166,103,.6);background:transparent;color:#E6CD94;font-family:Arial,Helvetica,sans-serif;font-size:34px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .2s ease}
+.cstep:hover,.cstep:focus-visible{background:rgba(198,166,103,.2);outline:none}
+.cnext{height:70px;padding:0 46px;border:0;background:#C6A667;color:#142C49;font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;cursor:pointer;transition:translate .2s ease,background-color .2s ease}
+.cnext:hover,.cnext:focus-visible{translate:0 -3px;background:#E6CD94;outline:none}
+.cchip{height:48px;padding:0 18px;display:flex;align-items:center;gap:10px;border:1px solid rgba(198,166,103,.5);background:transparent;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:19px;cursor:pointer}
+.cchip:hover{background:rgba(198,166,103,.15)}
+.clnk{padding:0;border:0;background:none;color:rgba(255,255,255,.65);font-family:Arial,Helvetica,sans-serif;font-size:18px;cursor:pointer}
+.clnk:hover{color:#E6CD94}
+.resn{transform-origin:0 60%}
+.resn.done{animation:respop .7s cubic-bezier(.2,.7,.2,1)}
+@keyframes respop{0%{scale:1}35%{scale:1.07;text-shadow:0 0 50px rgba(230,205,148,.65)}100%{scale:1;text-shadow:0 0 0 rgba(230,205,148,0)}}
+.rg{-webkit-appearance:none;appearance:none;width:100%;height:12px;margin:0;border-radius:6px;outline:none;cursor:pointer}
+.rg::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:40px;height:40px;border-radius:50%;background:#E6CD94;border:4px solid #0D1F35;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+.rg::-moz-range-thumb{width:34px;height:34px;border-radius:50%;background:#E6CD94;border:4px solid #0D1F35;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+.rg:focus-visible::-webkit-slider-thumb{outline:3px solid #FFFFFF}
+</style>
+</helmet>
+<div class="{{rootClass}}" onKeyDown="{{keyX}}" style="position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #142C49; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF">
+<div class="rv d1" style="position: absolute; left: 137px; top: 73px; font-size: 14px; font-weight: 700; letter-spacing: 3.4px; line-height: 1.2">SARAC RAMSAY</div>
+<div class="rv d1" style="position: absolute; right: 117px; top: 73px; font-size: 14px; font-weight: 700; letter-spacing: 3.4px; line-height: 1.2">INSURANCE</div>
+<div class="rv d1" style="position: absolute; left: 134px; top: 136px; display: flex; align-items: center; gap: 14px">
+<div style="height: 23px; padding: 0 10px; display: flex; align-items: center; background: #A8392B; font-family: 'Courier New', Courier, monospace; font-size: 14px; font-weight: 700; letter-spacing: 2.5px">SITUATION REPORT</div>
+<div style="font-size: 14px; font-weight: 700; letter-spacing: 3px; color: #C6A667">THE CHALLENGE</div>
+</div>
+<h1 class="rv d2" style="position: absolute; left: 137px; top: 178px; margin: 0; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: 64px; line-height: 1.12; letter-spacing: -1.2px; white-space: nowrap">Where most insurance companies are <em style="color: #C6A667">today.</em></h1>
+<div class="rv d3" style="position: absolute; right: 134px; top: 290px; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: rgba(255,255,255,0.55)">CLICK A REPORT TO RUN THE NUMBERS</div>
+
+<button class="cardb rv d3" onClick="{{o0}}" aria-label="Open report: 2–15 policies a month" style="position: absolute; left: 134px; top: 350px; width: 524px; padding: 0; margin: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: zoom-in; display: block">
+<div aria-hidden="true" style="position: absolute; left: -8px; top: -8px; width: 25px; height: 25px; box-sizing: border-box; border-top: 3px solid #C6A667; border-left: 3px solid #C6A667"></div>
+<div aria-hidden="true" style="position: absolute; right: -8px; top: -8px; width: 25px; height: 25px; box-sizing: border-box; border-top: 3px solid #C6A667; border-right: 3px solid #C6A667"></div>
+<div aria-hidden="true" style="position: absolute; left: -8px; top: 403px; width: 25px; height: 25px; box-sizing: border-box; border-bottom: 3px solid #C6A667; border-left: 3px solid #C6A667"></div>
+<div aria-hidden="true" style="position: absolute; right: -8px; top: 403px; width: 25px; height: 25px; box-sizing: border-box; border-bottom: 3px solid #C6A667; border-right: 3px solid #C6A667"></div>
+<div style="position: relative; width: 524px; height: 420px; background: #EFE5CD">
+<img src="insth-assets/5d9ba86b7772.png" alt="Calendar grid of 30 days with only a few flagged days, showing policies won" style="position: absolute; left: 0px; top: 0px; width: 524px; height: 420px">
+<div style="position: absolute; left: 12px; top: 9px; font-family: 'Courier New', Courier, monospace; font-size: 12px; font-weight: 700; letter-spacing: 1.9px; color: #5C4A30">30 DAYS · POLICIES WON</div>
+<div class="stamp d7" style="position: absolute; left: 386px; top: 12px; width: 121px; height: 28px; box-sizing: border-box; border: 1px solid #A8392B; background: rgba(239,229,205,0.92); transform: rotate(5deg); display: flex; align-items: center; justify-content: center; font-family: 'Courier New', Courier, monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.8px; color: #A8392B">LOW SUPPLY</div>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; margin-top: 22px">
+<div style="height: 24px; padding: 0 6px; display: flex; align-items: center; background: #C6A667; font-family: 'Courier New', Courier, monospace; font-size: 18px; font-weight: 700; letter-spacing: 1.8px; color: #142C49">01</div>
+<div style="font-family: Georgia, 'Times New Roman', serif; font-size: 40px; line-height: 1.15; white-space: nowrap">2–15 policies a month</div>
+</div>
+<div style="margin-top: 6px; font-size: 20px; line-height: 1.4; color: rgba(255,255,255,0.72)">Health insurance policies sold per month.</div>
+</button>
+
+<button class="cardb rv d4" onClick="{{o1}}" aria-label="Open report: Very high cost per lead" style="position: absolute; left: 698px; top: 350px; width: 524px; padding: 0; margin: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: zoom-in; display: block">
+<div aria-hidden="true" style="position: absolute; left: -8px; top: -8px; width: 25px; height: 25px; box-sizing: border-box; border-top: 3px solid #C6A667; border-left: 3px solid #C6A667"></div>
+<div aria-hidden="true" style="position: absolute; right: -8px; top: -8px; width: 25px; height: 25px; box-sizing: border-box; border-top: 3px solid #C6A667; border-right: 3px solid #C6A667"></div>
+<div aria-hidden="true" style="position: absolute; left: -8px; top: 403px; width: 25px; height: 25px; box-sizing: border-box; border-bottom: 3px solid #C6A667; border-left: 3px solid #C6A667"></div>
+<div aria-hidden="true" style="position: absolute; right: -8px; top: 403px; width: 25px; height: 25px; box-sizing: border-box; border-bottom: 3px solid #C6A667; border-right: 3px solid #C6A667"></div>
+<div style="position: relative; width: 524px; height: 420px; background: #EFE5CD">
+<img src="insth-assets/01bbab3e6f8d.png" alt="Rows of spent bullet rounds with only one qualified lead" style="position: absolute; left: 0px; top: 0px; width: 524px; height: 420px">
+<div style="position: absolute; left: 12px; top: 9px; font-family: 'Courier New', Courier, monospace; font-size: 12px; font-weight: 700; letter-spacing: 1.9px; color: #5C4A30">ROUNDS SPENT · LEADS</div>
+<div class="stamp d8" style="position: absolute; left: 377px; top: 12px; width: 131px; height: 28px; box-sizing: border-box; border: 1px solid #A8392B; background: rgba(239,229,205,0.92); transform: rotate(-4deg); display: flex; align-items: center; justify-content: center; font-family: 'Courier New', Courier, monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.8px; color: #A8392B">COST ▲ HIGH</div>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; margin-top: 22px">
+<div style="height: 24px; padding: 0 6px; display: flex; align-items: center; background: #C6A667; font-family: 'Courier New', Courier, monospace; font-size: 18px; font-weight: 700; letter-spacing: 1.8px; color: #142C49">02</div>
+<div style="font-family: Georgia, 'Times New Roman', serif; font-size: 40px; line-height: 1.15; white-space: nowrap">Very high cost per lead</div>
+</div>
+<div style="margin-top: 6px; font-size: 20px; line-height: 1.4; color: rgba(255,255,255,0.72)">Lots of local leads, few of them qualified.</div>
+</button>
+
+<button class="cardb rv d5" onClick="{{o2}}" aria-label="Open report: Hard to reach just expats" style="position: absolute; left: 1262px; top: 350px; width: 524px; padding: 0; margin: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: zoom-in; display: block">
+<div aria-hidden="true" style="position: absolute; left: -8px; top: -8px; width: 25px; height: 25px; box-sizing: border-box; border-top: 3px solid #C6A667; border-left: 3px solid #C6A667"></div>
+<div aria-hidden="true" style="position: absolute; right: -8px; top: -8px; width: 25px; height: 25px; box-sizing: border-box; border-top: 3px solid #C6A667; border-right: 3px solid #C6A667"></div>
+<div aria-hidden="true" style="position: absolute; left: -8px; top: 403px; width: 25px; height: 25px; box-sizing: border-box; border-bottom: 3px solid #C6A667; border-left: 3px solid #C6A667"></div>
+<div aria-hidden="true" style="position: absolute; right: -8px; top: 403px; width: 25px; height: 25px; box-sizing: border-box; border-bottom: 3px solid #C6A667; border-right: 3px solid #C6A667"></div>
+<div style="position: relative; width: 524px; height: 420px; background: #EFE5CD">
+<img src="insth-assets/cecde58ce64f.png" alt="Target with shots scattered around the expat bullseye, mostly missing" style="position: absolute; left: 0px; top: 0px; width: 524px; height: 420px">
+<div style="position: absolute; left: 12px; top: 9px; font-family: 'Courier New', Courier, monospace; font-size: 12px; font-weight: 700; letter-spacing: 1.9px; color: #5C4A30">META · GOOGLE ADS</div>
+<div class="stamp d9" style="position: absolute; left: 425px; top: 12px; width: 83px; height: 28px; box-sizing: border-box; border: 1px solid #A8392B; background: rgba(239,229,205,0.92); transform: rotate(4deg); display: flex; align-items: center; justify-content: center; font-family: 'Courier New', Courier, monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.8px; color: #A8392B">MISSED</div>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; margin-top: 22px">
+<div style="height: 24px; padding: 0 6px; display: flex; align-items: center; background: #C6A667; font-family: 'Courier New', Courier, monospace; font-size: 18px; font-weight: 700; letter-spacing: 1.8px; color: #142C49">03</div>
+<div style="font-family: Georgia, 'Times New Roman', serif; font-size: 40px; line-height: 1.15; white-space: nowrap">Hard to reach just expats</div>
+</div>
+<div style="margin-top: 6px; font-size: 20px; line-height: 1.4; color: rgba(255,255,255,0.72)">Running Meta or Google Ads.</div>
+</button>
+
+<div class="{{qClass}}" style="position: absolute; left: 0px; top: 959px; width: 1920px; height: 121px; box-sizing: border-box; border-top: 1px solid rgba(198,166,103,0.35); background: #0D1F35; display: flex; align-items: center; padding-left: 137px; gap: 34px">
+<button class="qbtn" onClick="{{toggleQ}}" style="width: 260px; padding: 0; border: 0; background: none; text-align: left; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 3px; color: #C6A667; cursor: pointer">A QUESTION FOR YOU <span class="qarr">→</span></button>
+<div style="width: 1px; height: 67px; background: rgba(198,166,103,0.6)"></div>
+<div class="qt" style="display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 27px; line-height: 1.3">Have you tried to fix this before? Why do you think it didn’t work?</div>
+<div style="font-size: 20px; line-height: 1.3; color: rgba(255,255,255,0.72)">Roughly what have you spent on marketing?</div>
+</div>
+</div>
+
+<sc-if value="{{xOn}}" hint-placeholder-val="{{ false }}">
+<div class="{{xBack}}" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; width: 1920px; height: 1080px; background: rgba(8,18,32,0.75)"></div>
+<div class="xp" role="dialog" aria-label="Growth calculator" style="position: absolute; left: {{xr.x}}px; top: {{xr.y}}px; width: {{xr.w}}px; height: {{xr.h}}px; overflow: hidden; background: #142C49; color: #FFFFFF">
+<div class="{{xc}}" style="position: absolute; left: 0px; top: 0px; width: 1920px; height: 1080px">
+<div style="position: absolute; left: 100px; top: 44px; width: 1720px; display: flex; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: center; gap: 14px">
+<button class="xbtn" onClick="{{closeX}}" style="width: auto; padding: 0 16px; font-size: 15px">← Back</button>
+<div style="height: 26px; padding: 0 10px; display: flex; align-items: center; background: #A8392B; font-family: 'Courier New', Courier, monospace; font-size: 14px; font-weight: 700; letter-spacing: 2.5px">SITUATION REPORT</div>
+<div style="font-family: 'Courier New', Courier, monospace; font-size: 15px; font-weight: 700; letter-spacing: 3px; color: #C6A667">{{d.num}} / 03 · {{d.title}}</div>
+</div>
+<div style="display: flex; gap: 10px">
+<button class="xbtn" onClick="{{prevX}}" aria-label="Previous problem">‹</button>
+<button class="xbtn" onClick="{{nextX}}" aria-label="Next problem">›</button>
+<button class="xbtn" onClick="{{closeX}}" aria-label="Close">×</button>
+</div>
+</div>
+
+<div style="position: absolute; left: 100px; top: 130px; width: 1720px; display: flex; gap: 10px">
+<sc-for list="{{segs}}" as="g" hint-placeholder-count="5"><div class="{{g}}"></div></sc-for>
+</div>
+<div style="position: absolute; left: 100px; top: 196px; width: 1720px; height: 680px">
+<sc-for list="{{qs}}" as="q" hint-placeholder-count="1">
+<div class="{{q.cls}}">
+<div style="font-family: 'Courier New', Courier, monospace; font-size: 16px; font-weight: 700; letter-spacing: 3px; color: #C6A667">QUESTION {{q.n}} OF {{q.of}}</div>
+<h2 style="margin: 18px 0 0; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: 68px; line-height: 1.1; letter-spacing: -1.4px">{{q.title}}</h2>
+<div style="margin-top: 12px; font-size: 24px; color: rgba(255,255,255,0.6)">{{q.hint}}</div>
+<div style="margin-top: 46px; font-family: Georgia, 'Times New Roman', serif; font-size: 150px; line-height: 1; letter-spacing: -4px; color: #E6CD94; white-space: nowrap">{{q.show}}</div>
+<div style="margin-top: 36px; display: flex; align-items: center; gap: 28px">
+<button class="cstep" onClick="{{q.dn}}" aria-label="Less">−</button>
+<input id="{{q.id}}" class="cbig" type="range" min="{{q.min}}" max="{{q.max}}" step="{{q.step}}" value="{{q.val}}" onChange="{{q.ch}}" aria-label="{{q.title}}" style="background: linear-gradient(90deg, #C6A667 {{q.p}}%, rgba(255,255,255,0.14) {{q.p}}%)">
+<button class="cstep" onClick="{{q.up}}" aria-label="More">+</button>
+</div>
+<div style="margin-top: 14px; padding: 0 92px; display: flex; justify-content: space-between; font-family: 'Courier New', Courier, monospace; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; color: rgba(255,255,255,0.45)"><span>{{q.lo}}</span><span>{{q.hi}}</span></div>
+<div style="position: absolute; right: 0px; bottom: 0px"><button class="cnext" onClick="{{q.next}}">{{q.nextLabel}}</button></div>
+</div>
+</sc-for>
+<div class="{{rCls}}">
+<div style="font-family: 'Courier New', Courier, monospace; font-size: 16px; font-weight: 700; letter-spacing: 3px; color: #C6A667">THE ANSWER · {{out.label}}</div>
+<div class="{{heroCls}}" style="margin-top: 24px; font-family: Georgia, 'Times New Roman', serif; font-size: {{out.hs}}px; line-height: 1; letter-spacing: -5px; color: #E6CD94; white-space: nowrap">{{out.hero}}</div>
+<div style="margin-top: 30px; max-width: 1300px; font-size: 34px; line-height: 1.4; color: rgba(255,255,255,0.9)">{{out.line1}}</div>
+<div style="margin-top: 56px; display: flex; align-items: flex-start; gap: 30px">
+<sc-for list="{{out.stats}}" as="t" hint-placeholder-count="3">
+<div style="display: flex; align-items: flex-start; gap: 30px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: Georgia, 'Times New Roman', serif; font-size: 52px; line-height: 1; color: {{t.c}}; white-space: nowrap">{{t.v}}</span>
+<span style="font-family: 'Courier New', Courier, monospace; font-size: 14px; font-weight: 700; letter-spacing: 2px; color: rgba(255,255,255,0.55)">{{t.k}}</span>
+</div>
+<sc-if value="{{t.arrow}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="font-size: 40px; line-height: 52px; color: #C6A667">→</span></sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+<div style="position: absolute; left: 100px; top: 946px; width: 1720px; display: flex; align-items: center; justify-content: space-between; gap: 30px">
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{chips}}" as="c" hint-placeholder-count="2">
+<button class="cchip" onClick="{{c.go}}"><span style="font-family: 'Courier New', Courier, monospace; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #C6A667">{{c.k}}</span>{{c.v}}</button>
+</sc-for>
+</div>
+<div style="display: flex; gap: 30px; flex-shrink: 0">
+<sc-if value="{{canBack}}" hint-placeholder-val="{{ false }}"><button class="clnk" onClick="{{back}}">← Back</button></sc-if>
+<sc-if value="{{done}}" hint-placeholder-val="{{ false }}"><button class="clnk" onClick="{{restart}}">Start again</button></sc-if>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"live":{"editor":null},"active":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { sel: null, ph: 0, cs: 0, v: { enq: 60, q: 20, close: 25, value: 1000, spend: 3000, expats: 50000, buy: 10, pol: 3 } };
+this.R = [
+{ title: '2–15 policies a month', sub: 'Health insurance policies sold per month.', img: 'insth-assets/5d9ba86b7772.png', label: '30 DAYS · POLICIES WON', q1: 'Where are you', q2: 'sitting today?', use: ['enq', 'q', 'close', 'value'] },
+{ title: 'Very high cost per lead', sub: 'Lots of local leads, few of them qualified.', img: 'insth-assets/01bbab3e6f8d.png', label: 'ROUNDS SPENT · LEADS', q1: 'What are you paying', q2: 'for each lead?', use: ['spend', 'enq', 'q', 'close', 'value'] },
+{ title: 'Hard to reach just expats', sub: 'Running Meta or Google Ads, or relying on referrals.', img: 'insth-assets/cecde58ce64f.png', label: 'META · GOOGLE ADS', q1: 'How much of the expat market', q2: 'are you missing?', use: ['expats', 'buy', 'pol', 'value'] }
+];
+this.Q = {
+enq: { k: 'ENQUIRIES', title: 'How many enquiries do you get a month?', hint: 'From anywhere: ads, referrals, your website, walk-ins.', min: 0, max: 500, step: 5 },
+q: { k: 'RIGHT FIT', title: 'How many of them are the right fit?', hint: 'People you would actually want as a client.', min: 0, max: 100, step: 5, post: '%' },
+close: { k: 'CLOSE RATE', title: 'Of the right ones, how many become clients?', hint: 'Roughly. A good guess is fine.', min: 0, max: 100, step: 5, post: '%' },
+value: { k: 'POLICY VALUE', title: 'What is one new policy worth to you?', hint: 'Revenue from one new client, roughly.', min: 0, max: 20000, step: 250, pre: '$' },
+spend: { k: 'SPEND', title: 'What do you spend on marketing a month?', hint: 'Ads, agencies, tools. $0 is fine.', min: 0, max: 50000, step: 250, pre: '$' },
+expats: { k: 'EXPATS', title: 'Roughly how many expats live in your market?', hint: 'A rough number is fine.', min: 0, max: 500000, step: 5000 },
+buy: { k: 'BUY COVER', title: 'How many of them buy or switch cover each year?', hint: 'As a share of all expats in your market.', min: 0, max: 50, step: 1, post: '%' },
+pol: { k: 'POLICIES', title: 'How many policies do you sell a month?', hint: 'New policies, on average.', min: 0, max: 100, step: 1 }
+};
+this.fmt = (k, x) => { const w = this.Q[k]; return (w.pre || '') + Math.round(x).toLocaleString('en-US') + (w.post || ''); };
+this.goStep = (i) => this.setState({ cs: i });
+this.bump = (k, dir) => () => { const w = this.Q[k]; const v = Object.assign({}, this.state.v); v[k] = Math.max(w.min, Math.min(w.max, Math.round((v[k] + dir * w.step) / w.step) * w.step)); this.setState({ v: v }); };
+this.openX = (i) => () => { clearTimeout(this.tm); this.setState({ sel: i, ph: 0, cs: 0 }); this.tm = setTimeout(() => this.setState({ ph: 1 }), 40); };
+this.closeX = () => { clearTimeout(this.tm); this.setState({ ph: 0 }); this.tm = setTimeout(() => this.setState({ sel: null }), 620); };
+this.stepX = (dir) => () => { const n = this.R.length; this.setState({ sel: (this.state.sel + dir + n) % n, cs: 0 }); };
+this.setV = (k, def) => (e) => {
+const raw = e && e.target ? String(e.target.value) : '';
+let num = raw === '' ? 0 : Number(raw);
+if (!isFinite(num)) num = 0;
+num = Math.max(def.min || 0, Math.min(def.max, num));
+const v = Object.assign({}, this.state.v);
+v[k] = num;
+this.setState({ v: v });
+};
+}
+componentDidUpdate(prev) {
+if (prev && prev.active && !this.props.active && (this.state.sel != null || this.state.q !== undefined)) { clearTimeout(this.tm); this.setState({ sel: null, ph: 0, q: undefined, cs: 0 }); }
+}
+componentWillUnmount() { clearTimeout(this.tm); }
+calc(idx, v) {
+const money = (x) => {
+if (!isFinite(x)) return '—';
+const a = Math.abs(x);
+if (a > 0 && a < 10 && Math.round(x) !== x) return '$' + x.toFixed(2);
+return (x < 0 ? '-$' : '$') + Math.round(a).toLocaleString('en-US');
+};
+const num = (x) => {
+if (!isFinite(x)) return '—';
+const r1 = Math.round(x * 10) / 10;
+return Number.isInteger(r1) ? r1.toLocaleString('en-US') : r1.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+};
+const hrs = (x) => num(x) + (num(x) === '1' ? ' hour' : ' hours');
+const sgn = (x) => (x > 0 ? '+' : '') + num(x);
+const sgm = (x) => (x > 0 ? '+' : '') + money(x);
+const fit = v.q / 100, close = v.close / 100;
+const st3 = (a, b, c) => [Object.assign({ arrow: true, c: '#142C49' }, a), Object.assign({ arrow: true, c: '#142C49' }, b), Object.assign({ arrow: false, c: '#8A6A2E' }, c)];
+const plural = (x, one, many) => num(x) + ' ' + (num(x) === '1' ? one : many);
+if (idx === 0) {
+const qual = v.enq * fit, pol = qual * close;
+const rev = pol * v.value;
+return {
+label: 'WHERE YOU ARE TODAY',
+hero: plural(pol, 'policy', 'policies'),
+line1: 'That is ' + money(rev) + ' a month, or ' + money(rev * 12) + ' a year.',
+line2: v.enq > 0 ? 'Every enquiry you get is worth about ' + money(rev / v.enq) + ' to you, on average.' : 'Add your enquiries to see where you stand.',
+stats: st3({ v: num(v.enq), k: 'ENQUIRIES A MONTH' }, { v: num(qual), k: 'THE RIGHT FIT' }, { v: num(pol), k: 'NEW POLICIES A MONTH' })
+};
+}
+if (idx === 1) {
+const qual = v.enq * fit, pol = qual * close;
+const cpl = v.enq > 0 ? v.spend / v.enq : NaN;
+const cpq = qual > 0 ? v.spend / qual : NaN;
+const cpp = pol > 0 ? v.spend / pol : NaN;
+const per = (x) => (isFinite(x) ? money(x) : '—');
+if (v.spend <= 0) {
+return {
+label: 'YOU PAY PER LEAD',
+hero: '$0',
+line1: 'No paid marketing, so your enquiries come from referrals. Cheap, but you cannot turn it up when you need more.',
+line2: 'That is cheap, but you cannot turn it up when you need more policies.',
+stats: st3({ v: '$0', k: 'PER ENQUIRY' }, { v: '$0', k: 'PER RIGHT-FIT ENQUIRY' }, { v: '$0', k: 'PER NEW POLICY' })
+};
+}
+return {
+label: 'YOU PAY PER LEAD',
+hero: per(cpl),
+line1: isFinite(cpp) ? 'Each new policy costs you ' + per(cpp) + ' to win' + (v.value > 0 ? ', and it is worth ' + money(v.value) + ' to you.' : '.') : 'At these numbers, the spend is not winning you any policies.',
+line2: isFinite(cpp) ? 'Each new policy costs you ' + per(cpp) + ' to win' + (v.value > 0 ? ', and it is worth ' + money(v.value) + ' to you.' : '.') : 'At these numbers, you are not winning any policies from it.',
+stats: st3({ v: per(cpl), k: 'PER ENQUIRY' }, { v: per(cpq), k: 'PER RIGHT-FIT ENQUIRY' }, { v: per(cpp), k: 'PER NEW POLICY' })
+};
+}
+const market = v.expats * v.buy / 100;
+const mine = v.pol * 12;
+const share = market > 0 ? Math.min(100, mine / market * 100) : 0;
+const missing = Math.max(0, market - mine) * v.value;
+const onePct = market / 100 * v.value;
+const pct = (x) => (x > 0 && x < 0.1 ? '<0.1%' : num(x) + '%');
+return {
+label: 'THE EXPAT BUSINESS YOU ARE MISSING EACH YEAR',
+hero: money(missing),
+line1: 'You win ' + pct(share) + ' of the market. Every 1% more is worth ' + money(onePct) + ' a year to you.',
+line2: 'Every 1% more of that market is worth ' + money(onePct) + ' a year to you.',
+stats: st3({ v: num(market), k: 'POLICIES BOUGHT A YEAR' }, { v: num(mine), k: 'YOURS A YEAR' }, { v: pct(share), k: 'YOUR SHARE' })
+};
+}
+renderVals() {
+const live = !!this.props.live;
+const on = !live || !!this.props.active;
+const st = this.state;
+const open = st.q !== undefined ? st.q : !live;
+const sel = st.sel;
+const has = sel != null;
+const idx = has ? sel : 0;
+const r = this.R[idx];
+const xs = [134, 698, 1262];
+const src = { x: xs[idx], y: 350, w: 524, h: 420 };
+const dst = { x: 0, y: 0, w: 1920, h: 1080 };
+const v = st.v;
+const res = this.calc(idx, v);
+const use = r.use;
+const nq = use.length;
+const cs = Math.min(st.cs || 0, nq);
+const qs = use.map((k, i) => {
+const w = this.Q[k];
+const val = v[k];
+return {
+id: 'cq-' + k, n: i + 1, of: nq, title: w.title, hint: w.hint, min: w.min, max: w.max, step: w.step, val: val,
+show: this.fmt(k, val), lo: this.fmt(k, w.min), hi: this.fmt(k, w.max) + (k === 'q' || k === 'close' || k === 'buy' ? '' : '+'),
+p: Math.max(0, Math.min(100, Math.round((val - w.min) / (w.max - w.min) * 100))),
+ch: this.setV(k, w), dn: this.bump(k, -1), up: this.bump(k, 1),
+cls: 'cstp' + (i < cs ? ' past' : (i === cs ? '' : ' fut')),
+next: () => this.goStep(i + 1), nextLabel: i === nq - 1 ? 'Show me →' : 'Next →'
+};
+});
+const hl = res.hero.length;
+return {
+rootClass: on ? 'srs on' : 'srs',
+qClass: open ? 'qband' : 'qband qc',
+toggleQ: () => this.setState({ q: !open }),
+xOn: has,
+xr: st.ph ? dst : src,
+xBack: st.ph ? 'xbk on' : 'xbk',
+xc: st.ph ? 'xpc on' : 'xpc',
+d: { num: String(idx + 1).padStart(2, '0'), title: r.title },
+out: Object.assign({}, res, { hs: hl > 11 ? 130 : hl > 8 ? 160 : 190, stats: res.stats.map((t) => Object.assign({}, t, { c: t.arrow ? '#FFFFFF' : '#E6CD94' })) }),
+qs: qs,
+segs: use.map((k, i) => (i < cs ? 'cseg on' : 'cseg')).concat([cs >= nq ? 'cseg on' : 'cseg']),
+rCls: 'cstp' + (cs >= nq ? '' : ' fut'),
+heroCls: cs >= nq ? 'resn done' : 'resn',
+chips: use.slice(0, cs).map((k, i) => ({ k: this.Q[k].k, v: this.fmt(k, v[k]), go: () => this.goStep(i) })),
+canBack: cs > 0,
+back: () => this.goStep(Math.max(0, cs - 1)),
+done: cs >= nq,
+restart: () => this.goStep(0),
+closeX: this.closeX,
+prevX: this.stepX(-1),
+nextX: this.stepX(1),
+o0: this.openX(0), o1: this.openX(1), o2: this.openX(2),
+keyX: (e) => {
+if (st.sel != null && e.key === 'Enter') { e.stopPropagation(); e.preventDefault(); const nq0 = this.R[st.sel].use.length; if ((st.cs || 0) < nq0) this.goStep((st.cs || 0) + 1); return; }
+if (e.target && e.target.tagName === 'INPUT') { e.stopPropagation(); return; }
+if (st.sel == null) return;
+const k = e.key;
+if (k === 'Escape') { e.stopPropagation(); e.preventDefault(); this.closeX(); }
+else if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown') { e.stopPropagation(); e.preventDefault(); this.stepX(1)(); }
+else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp') { e.stopPropagation(); e.preventDefault(); this.stepX(-1)(); }
+}
+};
+}
+}
+</script>
+</body>
+</html>

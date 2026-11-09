@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Director</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="{{rootClass}}" style="position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #FFFFFF; font-family: Arial, Helvetica, sans-serif; color: #17140F">
+<img class="rl d1" src="insth-assets/cc6d4baf1832.webp" alt="Portrait of Josh Ramsay in a navy suit" style="position: absolute; left: -198px; top: 65px; width: 1015px; height: 1015px; object-fit: cover">
+<div class="rv d2" style="position: absolute; left: 755px; top: 353px; font-size: 14px; font-weight: 700; letter-spacing: 3px; line-height: 1.2; color: #1E3A5F">DIRECTOR</div>
+<h1 class="rv d3" style="position: absolute; left: 755px; top: 382px; margin: 0; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: 84px; line-height: 1.12; letter-spacing: -1.68px; color: #17140F; white-space: nowrap">Josh Ramsay</h1>
+<a class="rv d4" href="mailto:josh@saracramsay.com" style="position: absolute; left: 755px; top: 476px; font-size: 18px; line-height: 1.2; color: #B0914E; text-decoration: none">josh@saracramsay.com</a>
+<p class="rv d5" style="position: absolute; left: 755px; top: 535px; width: 666px; margin: 0; font-size: 24px; line-height: 1.45; color: #3F3A32">Josh has spent six years in high-end business consulting. In the last three months alone, Josh and his team have generated over <strong style="color: #142C49">$300k</strong> in new business for their clients.</p>
+<div class="rv d6" style="position: absolute; left: 750px; top: 698px; width: 177px; height: 2px; background: #142C49"></div>
+<div class="rv d6" style="position: absolute; left: 755px; top: 726px; font-size: 14px; font-weight: 700; letter-spacing: 3px; line-height: 1.2; color: #8A8478">SARACRAMSAY.COM</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"live":{"editor":null},"active":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const live = !!this.props.live;
+const on = !live || !!this.props.active;
+return { rootClass: on ? 'srs on' : 'srs' };
+}
+}
+</script>
+</body>
+</html>

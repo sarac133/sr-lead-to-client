@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>About Sarac Ramsay</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="{{rootClass}}" style="position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #FFFFFF; font-family: Arial, Helvetica, sans-serif; color: #17140F">
+<img class="kb" src="insth-assets/361791b576ab.webp" alt="The Gherkin tower rising above the London skyline at dawn" style="position: absolute; left: 1109px; top: 0px; width: 960px; height: 1080px; object-fit: cover; transform-origin: 40% 60%">
+<div class="rv d1" style="position: absolute; left: 130px; top: 196px; height: 35px; padding: 0 20px; box-sizing: border-box; display: flex; align-items: center; background: #F7F5EF; border-radius: 18px; font-size: 14px; font-weight: 700; letter-spacing: 3px; color: #1E3A5F">ABOUT SARAC RAMSAY</div>
+<h1 class="rv d2" style="position: absolute; left: 135px; top: 272px; width: 760px; margin: 0; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: 62px; line-height: 1.17; letter-spacing: -1.24px; color: #17140F">One of the world's leading <span style="color: #B0914E">expat service</span> growth consultants.</h1>
+<p class="rv d3" style="position: absolute; left: 135px; top: 509px; width: 775px; margin: 0; font-size: 23px; line-height: 1.5; color: #3F3A32">We have worked across 189 countries in 10 different expat industries, building the sales and marketing engines that turn local businesses into market leaders.</p>
+<div style="position: absolute; left: 135px; top: 665px; display: flex; gap: 63px">
+<div class="rv d4" style="display: flex; flex-direction: column; gap: 4px">
+<div style="font-family: Georgia, 'Times New Roman', serif; font-size: 60px; line-height: 1.05; color: #142C49">{{c189}}</div>
+<div style="font-size: 15px; line-height: 1.3; color: #6F685C">Countries served</div>
+</div>
+<div class="rv d5" style="display: flex; flex-direction: column; gap: 4px">
+<div style="font-family: Georgia, 'Times New Roman', serif; font-size: 60px; line-height: 1.05; color: #142C49">{{c10}}</div>
+<div style="font-size: 15px; line-height: 1.3; color: #6F685C">Expat industries</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"live":{"editor":null},"active":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = {};
+this.run = () => {
+cancelAnimationFrame(this.raf);
+clearTimeout(this.ctT);
+this.setState({ ct: 0 });
+this.ctT = setTimeout(() => {
+const t0 = performance.now();
+const step = (now) => {
+const t = Math.min(1, (now - t0) / 1800);
+this.setState({ ct: 1 - Math.pow(1 - t, 3) });
+if (t < 1) this.raf = requestAnimationFrame(step);
+};
+this.raf = requestAnimationFrame(step);
+}, 500);
+};
+}
+componentDidMount() {
+if (this.props.live && this.props.active) this.run();
+}
+componentDidUpdate(prev) {
+const was = !!(prev && prev.active);
+const now = !!this.props.active;
+if (this.props.live && now && !was) this.run();
+if (was && !now) { clearTimeout(this.ctT); cancelAnimationFrame(this.raf); this.setState({ ct: 0 }); }
+}
+componentWillUnmount() { clearTimeout(this.ctT); cancelAnimationFrame(this.raf); }
+renderVals() {
+const live = !!this.props.live;
+const on = !live || !!this.props.active;
+const ct = live ? (this.state.ct === undefined ? 1 : this.state.ct) : 1;
+return { rootClass: on ? 'srs on' : 'srs', c189: Math.round(189 * ct), c10: Math.round(10 * ct) };
+}
+}
+</script>
+</body>
+</html>

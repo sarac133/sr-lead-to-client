@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SR Insurance Presentation · Thailand</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<!-- SR INSURANCE PRESENTATION (intro call, Insurance · Thailand). The original interactive Claude Design deck: chapters, zooms, clickable slides.
+     Each slide is its own artboard (InsTH-01 … InsTH-10): edit the words there. Lead to Client shows this deck in Step 04 of the intro call. -->
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.world{transform-origin:0 0;transition:transform 1.5s cubic-bezier(.65,0,.35,1)}
+.rig{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 540px}
+.tile{transition:opacity .9s ease}.tile.dim{opacity:.38}
+.hubtx{opacity:0;transition:opacity .45s ease}.hubtx.on{opacity:1;transition:opacity .8s ease .5s}
+@keyframes swf1{0%{scale:1;rotate:0deg}48%{scale:0.8;rotate:-1.4deg}86%{scale:1.012;rotate:0.168deg}100%{scale:1;rotate:0deg}}.rig.f1{animation:swf1 1.5s cubic-bezier(.45,0,.55,1) both}
+@keyframes swf2{0%{scale:1;rotate:0deg}48%{scale:0.8;rotate:1.4deg}86%{scale:1.012;rotate:-0.168deg}100%{scale:1;rotate:0deg}}.rig.f2{animation:swf2 1.5s cubic-bezier(.45,0,.55,1) both}
+@keyframes swf3{0%{scale:1;rotate:0deg}48%{scale:0.52;rotate:-2.6deg}86%{scale:1.012;rotate:0.312deg}100%{scale:1;rotate:0deg}}.rig.f3{animation:swf3 1.5s cubic-bezier(.45,0,.55,1) both}
+@keyframes swf4{0%{scale:1}40%{scale:0.78}78%{scale:1.06}100%{scale:1}}.rig.f4{animation:swf4 1.5s cubic-bezier(.45,0,.55,1) both}
+@keyframes swf5{0%{scale:1;rotate:0deg}48%{scale:0.74;rotate:1.8deg}86%{scale:1.012;rotate:-0.216deg}100%{scale:1;rotate:0deg}}.rig.f5{animation:swf5 1.5s cubic-bezier(.45,0,.55,1) both}
+@keyframes swb0{0%{scale:1;rotate:0deg}48%{scale:0.8;rotate:1.4deg}86%{scale:1.012;rotate:-0.168deg}100%{scale:1;rotate:0deg}}.rig.b0{animation:swb0 1.5s cubic-bezier(.45,0,.55,1) both}
+@keyframes swb1{0%{scale:1;rotate:0deg}48%{scale:0.8;rotate:-1.4deg}86%{scale:1.012;rotate:0.168deg}100%{scale:1;rotate:0deg}}.rig.b1{animation:swb1 1.5s cubic-bezier(.45,0,.55,1) both}
+@keyframes swb2{0%{scale:1;rotate:0deg}48%{scale:0.52;rotate:2.6deg}86%{scale:1.012;rotate:-0.312deg}100%{scale:1;rotate:0deg}}.rig.b2{animation:swb2 1.5s cubic-bezier(.45,0,.55,1) both}
+@keyframes swb3{0%{scale:1;rotate:0deg}48%{scale:0.78;rotate:-0.0deg}86%{scale:1.012;rotate:0.0deg}100%{scale:1;rotate:0deg}}.rig.b3{animation:swb3 1.5s cubic-bezier(.45,0,.55,1) both}
+@keyframes swb4{0%{scale:1;rotate:0deg}48%{scale:0.74;rotate:-1.8deg}86%{scale:1.012;rotate:0.216deg}100%{scale:1;rotate:0deg}}.rig.b4{animation:swb4 1.5s cubic-bezier(.45,0,.55,1) both}
+.grid{background-image:linear-gradient(rgba(198,166,103,.07) 2px,transparent 2px),linear-gradient(90deg,rgba(198,166,103,.07) 2px,transparent 2px);background-size:320px 320px}
+.strip{transition:transform 1s cubic-bezier(.7,0,.2,1)}
+.tile{position:absolute;width:1920px;height:1080px;overflow:clip;box-shadow:0 80px 200px rgba(0,0,0,.55)}
+.brks{position:absolute;width:2000px;height:1160px;pointer-events:none}
+.brk{position:absolute;width:120px;height:120px;box-sizing:border-box;border:0 solid #C6A667}
+.brk.tl{left:0;top:0;border-top-width:14px;border-left-width:14px}
+.brk.tr{right:0;top:0;border-top-width:14px;border-right-width:14px}
+.brk.bl{left:0;bottom:0;border-bottom-width:14px;border-left-width:14px}
+.brk.br{right:0;bottom:0;border-bottom-width:14px;border-right-width:14px}
+.tilebtn{position:absolute;padding:0;margin:0;border:0;background-color:transparent;cursor:pointer;border-radius:24px;outline:16px solid transparent;transition:outline-color .35s ease,background-color .35s ease}
+.tilebtn:hover,.tilebtn:focus-visible{outline-color:rgba(198,166,103,.95);background-color:rgba(198,166,103,.07)}
+.tilebtn.cur{outline-color:rgba(198,166,103,.45)}
+.pip{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.25);transition:background-color .4s ease}
+.pip.on{background:#C6A667}
+.hud{transition:opacity .45s ease,translate .45s ease}
+.hud.off{opacity:0;translate:0 -18px;pointer-events:none}
+.hbtn{width:44px;height:44px;border-radius:22px;border:0;padding:0;background-color:transparent;color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .2s ease,color .2s ease}
+.hbtn:hover{background-color:rgba(198,166,103,.2);color:#E6CD94}
+.hbtn:focus-visible{outline:2px solid #C6A667;outline-offset:2px}
+.hbtn:disabled{opacity:.3;cursor:default;background-color:transparent;color:#FFFFFF}
+.prog{transition:width .9s cubic-bezier(.7,0,.2,1)}
+.srs .rv{opacity:0;translate:0 36px;transition:opacity .6s ease,translate 1s cubic-bezier(.16,1,.3,1)}
+.srs .rl{opacity:0;translate:-90px 0;transition:opacity .7s ease,translate 1.1s cubic-bezier(.16,1,.3,1)}
+.srs .rs{opacity:0;scale:.94;transition:opacity .6s ease,scale 1s cubic-bezier(.16,1,.3,1)}
+.srs .stamp{opacity:0;scale:2.4;transition:opacity .2s ease,scale .32s cubic-bezier(.55,0,.8,.3)}
+.srs .kb{scale:1.14;transition:scale 7s cubic-bezier(.2,.6,.2,1)}
+.srs .cardb{transition:opacity .6s ease,translate 1s cubic-bezier(.16,1,.3,1),scale .6s cubic-bezier(.16,1,.3,1),filter .45s ease}
+.srs .logo{transition:opacity .6s ease,scale 1s cubic-bezier(.16,1,.3,1),translate .3s ease,box-shadow .3s ease}
+.srs .qnum{transition:opacity .6s ease,scale 1s cubic-bezier(.16,1,.3,1),filter .2s ease}
+.srs.on .rv,.srs.on .rl,.srs.on .rs,.srs.on .stamp{opacity:1;translate:0 0;scale:1}
+.srs.on .kb{scale:1}
+.srs.on .d1{transition-delay:.1s,.1s,0s,0s}
+.srs.on .d2{transition-delay:.2s,.2s,0s,0s}
+.srs.on .d3{transition-delay:.3s,.3s,0s,0s}
+.srs.on .d4{transition-delay:.4s,.4s,0s,0s}
+.srs.on .d5{transition-delay:.5s,.5s,0s,0s}
+.srs.on .d6{transition-delay:.6s,.6s,0s,0s}
+.srs.on .d7{transition-delay:.75s,.75s,0s,0s}
+.srs.on .d8{transition-delay:.9s,.9s,0s,0s}
+.srs.on .d9{transition-delay:1.05s,1.05s,0s,0s}
+.srs.on .d10{transition-delay:1.2s,1.2s,0s,0s}
+.srs.on .d11{transition-delay:1.4s,1.4s,0s,0s}
+.srs:not(.on) *{transition-delay:0s!important}
+.srs.on .cardb:hover{scale:1.015}
+.srs.on .cardb.cf{scale:1.045;z-index:3}
+.srs .cardb.cd{filter:brightness(.42) saturate(.5)}
+.cardb:focus-visible{outline:3px solid #C6A667;outline-offset:16px}
+.srs.on .logo:hover{translate:0 -8px;box-shadow:0 18px 40px rgba(20,44,73,.14)}
+.srs.on .qnum:hover{filter:brightness(1.12)}
+.srs .qnum.pulse{animation:srpulse 2.2s ease-out infinite}
+.qnum:focus-visible,.qbtn:focus-visible{outline:2px solid #FFFFFF;outline-offset:6px}
+.srs .qt{transition:opacity .5s ease,translate .7s cubic-bezier(.16,1,.3,1)}
+.srs .qc .qt{opacity:0;translate:40px 0}
+.srs .qc .qbtn{animation:srblink 2.4s ease-in-out infinite}
+.srs .qarr{display:inline-block}
+.srs .qc .qarr{animation:srnudge 1.6s ease-in-out infinite}
+.srs .qx{transition:opacity .6s ease,translate .8s cubic-bezier(.16,1,.3,1)}
+.srs .qx.qh{opacity:0;translate:0 18px}
+.layer{position:absolute;left:0;top:0;width:1920px;height:1080px;transition:opacity .9s ease,scale 1.3s cubic-bezier(.65,0,.35,1),visibility 0s linear 0s}
+.layer.past{opacity:0;scale:2.8;visibility:hidden;pointer-events:none;transition:opacity .7s ease,scale 1.3s cubic-bezier(.65,0,.35,1),visibility 0s linear 1.3s}
+.layer.fut{opacity:0;scale:.78;visibility:hidden;pointer-events:none;transition:opacity .7s ease,scale 1.3s cubic-bezier(.65,0,.35,1),visibility 0s linear 1.3s}
+.xbk{opacity:0;transition:opacity .45s ease}
+.xbk.on{opacity:1}
+.xp{transition:left .6s cubic-bezier(.7,0,.2,1),top .6s cubic-bezier(.7,0,.2,1),width .6s cubic-bezier(.7,0,.2,1),height .6s cubic-bezier(.7,0,.2,1)}
+.xpc{opacity:0;translate:0 24px;transition:opacity .3s ease,translate .5s cubic-bezier(.16,1,.3,1)}
+.xpc.on{opacity:1;translate:0 0;transition-delay:.4s,.4s}
+.xbtn{width:44px;height:44px;border-radius:22px;border:1px solid rgba(198,166,103,.55);padding:0;background-color:transparent;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .2s ease}
+.xbtn:hover{background-color:rgba(198,166,103,.22)}
+.xbtn.light{border-color:rgba(20,44,73,.35);color:#142C49}
+.xbtn.light:hover{background-color:rgba(20,44,73,.08)}
+.xbtn:focus-visible,.cta:focus-visible,.logo:focus-visible,.res:focus-visible,.filecard:focus-visible{outline:3px solid #C6A667;outline-offset:6px}
+.cta{transition:background-color .2s ease}
+.cta:hover{background-color:#1E3A5F!important}
+.srs .res{transition:opacity .6s ease,translate 1s cubic-bezier(.16,1,.3,1),background-color .25s ease}
+.srs.on .res:hover{background-color:rgba(198,166,103,.08)}
+.srs .filecard{transition:opacity .6s ease,translate 1s cubic-bezier(.16,1,.3,1),scale .5s cubic-bezier(.16,1,.3,1)}
+.srs.on .filecard:hover{scale:1.035}
+.srs.on .hintp{animation:srblink 2.4s ease-in-out 2.2s infinite}
+.srs .live{animation:srblink 1.2s ease-in-out infinite}
+.xbk:not(.on){pointer-events:none}
+.xbtn.solid{background-color:#142C49;border-color:rgba(198,166,103,.6)}
+.xbtn.navy{background-color:#142C49;border:0;color:#FFFFFF;width:56px;height:56px;border-radius:28px;box-shadow:0 10px 24px rgba(20,44,73,.25)}
+.xbtn.navy:hover{background-color:#1E3A5F}
+.fadein{opacity:0;transition:opacity .35s ease}
+.fadein:not(.on){pointer-events:none}
+.fadein.on{opacity:1;transition:opacity .5s ease .5s}
+.zl{transition:left .75s cubic-bezier(.7,0,.2,1),top .75s cubic-bezier(.7,0,.2,1),width .75s cubic-bezier(.7,0,.2,1),height .75s cubic-bezier(.7,0,.2,1)}
+.hs{cursor:pointer;transition:transform .25s ease,background-color .25s ease,color .25s ease}
+.hs:hover{transform:scale(1.12)}
+.hs.idle{animation:hspulse 2s ease-out infinite}
+.hs.done{background-color:#142C49!important;color:#C6A667!important}
+.stab{transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+.stab:hover{border-color:#C6A667!important}
+.stab.on{background-color:#C6A667!important;color:#142C49!important;border-color:#C6A667!important}
+.stab.on span{color:#142C49!important}
+.stab:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px}
+.hs.cur{background-color:#142C49!important;color:#FFFFFF!important;border-color:#C6A667!important;transform:scale(1.15)}
+.hs:focus-visible{outline:3px solid #142C49;outline-offset:4px}
+@keyframes hspulse{0%{box-shadow:0 0 0 0 rgba(198,166,103,.75)}100%{box-shadow:0 0 0 28px rgba(198,166,103,0)}}
+.co{animation:copop .45s cubic-bezier(.16,1,.3,1)}
+@keyframes copop{from{opacity:0;translate:0 14px;scale:.97}to{opacity:1;translate:0 0;scale:1}}
+.tlv{opacity:0;pointer-events:none;transition:opacity .5s ease}
+.tlv.on{opacity:1;pointer-events:auto}
+.tfill{transition:width .7s cubic-bezier(.7,0,.2,1)}
+.tn .dot{display:block;width:28px;height:28px;border-radius:14px;box-sizing:border-box;border:3px solid rgba(255,255,255,.4);background:#0D1F35;transition:all .35s ease}
+.tn.done .dot{background:#C6A667;border-color:#C6A667}
+.tn.cur .dot{width:44px;height:44px;border-radius:22px;background:#C6A667;border:6px solid #0D1F35;box-shadow:0 0 0 3px #C6A667}
+.tn:hover .dot{border-color:#C6A667}
+.tn .wh{color:rgba(255,255,255,.5);transition:color .3s ease}
+.tn.done .wh,.tn.cur .wh{color:#C6A667}
+.tn .tt{color:rgba(255,255,255,.55);transition:color .3s ease}
+.tn.done .tt{color:rgba(255,255,255,.85)}
+.tn.cur .tt{color:#FFFFFF;font-weight:700}
+.tn:focus-visible .dot{outline:2px solid #FFFFFF;outline-offset:4px}
+.cc{transition:left .6s cubic-bezier(.7,0,.2,1),top .6s cubic-bezier(.7,0,.2,1),width .6s cubic-bezier(.7,0,.2,1),height .6s cubic-bezier(.7,0,.2,1),opacity .5s ease,box-shadow .4s ease}
+.cc:focus-visible{outline:3px solid #142C49;outline-offset:6px}
+.cdot{width:10px;height:10px;padding:0;border:0;border-radius:5px;background:rgba(20,44,73,.2);cursor:pointer;transition:width .35s ease,background-color .35s ease}
+.cdot.on{width:30px;background:#142C49}
+.pfr{transition:left .6s cubic-bezier(.7,0,.2,1),top .6s cubic-bezier(.7,0,.2,1),width .6s cubic-bezier(.7,0,.2,1),height .6s cubic-bezier(.7,0,.2,1),transform .6s cubic-bezier(.7,0,.2,1),opacity .4s ease}
+.pfr:focus-visible{outline:3px solid #C6A667;outline-offset:6px}
+.pdot{width:28px;height:5px;padding:0;border:0;background:rgba(255,255,255,.25);cursor:pointer;transition:background-color .3s ease}
+.pdot.on{background:#C6A667}
+.crow{transition:opacity .3s ease}
+.crow.dim{opacity:.4}
+.calc input[type=number]::-webkit-inner-spin-button{opacity:.4}
+@keyframes srpulse{0%{box-shadow:0 0 0 0 rgba(198,166,103,.6)}100%{box-shadow:0 0 0 30px rgba(198,166,103,0)}}
+.rg{-webkit-appearance:none;appearance:none;width:100%;height:12px;margin:0;border-radius:6px;outline:none;cursor:pointer}
+.rg::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:40px;height:40px;border-radius:50%;background:#E6CD94;border:4px solid #0D1F35;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+.rg::-moz-range-thumb{width:34px;height:34px;border-radius:50%;background:#E6CD94;border:4px solid #0D1F35;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+.rg:focus-visible::-webkit-slider-thumb{outline:3px solid #FFFFFF}
+.cstp{position:absolute;left:0;top:0;width:1720px;height:680px;transition:opacity .5s ease,translate .7s cubic-bezier(.65,0,.35,1),visibility 0s linear 0s}
+.cstp.past{opacity:0;translate:-160px 0;visibility:hidden;pointer-events:none;transition:opacity .4s ease,translate .7s cubic-bezier(.65,0,.35,1),visibility 0s linear .7s}
+.cstp.fut{opacity:0;translate:160px 0;visibility:hidden;pointer-events:none;transition:opacity .4s ease,translate .7s cubic-bezier(.65,0,.35,1),visibility 0s linear .7s}
+.cseg{flex:1 1 0;height:6px;background:rgba(255,255,255,.15);transition:background-color .4s ease}
+.cseg.on{background:#C6A667}
+.cbig{-webkit-appearance:none;appearance:none;flex:1 1 0;min-width:0;height:18px;margin:0;border-radius:9px;outline:none;cursor:pointer}
+.cbig::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:66px;height:66px;border-radius:50%;background:#E6CD94;border:5px solid #142C49;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.cbig::-moz-range-thumb{width:56px;height:56px;border-radius:50%;background:#E6CD94;border:5px solid #142C49;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.cbig:focus-visible::-webkit-slider-thumb{outline:3px solid #FFFFFF}
+.cstep{width:64px;height:64px;flex-shrink:0;border-radius:50%;border:2px solid rgba(198,166,103,.6);background:transparent;color:#E6CD94;font-family:Arial,Helvetica,sans-serif;font-size:34px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .2s ease}
+.cstep:hover,.cstep:focus-visible{background:rgba(198,166,103,.2);outline:none}
+.cnext{height:70px;padding:0 46px;border:0;background:#C6A667;color:#142C49;font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;cursor:pointer;transition:translate .2s ease,background-color .2s ease}
+.cnext:hover,.cnext:focus-visible{translate:0 -3px;background:#E6CD94;outline:none}
+.cchip{height:48px;padding:0 18px;display:flex;align-items:center;gap:10px;border:1px solid rgba(198,166,103,.5);background:transparent;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:19px;cursor:pointer}
+.cchip:hover{background:rgba(198,166,103,.15)}
+.clnk{padding:0;border:0;background:none;color:rgba(255,255,255,.65);font-family:Arial,Helvetica,sans-serif;font-size:18px;cursor:pointer}
+.clnk:hover{color:#E6CD94}
+.stp2{opacity:0;translate:-24px 0;transition:opacity .5s ease,translate .6s cubic-bezier(.2,.7,.2,1)}
+.stp2.on{opacity:1;translate:0 0}
+.stp2 .sdot{transition:background-color .4s ease .2s,box-shadow .4s ease .2s}
+.stp2.on .sdot{background:#C6A667 !important;box-shadow:0 0 0 6px rgba(198,166,103,.18)}
+.resn{transform-origin:0 60%}
+.resn.done{animation:respop .7s cubic-bezier(.2,.7,.2,1)}
+@keyframes respop{0%{scale:1}35%{scale:1.07;text-shadow:0 0 50px rgba(230,205,148,.65)}100%{scale:1;text-shadow:0 0 0 rgba(230,205,148,0)}}
+.resn.txt{opacity:0;translate:0 24px;transition:opacity .6s ease,translate .8s cubic-bezier(.2,.7,.2,1)}
+.resn.txt.on{opacity:1;translate:0 0}
+.resl{width:0;transition:width 1s cubic-bezier(.65,0,.35,1)}
+.resl.on{width:100%}
+.rrow{transition:top .9s cubic-bezier(.65,0,.35,1),background-color .5s ease}
+.ph{flex:1 1 0;min-width:0;height:206px;margin:0;padding:24px 22px;box-sizing:border-box;border:1px solid rgba(198,166,103,.35);background:#142C49;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:12px;cursor:pointer;transition:background-color .35s ease,border-color .35s ease,color .35s ease,translate .35s cubic-bezier(.3,0,.2,1),box-shadow .35s ease}
+.ph:hover{border-color:#C6A667}
+.ph:focus-visible{outline:2px solid #FFFFFF;outline-offset:4px}
+.ph .phi{width:64px;height:64px;border-radius:50%;border:2px solid rgba(198,166,103,.55);display:flex;align-items:center;justify-content:center;transition:background-color .35s ease,border-color .35s ease}
+.ph .pl{color:rgba(198,166,103,.75)}
+.ph.done{border-color:rgba(198,166,103,.75)}
+.ph.done .phi{border-color:#C6A667}
+.ph.cur{background:#EFE5CD;color:#142C49;border-color:#EFE5CD;translate:0 -12px;box-shadow:0 26px 50px rgba(0,0,0,.4)}
+.ph.cur .phi{background:#142C49;border-color:#142C49}
+.ph.cur .pl{color:#8A6A2E}
+.ph.fin{border-style:dashed}
+.ph.fin.cur{border-style:solid}
+.pha{width:34px;flex-shrink:0;text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:48px;line-height:1;color:rgba(198,166,103,.35);transition:color .35s ease}
+.pha.on{color:#C6A667}
+@keyframes srblink{0%,100%{opacity:1}50%{opacity:.55}}
+@keyframes srnudge{0%,100%{translate:0 0}50%{translate:8px 0}}
+</style>
+</helmet>
+<div ref="{{rootRef}}" tabIndex="0" onKeyDown="{{onKey}}" onMouseMove="{{wake}}" style="position: relative; width: 1920px; height: 1080px; overflow: clip; background: #0B1A2E; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; outline: none">
+
+<div class="{{rigClass}}">
+<div class="world grid" style="position: absolute; left: 0px; top: 0px; width: 7680px; height: 4320px; background-color: #0D1F35; transform: {{cam}}">
+
+<div class="{{hubTx}}" style="position: absolute; left: 720px; top: 330px; font-size: 60px; font-weight: 700; letter-spacing: 14px; color: #C6A667">SARAC RAMSAY · OVERVIEW</div>
+<h2 class="{{hubTx}}" style="position: absolute; left: 720px; top: 430px; margin: 0; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: 300px; line-height: 1; letter-spacing: -6px; color: #FFFFFF; white-space: nowrap">Choose a chapter</h2>
+<div class="{{hubTx}}" style="position: absolute; left: 5040px; top: 610px; width: 1920px; text-align: right; font-size: 56px; line-height: 1.4; color: rgba(255,255,255,0.6)">Click any chapter to zoom in.<br>Esc brings you back here.</div>
+
+<div class="brks" style="left: 680px; top: 960px"><div class="brk tl"></div><div class="brk tr"></div><div class="brk bl"></div><div class="brk br"></div></div>
+<div class="brks" style="left: 2840px; top: 960px"><div class="brk tl"></div><div class="brk tr"></div><div class="brk bl"></div><div class="brk br"></div></div>
+<div class="brks" style="left: 5000px; top: 960px"><div class="brk tl"></div><div class="brk tr"></div><div class="brk bl"></div><div class="brk br"></div></div>
+<div class="brks" style="left: 680px; top: 2520px"><div class="brk tl"></div><div class="brk tr"></div><div class="brk bl"></div><div class="brk br"></div></div>
+<div class="brks" style="left: 2840px; top: 2520px"><div class="brk tl"></div><div class="brk tr"></div><div class="brk bl"></div><div class="brk br"></div></div>
+<div class="brks" style="left: 5000px; top: 2520px"><div class="brk tl"></div><div class="brk tr"></div><div class="brk bl"></div><div class="brk br"></div></div>
+
+<div class="{{tc0}}" style="left: 720px; top: 1000px">
+<dc-import name="InsTH-01-Intro" live="{{ true }}" active="{{aMain}}" hint-size="1920px,1080px"></dc-import>
+</div>
+
+<div class="{{tc1}}" style="left: 2880px; top: 1000px">
+<div class="{{l1b}}" style="transform-origin: 960px 540px"><dc-import name="InsTH-03-About" live="{{ true }}" active="{{a03}}" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l1a}}" style="transform-origin: 1090px 520px"><dc-import name="InsTH-02-Director" live="{{ true }}" active="{{a02}}" hint-size="1920px,1080px"></dc-import></div>
+</div>
+
+<div class="{{tc2}}" style="left: 5040px; top: 1000px">
+<dc-import name="InsTH-04-Clients" live="{{ true }}" active="{{a04}}" hint-size="1920px,1080px"></dc-import>
+</div>
+
+<div class="{{tc3}}" style="left: 720px; top: 2560px">
+<dc-import name="InsTH-05-Results" live="{{ true }}" active="{{a05}}" hint-size="1920px,1080px"></dc-import>
+</div>
+
+<div class="{{tc4}}" style="left: 2880px; top: 2560px">
+<div class="{{l4c}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-08-Result" live="{{ true }}" active="{{a08}}" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l4b}}" style="transform-origin: 960px 560px"><dc-import name="InsTH-07-Challenge" live="{{ true }}" active="{{a07}}" hint-size="1920px,1080px"></dc-import></div>
+<div class="{{l4a}}" style="transform-origin: 1505px 540px"><dc-import name="InsTH-06-Case-File" live="{{ true }}" active="{{a06}}" go-next="{{goNext}}" hint-size="1920px,1080px"></dc-import></div>
+</div>
+
+<div class="{{tc5}}" style="left: 5040px; top: 2560px">
+<dc-import name="InsTH-10-Questions" live="{{ true }}" active="{{a10}}" hint-size="1920px,1080px"></dc-import>
+</div>
+
+<div class="{{hubTx}}" style="position: absolute; left: 720px; top: 2150px; width: 1920px; display: flex; align-items: baseline; justify-content: space-between">
+<div style="display: flex; align-items: baseline; gap: 40px"><span style="font-family: 'Courier New', Courier, monospace; font-size: 64px; font-weight: 700; letter-spacing: 6px; color: #C6A667">01</span><span style="font-family: Georgia, 'Times New Roman', serif; font-size: 104px; color: #FFFFFF">Introduction</span></div>
+<div style="font-size: 48px; color: rgba(255,255,255,0.6)">1 slide</div>
+</div>
+<div class="{{hubTx}}" style="position: absolute; left: 2880px; top: 2150px; width: 1920px; display: flex; align-items: baseline; justify-content: space-between">
+<div style="display: flex; align-items: baseline; gap: 40px"><span style="font-family: 'Courier New', Courier, monospace; font-size: 64px; font-weight: 700; letter-spacing: 6px; color: #C6A667">02</span><span style="font-family: Georgia, 'Times New Roman', serif; font-size: 104px; color: #FFFFFF">Who we are</span></div>
+<div style="display: flex; gap: 20px; align-self: center"><div class="{{p1a}}"></div><div class="{{p1b}}"></div></div>
+</div>
+<div class="{{hubTx}}" style="position: absolute; left: 5040px; top: 2150px; width: 1920px; display: flex; align-items: baseline; justify-content: space-between">
+<div style="display: flex; align-items: baseline; gap: 40px"><span style="font-family: 'Courier New', Courier, monospace; font-size: 64px; font-weight: 700; letter-spacing: 6px; color: #C6A667">03</span><span style="font-family: Georgia, 'Times New Roman', serif; font-size: 104px; color: #FFFFFF">Our clients</span></div>
+<div style="font-size: 48px; color: rgba(255,255,255,0.6)">1 slide</div>
+</div>
+<div class="{{hubTx}}" style="position: absolute; left: 720px; top: 3710px; width: 1920px; display: flex; align-items: baseline; justify-content: space-between">
+<div style="display: flex; align-items: baseline; gap: 40px"><span style="font-family: 'Courier New', Courier, monospace; font-size: 64px; font-weight: 700; letter-spacing: 6px; color: #C6A667">04</span><span style="font-family: Georgia, 'Times New Roman', serif; font-size: 104px; color: #FFFFFF">Results</span></div>
+<div style="font-size: 48px; color: rgba(255,255,255,0.6)">1 slide</div>
+</div>
+<div class="{{hubTx}}" style="position: absolute; left: 2880px; top: 3710px; width: 1920px; display: flex; align-items: baseline; justify-content: space-between">
+<div style="display: flex; align-items: baseline; gap: 40px"><span style="font-family: 'Courier New', Courier, monospace; font-size: 64px; font-weight: 700; letter-spacing: 6px; color: #C6A667">05</span><span style="font-family: Georgia, 'Times New Roman', serif; font-size: 104px; color: #FFFFFF; white-space: nowrap">Case study · Insurance</span></div>
+<div style="display: flex; gap: 20px; align-self: center"><div class="{{p4a}}"></div><div class="{{p4b}}"></div><div class="{{p4c}}"></div></div>
+</div>
+<div class="{{hubTx}}" style="position: absolute; left: 5040px; top: 3710px; width: 1920px; display: flex; align-items: baseline; justify-content: space-between">
+<div style="display: flex; align-items: baseline; gap: 40px"><span style="font-family: 'Courier New', Courier, monospace; font-size: 64px; font-weight: 700; letter-spacing: 6px; color: #C6A667">06</span><span style="font-family: Georgia, 'Times New Roman', serif; font-size: 104px; color: #FFFFFF">Next steps</span></div>
+<div style="font-size: 48px; color: rgba(255,255,255,0.6)">1 slide</div>
+</div>
+
+<sc-if value="{{hub}}" hint-placeholder-val="{{ false }}">
+<button class="{{t0}}" onClick="{{o0}}" aria-label="Open chapter 01, Introduction" style="left: 680px; top: 960px; width: 2000px; height: 1380px"></button>
+<button class="{{t1}}" onClick="{{o1}}" aria-label="Open chapter 02, Who we are" style="left: 2840px; top: 960px; width: 2000px; height: 1380px"></button>
+<button class="{{t2}}" onClick="{{o2}}" aria-label="Open chapter 03, Our clients" style="left: 5000px; top: 960px; width: 2000px; height: 1380px"></button>
+<button class="{{t3}}" onClick="{{o3}}" aria-label="Open chapter 04, Results" style="left: 680px; top: 2520px; width: 2000px; height: 1380px"></button>
+<button class="{{t4}}" onClick="{{o4}}" aria-label="Open chapter 05, Case study" style="left: 2840px; top: 2520px; width: 2000px; height: 1380px"></button>
+<button class="{{t5}}" onClick="{{o5}}" aria-label="Open chapter 06, Next steps" style="left: 5000px; top: 2520px; width: 2000px; height: 1380px"></button>
+</sc-if>
+</div>
+</div>
+
+<div class="prog" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; height: 4px; width: {{progW}}%; background: #C6A667"></div>
+
+<div style="position: absolute; left: 0px; top: 22px; width: 1920px; display: flex; justify-content: center; pointer-events: none">
+<nav class="{{hudClass}}" aria-label="Presentation controls" style="pointer-events: auto; display: flex; align-items: center; gap: 6px; height: 60px; box-sizing: border-box; padding: 0 8px; background: rgba(11,26,46,0.9); border: 1px solid rgba(198,166,103,0.45); border-radius: 30px; box-shadow: 0 12px 32px rgba(0,0,0,0.35)">
+<button class="hbtn" onClick="{{overview}}" aria-label="Overview" title="Overview (Esc)">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="6.5" height="6.5"></rect><rect x="11.5" y="2" width="6.5" height="6.5"></rect><rect x="2" y="11.5" width="6.5" height="6.5"></rect><rect x="11.5" y="11.5" width="6.5" height="6.5"></rect></svg>
+</button>
+<div style="width: 1px; height: 28px; background: rgba(198,166,103,0.35)"></div>
+<button class="hbtn" onClick="{{prev}}" disabled="{{prevDis}}" aria-label="Previous" title="Previous (←)">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6"></path></svg>
+</button>
+<div style="min-width: 320px; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 0 8px">
+<div style="display: flex; align-items: baseline; gap: 10px; white-space: nowrap"><span style="font-family: 'Courier New', Courier, monospace; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; color: #C6A667">{{hudNum}}</span><span style="font-family: Georgia, 'Times New Roman', serif; font-size: 18px; color: #FFFFFF">{{hudTitle}}</span></div>
+<div style="font-size: 12px; letter-spacing: 1px; color: rgba(255,255,255,0.65)">{{hudCount}}</div>
+</div>
+<button class="hbtn" onClick="{{next}}" aria-label="Next" title="Next (→)">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4l6 6-6 6"></path></svg>
+</button>
+</nav>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1080}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.SECS = [
+{ n: '01', t: 'Introduction', s: 1 },
+{ n: '02', t: 'Who we are', s: 2 },
+{ n: '03', t: 'Our clients', s: 1 },
+{ n: '04', t: 'Results', s: 1 },
+{ n: '05', t: 'Case study · Insurance, Asia', s: 3 },
+{ n: '06', t: 'Before we build your proposal', s: 1 }
+];
+this.POS = [[720, 1000], [2880, 1000], [5040, 1000], [720, 2560], [2880, 2560], [5040, 2560]];
+this.state = { view: 'slide', sec: 0, pos: [0, 0, 0, 0, 0, 0], building: false, hud: true, mv: '' };
+this.lockUntil = 0;
+this.timers = [];
+this.later = (fn, ms) => { this.timers.push(setTimeout(fn, ms)); };
+this.clearAll = () => { this.timers.forEach((id) => clearTimeout(id)); this.timers = []; };
+this.goTo = (sec, idx, dir) => {
+this.clearAll();
+const pos = this.state.pos.slice();
+pos[sec] = idx;
+const fromHub = this.state.view === 'hub';
+const chap = sec !== this.state.sec && !fromHub;
+const mv = chap ? (dir ? dir + sec : '') : (fromHub ? '' : this.state.mv);
+if (chap) this.lockUntil = Date.now() + 1100;
+this.setState({ view: 'slide', sec: sec, pos: pos, building: true, mv: mv });
+this.later(() => this.setState({ building: false }), chap ? 1250 : 650);
+};
+this.fly = (sec, idx) => {
+this.clearAll();
+const pos = this.state.pos.slice();
+pos[sec] = idx;
+this.setState({ view: 'hub', sec: sec, pos: pos, building: false });
+this.later(() => this.goTo(sec, idx), 1400);
+};
+this.next = () => {
+if (Date.now() < this.lockUntil) return;
+const st = this.state;
+if (st.view === 'hub') { this.goTo(st.sec, st.pos[st.sec]); return; }
+const n = this.SECS[st.sec].s;
+if (st.pos[st.sec] < n - 1) { this.goTo(st.sec, st.pos[st.sec] + 1); return; }
+if (st.sec < this.SECS.length - 1) { this.goTo(st.sec + 1, 0, 'f'); return; }
+this.clearAll();
+this.setState({ view: 'hub', mv: '' });
+};
+this.prev = () => {
+if (Date.now() < this.lockUntil) return;
+const st = this.state;
+if (st.view === 'hub') return;
+if (st.pos[st.sec] > 0) { this.goTo(st.sec, st.pos[st.sec] - 1); return; }
+if (st.sec > 0) { const p = st.sec - 1; this.goTo(p, this.SECS[p].s - 1, 'b'); }
+};
+this.overview = () => { this.clearAll(); this.setState({ view: 'hub', building: false, mv: '' }); };
+this.open = (k) => () => this.goTo(k, this.state.pos[k]);
+this.openCase = () => this.goTo(4, 0);
+this.onKey = (e) => {
+const k = e.key;
+if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown') { e.preventDefault(); this.next(); }
+else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp') { e.preventDefault(); this.prev(); }
+else if (k === 'Escape' || k === 'o' || k === 'O') { e.preventDefault(); this.overview(); }
+};
+this.wake = () => {
+if (!this.state.hud) this.setState({ hud: true });
+clearTimeout(this.hudT);
+this.hudT = setTimeout(() => this.setState({ hud: false }), 2800);
+};
+this.rootRef = (el) => { this.rootEl = el; };
+}
+componentDidMount() {
+this.wake();
+if (this.rootEl && this.rootEl.focus) { try { this.rootEl.focus({ preventScroll: true }); } catch (e) {} }
+}
+componentWillUnmount() {
+this.clearAll();
+clearTimeout(this.hudT);
+}
+renderVals() {
+const st = this.state;
+const S = this.SECS;
+const hub = st.view === 'hub';
+const xy = this.POS[st.sec];
+const cam = hub ? 'translate(0px, 0px) scale(0.25)' : 'translate(' + (-xy[0]) + 'px, ' + (-xy[1]) + 'px) scale(1)';
+const act = (k, j) => {
+const inCur = !hub && k === st.sec;
+return !inCur ? true : (j === st.pos[k] && !st.building);
+};
+let gi = 0;
+for (let i = 0; i < st.sec; i++) gi += S[i].s;
+gi += st.pos[st.sec];
+const pip = (k, j) => (st.pos[k] === j ? 'pip on' : 'pip');
+const lay = (k, j) => (j < st.pos[k] ? 'layer past' : (j === st.pos[k] ? 'layer cur' : 'layer fut'));
+const tcl = (k) => (hub || k === st.sec ? 'tile' : 'tile dim');
+const tile = (k) => (k === st.sec ? 'tilebtn cur' : 'tilebtn');
+return {
+rootRef: this.rootRef,
+onKey: this.onKey,
+wake: this.wake,
+cam: cam,
+hub: hub,
+rigClass: st.mv ? 'rig ' + st.mv : 'rig',
+hubTx: hub ? 'hubtx on' : 'hubtx',
+tc0: tcl(0), tc1: tcl(1), tc2: tcl(2), tc3: tcl(3), tc4: tcl(4), tc5: tcl(5),
+aMain: act(0, 0),
+a02: act(1, 0), a03: act(1, 1),
+a04: act(2, 0),
+a05: act(3, 0),
+a06: act(4, 0), a07: act(4, 1), a08: act(4, 2),
+a10: act(5, 0),
+l1a: lay(1, 0), l1b: lay(1, 1),
+l4a: lay(4, 0), l4b: lay(4, 1), l4c: lay(4, 2),
+goNext: this.next,
+openCase: this.openCase,
+p1a: pip(1, 0), p1b: pip(1, 1),
+p4a: pip(4, 0), p4b: pip(4, 1), p4c: pip(4, 2),
+t0: tile(0), t1: tile(1), t2: tile(2), t3: tile(3), t4: tile(4), t5: tile(5),
+o0: this.open(0), o1: this.open(1), o2: this.open(2), o3: this.open(3), o4: this.open(4), o5: this.open(5),
+progW: hub ? 0 : ((gi + 1) / S.reduce((t, x) => t + x.s, 0)) * 100,
+hudClass: (hub || st.hud) ? 'hud' : 'hud off',
+hudNum: hub ? '' : S[st.sec].n,
+hudTitle: hub ? 'Overview' : S[st.sec].t,
+hudCount: hub ? '6 chapters · choose one' : ((st.pos[st.sec] + 1) + ' / ' + S[st.sec].s),
+prevDis: hub || (st.sec === 0 && st.pos[0] === 0),
+overview: this.overview,
+prev: this.prev,
+next: this.next
+};
+}
+}
+</script>
+</body>
+</html>
