@@ -445,7 +445,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <p style="margin: 8px 0 0; font-size: 13px; color: #9B9B97">{{deckLabel}}</p>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
-<button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button></sc-if><sc-if value="{{showPresentBtn}}" hint-placeholder-val="{{ true }}"><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button></sc-if><sc-if value="{{hasLiveUrl}}" hint-placeholder-val="{{ false }}"><a class="btn-solid" href="{{liveUrl}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Open full-screen copy</a></sc-if>
+<button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button><button class="btn" type="button" onClick="{{deleteSel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete selected</button><button class="btn" type="button" onClick="{{undoDel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Undo delete</button></sc-if><sc-if value="{{showPresentBtn}}" hint-placeholder-val="{{ true }}"><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button></sc-if><sc-if value="{{hasLiveUrl}}" hint-placeholder-val="{{ false }}"><a class="btn-solid" href="{{liveUrl}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Open full-screen copy</a></sc-if>
 <sc-if value="{{hasPdf}}" hint-placeholder-val="{{ true }}"><a class="btn" href="{{pdfUrl}}" download="{{pdfName}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</a></sc-if>
 <sc-if value="{{noPdf}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" disabled="{{ true }}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</button></sc-if>
 </div>
@@ -722,7 +722,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <p style="margin: 8px 0 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 600; font-size: 15px; color: #E6E6E4">{{deckLabel}}</p>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
-<button class="btn" type="button" onClick="{{openObjections}}" aria-label="Open objection handling (only you can see it)" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h10v6.5H7L4 12V9.5H2z"></path><path d="M5 5.5h4M5 7.3h2.5"></path></svg>Objections</button><button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button></sc-if><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button>
+<button class="btn" type="button" onClick="{{openObjections}}" aria-label="Open objection handling (only you can see it)" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h10v6.5H7L4 12V9.5H2z"></path><path d="M5 5.5h4M5 7.3h2.5"></path></svg>Objections</button><button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button><button class="btn" type="button" onClick="{{deleteSel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete selected</button><button class="btn" type="button" onClick="{{undoDel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Undo delete</button></sc-if><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button>
 <sc-if value="{{hasPdf}}" hint-placeholder-val="{{ false }}"><a class="btn" href="{{pdfUrl}}" download="{{pdfName}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</a></sc-if>
 <sc-if value="{{noPdf}}" hint-placeholder-val="{{ true }}"><button class="btn" type="button" disabled="{{ true }}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</button></sc-if>
 </div>
@@ -747,10 +747,15 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <!-- Editable HTML deck: the slides live in their own artboards (GAds<Location>.dc.html) on this canvas. Edit text and numbers there. -->
 <div class="book" data-deck-root="1" tabIndex="0" role="region" aria-label="Proposal deck. Use the left and right arrow keys to change slides." onKeyDown="{{bookKey}}" style="position: relative; width: 100%; overflow: hidden; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #191919; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.9)">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsUK}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsDubai" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsDubai" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsMarbella" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsMarbella" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsHongKong" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 </div>
@@ -1120,10 +1125,15 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{isImageDeck}}" hint-placeholder-val="{{ false }}"><img src="{{currentSrc}}" alt="{{currentAlt}}" style="display: block; width: 100%; height: 100%; object-fit: contain"></sc-if>
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsUK}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsDubai" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsDubai" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsMarbella" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsMarbella" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsHongKong" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 </sc-if>
@@ -1143,10 +1153,15 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{isImageDeck}}" hint-placeholder-val="{{ false }}"><img src="{{nextSrc}}" alt="" style="display: block; width: 100%; height: 100%; object-fit: contain"></sc-if>
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
+<sc-if value="{{htmlInsUK}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsUK" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 <sc-if value="{{htmlDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsDubai" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
+<sc-if value="{{htmlInsDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsDubai" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 <sc-if value="{{htmlMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsMarbella" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
+<sc-if value="{{htmlInsMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsMarbella" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
+<sc-if value="{{htmlInsHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsHongKong" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
+<sc-if value="{{htmlInsThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsThailand" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 <sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 <sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 </sc-if>
@@ -1164,10 +1179,15 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}">
 <!-- Speaker notes come from the deck artboard: they sit under each slide there, edit them on the canvas. -->
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
+<sc-if value="{{htmlInsUK}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsUK" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsDubai" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
+<sc-if value="{{htmlInsDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsDubai" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsMarbella" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
+<sc-if value="{{htmlInsMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsMarbella" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
+<sc-if value="{{htmlInsHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsHongKong" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
+<sc-if value="{{htmlInsThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsThailand" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 </sc-if>
@@ -1318,10 +1338,15 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{isImageDeck}}" hint-placeholder-val="{{ false }}"><img src="{{currentSrc}}" alt="{{currentAlt}}" onClick="{{nextSlide}}" style="display: block; width: 100vw; height: 100vh; object-fit: contain; cursor: pointer"></sc-if>
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Next slide" onClick="{{nextSlide}}" style="display: block; width: min(100vw, 177.78vh); padding: 0; border: none; background: transparent; cursor: pointer">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsUK}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsDubai" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsDubai" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsMarbella" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsMarbella}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsMarbella" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsHongKong" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsHongKong}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsHongKong" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+<sc-if value="{{htmlInsThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 </button></sc-if>
@@ -1650,6 +1675,55 @@ class Component extends DCLogic {
       }
     } catch (err) {}
   }
+  // ---- DELETE ELEMENTS (Edit text mode) ----
+  // In Edit text mode a click on anything on a slide selects that element (blue outline). Delete selected (or the Delete key) hides it,
+  // Undo delete (or Ctrl/Cmd+Z) brings the last one back. Deletions are saved in this browser per deck, like the text edits.
+  getDeleted() {
+    const key = 'sr-deleted:' + (this.editKey || '');
+    if (this.delCache && this.delCache.key === key) return this.delCache.list;
+    let list = [];
+    try { list = JSON.parse(window.localStorage.getItem(key) || '[]') || []; } catch (e) { list = []; }
+    this.delCache = { key, list };
+    return list;
+  }
+  saveDeleted() {
+    try { window.localStorage.setItem('sr-deleted:' + (this.editKey || ''), JSON.stringify(this.getDeleted())); } catch (e) {}
+  }
+  shapeId(el) {
+    const sec = el.parentElement;
+    const m = /^Slide (\d+)/.exec((sec && sec.getAttribute('aria-label')) || '');
+    if (!m) return null;
+    return m[1] + ':' + Array.prototype.indexOf.call(sec.children, el);
+  }
+  applyDeleted() {
+    const set = new Set(this.getDeleted());
+    document.querySelectorAll('[data-deck-root] section[aria-label^="Slide"] > *').forEach((el) => {
+      const id = this.shapeId(el), gone = !!id && set.has(id);
+      if (gone && !el.hasAttribute('data-sr-deleted')) { el.setAttribute('data-sr-deleted', '1'); el.style.setProperty('display', 'none', 'important'); }
+      else if (!gone && el.hasAttribute('data-sr-deleted')) { el.removeAttribute('data-sr-deleted'); el.style.removeProperty('display'); }
+    });
+  }
+  selectEl(el) {
+    document.querySelectorAll('[data-sr-sel]').forEach((x) => x.removeAttribute('data-sr-sel'));
+    this.selEl = el || null;
+    if (el) el.setAttribute('data-sr-sel', '1');
+  }
+  deleteSelected() {
+    const el = this.selEl;
+    if (!el || !el.isConnected) return;
+    const id = this.shapeId(el);
+    if (!id) return;
+    const list = this.getDeleted();
+    if (list.indexOf(id) < 0) list.push(id);
+    this.selectEl(null);
+    this.saveDeleted(); this.applyDeleted();
+  }
+  undoDelete() {
+    const list = this.getDeleted();
+    if (!list.length) return;
+    list.pop();
+    this.saveDeleted(); this.applyDeleted();
+  }
   // ---- TEXT EDITING (intro and proposal decks) ----
   // Edit text turns every piece of text on the slides into a click-to-edit field. Changes are saved in this browser, per deck
   // (kind, service, industry, location), as "original words -> your words", and are re-applied whenever the slides redraw,
@@ -1700,6 +1774,7 @@ class Component extends DCLogic {
   }
   applyEdits() {
     if (this.applyingEdits) return;
+    this.applyDeleted();
     const map = this.getEdits();
     if (!this.rev) this.rev = new WeakMap();
     this.applyingEdits = true;
@@ -1722,11 +1797,11 @@ class Component extends DCLogic {
   tagEditable(on) {
     if (!document.getElementById('sr-edit-style')) {
       const st = document.createElement('style'); st.id = 'sr-edit-style';
-      st.textContent = '[data-sr-edit]{outline:1px dashed rgba(198,166,103,.65);outline-offset:3px;cursor:text !important;-webkit-user-select:text !important;user-select:text !important}[data-sr-edit]:hover{background:rgba(198,166,103,.18)}[data-sr-edit]:focus{outline:2px solid #C6A667;background:rgba(198,166,103,.22)}';
+      st.textContent = '[data-sr-edit]{outline:1px dashed rgba(198,166,103,.65);outline-offset:3px;cursor:text !important;-webkit-user-select:text !important;user-select:text !important}[data-sr-edit]:hover{background:rgba(198,166,103,.18)}[data-sr-sel]{outline:2px solid #2F80C8 !important;outline-offset:2px}[data-sr-edit]:focus{outline:2px solid #C6A667;background:rgba(198,166,103,.22)}';
       document.head.appendChild(st);
     }
     document.querySelectorAll('[data-deck-root]').forEach((root) => {
-      if (!on) { root.querySelectorAll('[data-sr-edit]').forEach((el) => { el.removeAttribute('data-sr-edit'); el.removeAttribute('contenteditable'); }); return; }
+      if (!on) { this.selectEl(null); root.querySelectorAll('[data-sr-edit]').forEach((el) => { el.removeAttribute('data-sr-edit'); el.removeAttribute('contenteditable'); }); return; }
       this.textNodes(root).forEach((n) => {
         const el = n.parentElement;
         if (el.hasAttribute('data-sr-edit')) return;
@@ -1790,10 +1865,23 @@ class Component extends DCLogic {
           this.saveEdits();
         },
         // While editing, clicks and keys inside a text field must not drive the deck (open a card, change slide) or the page.
-        click: (e) => { if (e.target && e.target.closest && e.target.closest('[data-sr-edit]')) { e.stopPropagation(); } },
+        click: (e) => {
+          if (this.state.editing && e.target && e.target.closest) { const sh = e.target.closest('section[aria-label^="Slide"] > *'); if (sh) this.selectEl(sh); }
+          if (e.target && e.target.closest && e.target.closest('[data-sr-edit]')) { e.stopPropagation(); }
+        },
         keydown: (e) => { if (e.target && e.target.closest && e.target.closest('[data-sr-edit]')) { if (e.key === 'Escape') { e.target.blur(); } e.stopPropagation(); } },
         keyup: (e) => { if (e.target && e.target.closest && e.target.closest('[data-sr-edit]')) e.stopPropagation(); }
       };
+    }
+    if (!this.docKeyWired) {
+      this.docKeyWired = true;
+      document.addEventListener('keydown', (e) => {
+        if (!this.state.editing) return;
+        const a = document.activeElement;
+        if (a && (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))) return;
+        if ((e.key === 'Delete' || e.key === 'Backspace') && this.selEl) { e.preventDefault(); this.deleteSelected(); }
+        else if ((e.key === 'z' || e.key === 'Z') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); this.undoDelete(); }
+      });
     }
     // Listeners sit on every deck box (capture) so they run before the deck's own handlers.
     roots.forEach((r) => {
@@ -2036,6 +2124,11 @@ class Component extends DCLogic {
       'Thailand': gadsDeck('GAdsThailand', '/_blob/b4da7c762b4f272722ac4c7c163a6d64', 'Thailand'),
     };
     const PROPOSAL_DECKS = Object.keys(GADS).map((loc) => ({ service: 'Google Ads', industry: 'Real Estate', location: loc, deck: GADS[loc] }));
+    // Google Ads (Insurance): the Insurance PowerPoint rebuilt as one editable deck per location (InsGAdsUK ... InsGAdsThailand .dc.html), figures in local currency.
+    // Every shape is its own element: Edit text lets you change any text and delete any element. The PDF in insgads-assets is the same deck printed.
+    const INSGADS_TITLES = ["Cover", "Director", "About Sarac Ramsay", "Clients", "Results", "How expats find a broker", "The strategy", "The channels", "The opportunity", "The problem", "The plan: 3 components", "From where you are", "Component 1: The intent", "The keywords", "Campaign structure", "Why we build it this way", "Component 2: Stand out", "Same budget, better ad", "What an expat sees", "Component 3: The system", "The target: 30", "The 30 system", "Smart bidding", "Month 3: Hold the fort", "The math", "Google Ads plans", "Our guarantee", "Case study", "Before", "The result"];
+    const insGadsDeck = (html, file) => ({ html, pdf: 'insgads-assets/InsGAds-' + file + '.pdf', pdfName: 'Sarac-Ramsay-Insurance-Google-Ads-Proposal-' + file + '.pdf', slides: INSGADS_TITLES.map((title) => ({ title, src: '', cue: '' })) });
+    [['UK', 'UK'], ['Dubai', 'Dubai'], ['Marbella', 'Marbella'], ['Hong Kong', 'HongKong'], ['Thailand', 'Thailand']].forEach(([loc, f]) => PROPOSAL_DECKS.push({ service: 'Google Ads', industry: 'Insurance', location: loc, deck: insGadsDeck('InsGAds' + f, f) }));
     // Meta Ads and SEO/AEO proposal decks: editable text, same slides for every location (edits are saved per location).
     // MetaAdsDeck and SEOAEODeck are artboards on the canvas. They are blank placeholders until the right decks are pasted in.
     const MORE_DECKS = [['Meta Ads', 'MetaAdsDeck', 'Meta-Ads', [['Blank', 'Meta Ads deck is blank for now. Paste the real deck here.']]], ['SEO/AEO', 'SEOAEODeck', 'SEO-AEO', [['Blank', 'SEO/AEO deck is blank for now. Paste the real deck here.']]]];
@@ -2203,6 +2296,11 @@ class Component extends DCLogic {
       htmlMarbella: !!(deck && deck.html === 'GAdsMarbella'),
       htmlHongKong: !!(deck && deck.html === 'GAdsHongKong'),
       htmlThailand: !!(deck && deck.html === 'GAdsThailand'),
+      htmlInsUK: !!(deck && deck.html === 'InsGAdsUK'),
+      htmlInsDubai: !!(deck && deck.html === 'InsGAdsDubai'),
+      htmlInsMarbella: !!(deck && deck.html === 'InsGAdsMarbella'),
+      htmlInsHongKong: !!(deck && deck.html === 'InsGAdsHongKong'),
+      htmlInsThailand: !!(deck && deck.html === 'InsGAdsThailand'),
       htmlMeta: !!(deck && deck.html === 'MetaAdsDeck'),
       htmlSEO: !!(deck && deck.html === 'SEOAEODeck'),
       noPdf: !(deck && deck.pdf),
@@ -2297,6 +2395,8 @@ class Component extends DCLogic {
       editColor: this.state.editing ? '#E6CD94' : '#E6E6E4',
       toggleEdit: () => this.setState((s) => ({ editing: !s.editing })),
       resetEdits: () => this.resetTextEdits(),
+      deleteSel: () => this.deleteSelected(),
+      undoDel: () => this.undoDelete(),
       showQTab: this.state.pvTab === 'questions',
       pvQuestions: QUESTIONS.map((text, i) => ({ id: 'pv-q' + (i + 1), num: pad(i + 1), text, value: this.state.notes[i] || '', onChange: (e) => this.setNote(i, e && e.target ? e.target.value : '') })),
       slideList: SLIDES.map((x, i) => ({ num: pad(i + 1), title: x.title, cls: i === slide ? 'is-on' : '', current: i === slide ? 'true' : 'false', go: () => (liveDeck ? this.liveGo(i) : this.setState({ slide: i })) })),

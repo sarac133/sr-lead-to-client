@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Insurance Google Ads Proposal · @@LOC@@</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+@@FONT@@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<!-- GOOGLE ADS PROPOSAL · INSURANCE · @@LOCU@@ (@@CUR@@). Every text on the slides and in the speaker notes under them is plain text: double-click it on the canvas to change words or numbers. -->
+<div style="width: 100%; box-sizing: border-box; display: grid; grid-template-columns: {{cols}}; gap: {{gap}}; padding: {{pad}}; background-color: {{bg}}; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #142C49">
+@@SLIDES@@
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"slide":{"editor":null},"mode":{"editor":null},"$preview":{"width":1960,"height":5600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // mode "deck" (Lead to Client): one slide. mode "notes" (presenter view): that slide's speaker notes only.
+    // No mode (this artboard on the canvas): every slide with its notes underneath, for editing.
+    const mode = this.props.mode;
+    const one = mode === 'deck' || mode === 'notes';
+    const s = Math.max(0, Math.min(@@MAX@@, Number(this.props.slide) || 0));
+    const v = {};
+    for (let i = 1; i <= @@N@@; i++) v['s' + i] = (!one || s === i - 1) ? 'block' : 'none';
+    const notes = mode === 'notes';
+    return {
+      v,
+      sd: notes ? 'none' : 'block',
+      nd: mode === 'deck' ? 'none' : 'block',
+      nmt: notes ? '0' : '10px',
+      npad: notes ? '0' : '12px 14px',
+      nbg: notes ? 'transparent' : '#202020',
+      nfs: notes ? '17px' : '14px',
+      cols: one ? 'minmax(0, 1fr)' : 'repeat(3, minmax(0, 1fr))',
+      gap: one ? '0' : '24px',
+      pad: one ? '0' : '24px',
+      bg: one ? 'transparent' : '#191919'
+    };
+  }
+}
+</script>
+</body>
+</html>

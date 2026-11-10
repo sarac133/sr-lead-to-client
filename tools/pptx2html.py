@@ -8,7 +8,7 @@ EMU_PX = 9525
 def q(n): return ('%.3f' % n).rstrip('0').rstrip('.')
 def cq(px): return q(px / 19.2) + 'cqw'          # px on a 1920 slide -> container width units
 def emu_cq(e): return cq(e / EMU_PX)
-FONTS = {'Helvetica Neue': "'Helvetica Neue', Helvetica, Arial, sans-serif", 'Newsreader': "'Newsreader', Georgia, serif",
+FONTS = {'Helvetica Neue': "'Helvetica Neue', Helvetica, Arial, sans-serif", 'Newsreader': "'Newsreader', Georgia, serif", 'Georgia': "'Newsreader', Georgia, serif",
          'Courier New': "'Courier New', Courier, monospace", 'Menlo': "Menlo, Consolas, 'Courier New', monospace", 'Arial': "Arial, Helvetica, sans-serif"}
 def color(el):
     """srgbClr child of a fill element -> css colour (with alpha)."""
@@ -92,12 +92,22 @@ class Conv:
             out.append('background-position: %s%% %s%%' % (q(l/(l+r)*100 if l+r else 0), q(t/(t+b)*100 if t+b else 0)))
         else: out.append('background-size: 100% 100%')
         return out
-    def text_html(self, txBody, fix):
+    def text_html(self, txBody, fix, h_emu=None, w_emu=None):
         bp = txBody.find('a:bodyPr', NS)
         ins = [int(bp.get(k, d)) for k, d in (('tIns', 45720), ('rIns', 91440), ('bIns', 45720), ('lIns', 91440))]
         anchor = bp.get('anchor', 't'); nowrap = bp.get('wrap') == 'none'
         paras = []
-        for p in txBody.findall('a:p', NS):
+        plist = txBody.findall('a:p', NS)
+        one_line = False
+        if h_emu and len(plist) == 1 and not nowrap and getattr(self, 'oneline', True):
+            szs = [int(r.find('a:rPr', NS).get('sz')) for r in plist[0].findall('a:r', NS) if r.find('a:rPr', NS) is not None and r.find('a:rPr', NS).get('sz')]
+            if szs:
+                ppr0 = plist[0].find('a:pPr', NS); sp0 = ppr0.find('a:lnSpc/a:spcPct', NS) if ppr0 is not None else None
+                lsp = int(sp0.get('val')) / 100000 if sp0 is not None else 1.0
+                line_emu = max(szs) / 100 * 12700 * 1.2 * lsp
+                one_line = (h_emu - ins[0] - ins[2]) / line_emu < 1.65
+        if one_line: nowrap = True
+        for p in plist:
             ppr = p.find('a:pPr', NS); algn = (ppr.get('algn') if ppr is not None else None) or 'l'
             ta = {'l': 'left', 'ctr': 'center', 'r': 'right', 'just': 'justify'}.get(algn, 'left')
             lh = ''
@@ -115,7 +125,7 @@ class Conv:
                     if rp.get('sz'):
                         size_px = int(rp.get('sz'))/100*4/3
                         sizes.append(size_px)
-                        if grow > 1.05 and size_px >= 24:   # a longer converted figure in a big display number: shrink it to keep the same width
+                        if grow > 1.05 and size_px >= 40:   # a longer converted figure in a big display number: shrink it to keep the same width
                             css.append('font-size: %s' % cq(size_px * max(1/grow, 0.45))); css.append('white-space: nowrap')
                         else: css.append('font-size: %s' % cq(size_px))
                     if rp.get('b') == '1': css.append('font-weight: 700')
@@ -134,7 +144,10 @@ class Conv:
                 e = p.find('a:endParaRPr', NS); szp = int(e.get('sz'))/100*4/3 if e is not None and e.get('sz') else 16
                 runs.append('<span style="font-size: %s">&#160;</span>' % cq(szp))
             fs = ('; font-size: %s' % cq(max(sizes))) if sizes else ''   # paragraph font-size = strut, so line-height matches the runs
-            paras.append('<p style="margin: 0; text-align: %s%s%s">%s</p>' % (ta, ('; ' + lh) if lh else '', fs, ''.join(runs)))
+            pos = ''
+            if one_line and ta == 'center': pos = '; width: max-content; position: relative; left: 50%; transform: translateX(-50%)'
+            elif one_line and ta == 'right': pos = '; width: max-content; position: relative; left: 100%; transform: translateX(-100%)'
+            paras.append('<p style="margin: 0; text-align: %s%s%s%s">%s</p>' % (ta, ('; ' + lh) if lh else '', fs, pos, ''.join(runs)))
         st = ['padding: %s %s %s %s' % tuple(emu_cq(v) for v in ins), 'display: flex', 'flex-direction: column',
               'justify-content: %s' % {'t': 'flex-start', 'ctr': 'center', 'b': 'flex-end'}.get(anchor, 'flex-start')]
         if nowrap: st.append('white-space: nowrap')
@@ -149,10 +162,12 @@ class Conv:
         for el in x.find('p:cSld/p:spTree', NS):
             tag = el.tag.split('}')[1]
             if tag == 'sp':
+                _t = ''.join((t.text or '') for t in el.iter('{%s}t' % NS['a']))
+                if any(n == sn and _t.startswith(sp_) for sn, sp_ in getattr(self, 'skip', ())): continue
                 spPr = el.find('p:spPr', NS); st, _ = self.box_style(spPr); fills = self.fill_css(spPr, rels); st += fills
                 tx = el.find('p:txBody', NS); inner = ''
                 if tx is not None and any((t.text or '').strip() for t in tx.iter('{%s}t' % NS['a'])):
-                    tst, inner = self.text_html(tx, fix); st += tst
+                    tst, inner = self.text_html(tx, fix, int(spPr.find('a:xfrm/a:ext', NS).get('cy')), int(spPr.find('a:xfrm/a:ext', NS).get('cx'))); st += tst
                 bf = spPr.find('a:blipFill', NS)
                 if bf is not None:
                     img = self.blip_img(bf, rels)
@@ -168,6 +183,7 @@ class Conv:
             elif tag == 'pic':
                 spPr = el.find('p:spPr', NS); st, _ = self.box_style(spPr); st += self.fill_css(spPr, rels); st.append('overflow: hidden')
                 parts.append('<div style="%s">%s</div>' % ('; '.join(st), self.blip_img(el.find('p:blipFill', NS), rels)))
+        parts += getattr(self, 'extra', {}).get(n, [])
         html = '\n'.join(parts)
         if n == 8 and getattr(self, 'gads_icon', True): html = fix_channel_icon(html)
         return bgcss, html
