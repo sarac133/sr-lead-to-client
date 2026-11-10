@@ -311,7 +311,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":null},"cur":{"editor":null},"onMove":{"editor":null},"cmd":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":null},"cur":{"editor":null},"onMove":{"editor":null},"cmd":{"editor":null},"hidden":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
 class Component extends DCLogic {
 constructor(props) {
 super(props);
@@ -328,6 +328,9 @@ this.SECS = [
 this.POS = [[720, 1000], [2880, 1000], [5040, 1000], [720, 2560], [2880, 2560], [5040, 2560]];
 this.state = { view: 'slide', sec: 0, pos: [0, 0, 0, 0, 0, 0], building: false, hud: true, mv: '' };
 this.lockUntil = 0;
+this.BASE = [0, 1, 3, 4, 5, 8];
+this.FLAT = [[0, 0], [1, 0], [1, 1], [2, 0], [3, 0], [4, 0], [4, 1], [4, 2], [5, 0]];
+this.isHid = (i) => { const h = this.props && this.props.hidden; return Array.isArray(h) && h.indexOf(i) >= 0; };
 this.timers = [];
 this.later = (fn, ms) => { this.timers.push(setTimeout(fn, ms)); };
 this.clearAll = () => { this.timers.forEach((id) => clearTimeout(id)); this.timers = []; };
@@ -352,10 +355,14 @@ this.later(() => this.goTo(sec, idx), 1400);
 this.next = () => {
 if (Date.now() < this.lockUntil) return;
 const st = this.state;
-if (st.view === 'hub') { this.goTo(st.sec, st.pos[st.sec]); return; }
-const n = this.SECS[st.sec].s;
-if (st.pos[st.sec] < n - 1) { this.goTo(st.sec, st.pos[st.sec] + 1); return; }
-if (st.sec < this.SECS.length - 1) { this.goTo(st.sec + 1, 0, 'f'); return; }
+if (st.view === 'hub') { this.open(st.sec)(); return; }
+const cur = this.BASE[st.sec] + st.pos[st.sec];
+for (let i = cur + 1; i < this.FLAT.length; i++) {
+if (this.isHid(i)) continue;
+const t = this.FLAT[i];
+this.goTo(t[0], t[1], t[0] !== st.sec ? 'f' : undefined);
+return;
+}
 this.clearAll();
 this.setState({ view: 'hub', mv: '' });
 };
@@ -363,11 +370,22 @@ this.prev = () => {
 if (Date.now() < this.lockUntil) return;
 const st = this.state;
 if (st.view === 'hub') return;
-if (st.pos[st.sec] > 0) { this.goTo(st.sec, st.pos[st.sec] - 1); return; }
-if (st.sec > 0) { const p = st.sec - 1; this.goTo(p, this.SECS[p].s - 1, 'b'); }
+const cur = this.BASE[st.sec] + st.pos[st.sec];
+for (let i = cur - 1; i >= 0; i--) {
+if (this.isHid(i)) continue;
+const t = this.FLAT[i];
+this.goTo(t[0], t[1], t[0] !== st.sec ? 'b' : undefined);
+return;
+}
 };
 this.overview = () => { this.clearAll(); this.setState({ view: 'hub', building: false, mv: '' }); };
-this.open = (k) => () => this.goTo(k, this.state.pos[k]);
+this.open = (k) => () => {
+const n = this.SECS[k].s, b = this.BASE[k];
+let p = this.state.pos[k];
+if (this.isHid(b + p)) { p = -1; for (let j = 0; j < n; j++) { if (!this.isHid(b + j)) { p = j; break; } } }
+if (p < 0) return;
+this.goTo(k, p);
+};
 this.openCase = () => this.goTo(4, 0);
 this.onKey = (e) => {
 const k = e.key;

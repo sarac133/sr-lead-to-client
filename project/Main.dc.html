@@ -445,11 +445,19 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <p style="margin: 8px 0 0; font-size: 13px; color: #9B9B97">{{deckLabel}}</p>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
-<button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button><button class="btn" type="button" onClick="{{deleteSel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete selected</button><button class="btn" type="button" onClick="{{undoDel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Undo delete</button></sc-if><sc-if value="{{showPresentBtn}}" hint-placeholder-val="{{ true }}"><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button></sc-if><sc-if value="{{hasLiveUrl}}" hint-placeholder-val="{{ false }}"><a class="btn-solid" href="{{liveUrl}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Open full-screen copy</a></sc-if>
+<button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><button class="btn" type="button" onClick="{{toggleMgr}}" aria-pressed="{{slideMgr}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{mgrBorder}}; border-radius: 6px; background-color: {{mgrBg}}; color: {{mgrColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7s2.2-4 6-4 6 4 6 4-2.2 4-6 4-6-4-6-4z"></path><circle cx="7" cy="7" r="1.6"></circle></svg>{{mgrLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button><button class="btn" type="button" onClick="{{deleteSel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete selected</button><button class="btn" type="button" onClick="{{undoDel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Undo delete</button></sc-if><sc-if value="{{showPresentBtn}}" hint-placeholder-val="{{ true }}"><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button></sc-if><sc-if value="{{hasLiveUrl}}" hint-placeholder-val="{{ false }}"><a class="btn-solid" href="{{liveUrl}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Open full-screen copy</a></sc-if>
 <sc-if value="{{hasPdf}}" hint-placeholder-val="{{ true }}"><a class="btn" href="{{pdfUrl}}" download="{{pdfName}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</a></sc-if>
 <sc-if value="{{noPdf}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" disabled="{{ true }}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</button></sc-if>
 </div>
 </div>
+<sc-if value="{{slideMgr}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020">
+<div style="font-size: 12px; line-height: 1.5; color: #9B9B97">{{hiddenSummary}} Click a slide to hide or show it. Hidden slides are skipped by the arrows, in Present and in the presenter view. The PDF download still has every slide.</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{slideList}}" as="sl" hint-placeholder-count="8"><button type="button" onClick="{{sl.toggle}}" aria-label="{{sl.toggleLabel}}" style="display: inline-flex; align-items: baseline; gap: 8px; max-width: 100%; min-height: 36px; box-sizing: border-box; padding: 6px 12px; border: 1px solid {{sl.bd}}; border-radius: 8px; background-color: {{sl.bg}}; color: #E6E6E4; opacity: {{sl.op}}; font-family: inherit; font-size: 13px; text-align: left; cursor: pointer"><span style="flex: none; font-size: 12px; font-weight: 700; color: #529CCA">{{sl.num}}</span><span style="text-decoration: {{sl.deco}}">{{sl.title}}</span><span style="flex: none; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: {{sl.tagColor}}">{{sl.toggleText}}</span></button></sc-for>
+</div>
+</div>
+</sc-if>
 <sc-if value="{{hasStaticDeck}}" hint-placeholder-val="{{ true }}">
 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9B9B97">Question slides</span>
 <sc-for list="{{jumps}}" as="j" hint-placeholder-count="4"><button class="chip {{j.cls}}" type="button" onClick="{{j.go}}" aria-label="{{j.label}}" style="min-width: 44px; min-height: 36px; box-sizing: border-box; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); border-radius: 8px; background: transparent; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{j.num}}</button></sc-for>
@@ -492,7 +500,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <div style="width: 100%; max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px">
 <div id="ix-box" data-deck-root="1" class="ix-box {{lvClass}}">
 <div style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{ixScale}})">
-<sc-if value="{{liveInsTH}}" hint-placeholder-val="{{ false }}"><dc-import name="InsTHDeck" variant="{{liveVariant}}" cur="{{liveCur}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hint-size="1920px,1080px"></dc-import></sc-if>
+<sc-if value="{{liveInsTH}}" hint-placeholder-val="{{ false }}"><dc-import name="InsTHDeck" variant="{{liveVariant}}" cur="{{liveCur}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hidden="{{liveHidden}}" hint-size="1920px,1080px"></dc-import></sc-if>
 </div>
 <sc-if value="{{livePresenting}}" hint-placeholder-val="{{ false }}"><button class="ix-exit" type="button" onClick="{{stopPresent}}" aria-label="Exit presentation" style="position: absolute; right: 14px; bottom: 14px; z-index: 5; min-height: 32px; padding: 0 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; background-color: rgba(0,0,0,0.5); color: #FFFFFF; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 600; cursor: pointer">Exit</button></sc-if>
 </div>
@@ -722,12 +730,20 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <p style="margin: 8px 0 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 600; font-size: 15px; color: #E6E6E4">{{deckLabel}}</p>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
-<button class="btn" type="button" onClick="{{openObjections}}" aria-label="Open objection handling (only you can see it)" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h10v6.5H7L4 12V9.5H2z"></path><path d="M5 5.5h4M5 7.3h2.5"></path></svg>Objections</button><button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button><button class="btn" type="button" onClick="{{deleteSel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete selected</button><button class="btn" type="button" onClick="{{undoDel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Undo delete</button></sc-if><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button>
+<button class="btn" type="button" onClick="{{openObjections}}" aria-label="Open objection handling (only you can see it)" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h10v6.5H7L4 12V9.5H2z"></path><path d="M5 5.5h4M5 7.3h2.5"></path></svg>Objections</button><button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><button class="btn" type="button" onClick="{{toggleMgr}}" aria-pressed="{{slideMgr}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{mgrBorder}}; border-radius: 6px; background-color: {{mgrBg}}; color: {{mgrColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7s2.2-4 6-4 6 4 6 4-2.2 4-6 4-6-4-6-4z"></path><circle cx="7" cy="7" r="1.6"></circle></svg>{{mgrLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button><button class="btn" type="button" onClick="{{deleteSel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete selected</button><button class="btn" type="button" onClick="{{undoDel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Undo delete</button></sc-if><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button>
 <sc-if value="{{hasPdf}}" hint-placeholder-val="{{ false }}"><a class="btn" href="{{pdfUrl}}" download="{{pdfName}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</a></sc-if>
 <sc-if value="{{noPdf}}" hint-placeholder-val="{{ true }}"><button class="btn" type="button" disabled="{{ true }}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</button></sc-if>
 </div>
 </div>
 
+<sc-if value="{{slideMgr}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020">
+<div style="font-size: 12px; line-height: 1.5; color: #9B9B97">{{hiddenSummary}} Click a slide to hide or show it. Hidden slides are skipped by the arrows, in Present and in the presenter view. The PDF download still has every slide.</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{slideList}}" as="sl" hint-placeholder-count="8"><button type="button" onClick="{{sl.toggle}}" aria-label="{{sl.toggleLabel}}" style="display: inline-flex; align-items: baseline; gap: 8px; max-width: 100%; min-height: 36px; box-sizing: border-box; padding: 6px 12px; border: 1px solid {{sl.bd}}; border-radius: 8px; background-color: {{sl.bg}}; color: #E6E6E4; opacity: {{sl.op}}; font-family: inherit; font-size: 13px; text-align: left; cursor: pointer"><span style="flex: none; font-size: 12px; font-weight: 700; color: #529CCA">{{sl.num}}</span><span style="text-decoration: {{sl.deco}}">{{sl.title}}</span><span style="flex: none; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: {{sl.tagColor}}">{{sl.toggleText}}</span></button></sc-for>
+</div>
+</div>
+</sc-if>
 <sc-if value="{{hasDeck}}" hint-placeholder-val="{{ false }}">
 <div class="deck-row" style="display: flex; align-items: center; justify-content: center; gap: 22px">
 <button class="nav-btn" type="button" aria-label="Previous slide" onClick="{{prevSlide}}" disabled="{{atStart}}" style="flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #529CCA; background-color: transparent; color: #E6E6E4; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3.5L5.5 9l5.5 5.5"></path></svg></button>
@@ -1121,7 +1137,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <span style="font-size: 15px; font-weight: 600; color: #E6E6E4">{{slideTitle}}</span>
 </div>
 <div id="pv-current" data-deck-root="1" style="position: relative; width: 100%; max-width: calc((100vh - 240px) * 16 / 9); aspect-ratio: 16 / 9; overflow: hidden; border: 2px solid #2F80C8; border-radius: 8px; background-color: #000000">
-<sc-if value="{{isLivePv}}" hint-placeholder-val="{{ false }}"><div id="pv-live" data-deck-root="1" style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{pvScale}})"><dc-import name="InsTHDeck" variant="{{liveVariant}}" cur="{{liveCur}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hint-size="1920px,1080px"></dc-import></div></sc-if>
+<sc-if value="{{isLivePv}}" hint-placeholder-val="{{ false }}"><div id="pv-live" data-deck-root="1" style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{pvScale}})"><dc-import name="InsTHDeck" variant="{{liveVariant}}" cur="{{liveCur}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hidden="{{liveHidden}}" hint-size="1920px,1080px"></dc-import></div></sc-if>
 <sc-if value="{{isImageDeck}}" hint-placeholder-val="{{ false }}"><img src="{{currentSrc}}" alt="{{currentAlt}}" style="display: block; width: 100%; height: 100%; object-fit: contain"></sc-if>
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
@@ -1323,7 +1339,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 </sc-if>
 <sc-if value="{{showSlidesTab}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; flex-direction: column; gap: 2px">
-<sc-for list="{{slideList}}" as="sl" hint-placeholder-count="8"><button class="pv-slide {{sl.cls}}" type="button" onClick="{{sl.go}}" aria-current="{{sl.current}}" style="display: flex; gap: 12px; align-items: baseline; width: 100%; padding: 8px 10px; border: none; border-radius: 6px; background-color: transparent; color: #E6E6E4; font-family: inherit; font-size: 14px; text-align: left; cursor: pointer"><span style="flex: none; width: 22px; font-size: 12px; font-weight: 700; color: #529CCA">{{sl.num}}</span><span>{{sl.title}}</span></button></sc-for>
+<sc-for list="{{slideList}}" as="sl" hint-placeholder-count="8"><div style="display: flex; align-items: center; gap: 6px; opacity: {{sl.op}}"><button class="pv-slide {{sl.cls}}" type="button" onClick="{{sl.go}}" aria-current="{{sl.current}}" style="flex: 1; min-width: 0; display: flex; gap: 12px; align-items: baseline; padding: 8px 10px; border: none; border-radius: 6px; background-color: transparent; color: #E6E6E4; font-family: inherit; font-size: 14px; text-align: left; cursor: pointer"><span style="flex: none; width: 22px; font-size: 12px; font-weight: 700; color: #529CCA">{{sl.num}}</span><span style="text-decoration: {{sl.deco}}">{{sl.title}}</span></button><button type="button" onClick="{{sl.toggle}}" aria-label="{{sl.toggleLabel}}" style="flex: none; min-height: 30px; padding: 0 10px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: {{sl.tagColor}}; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer">{{sl.toggleText}}</button></div></sc-for>
 </div>
 </sc-if>
 </div>
@@ -1366,7 +1382,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { active: null, loaded: false, view: 'timeline', phase: null, from: 1, industry: 1, location: 0, slide: 0, presenting: false, notes: ['', '', '', '', '', ''], prospect: '', generating: false, overviewMsg: '', showObjections: false, objCat: 'all', presentMode: null, audienceOpen: false, popupBlocked: false, pvTab: 'notes' };
+    this.state = { active: null, loaded: false, view: 'timeline', phase: null, from: 1, industry: 1, location: 0, slide: 0, presenting: false, notes: ['', '', '', '', '', ''], prospect: '', generating: false, overviewMsg: '', showObjections: false, objCat: 'all', presentMode: null, audienceOpen: false, popupBlocked: false, pvTab: 'notes', slideMgr: false, hiddenTick: 0 };
   }
   componentDidMount() {
     this.timer = setTimeout(() => this.setState({ loaded: true }), 250);
@@ -1560,6 +1576,10 @@ class Component extends DCLogic {
       el.textContent = (h ? h + ':' : '') + String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
     }, 1000);
     this.openAudience();
+    // A hidden first slide is skipped when presenting starts.
+    const hn = this.hiddenNow || [];
+    if (this.liveNow) { if (hn.indexOf(0) >= 0) setTimeout(() => this.liveStep(1), 300); }
+    else if (hn.indexOf(this.state.slide || 0) >= 0) this.step(1);
   }
   audienceHtml() {
     return '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Sarac Ramsay</title>' +
@@ -1661,7 +1681,7 @@ class Component extends DCLogic {
   step(d) {
     if (this.liveNow) { this.liveStep(d); return; }
     const last = this.lastSlideIdx || 0;
-    this.setState((s) => ({ slide: Math.min(Math.max((s.slide || 0) + d, 0), last) }));
+    this.setState((s) => { const c = Math.min(Math.max(s.slide || 0, 0), last); const n = this.nextVisible(c, d); return { slide: n < 0 ? c : n }; });
   }
   // Interactive decks present in this window: the deck box goes full screen and keeps its place in the deck.
   livePresent(e) {
@@ -1674,6 +1694,25 @@ class Component extends DCLogic {
         if (p && p.catch) p.catch(() => {});
       }
     } catch (err) {}
+  }
+  // ---- HIDE / SHOW SLIDES (every deck) ----
+  // Hidden slides are skipped by the arrows, Present, the presenter view and the audience window. Saved in this browser per deck, like text edits.
+  getHidden() {
+    let list = [];
+    try { list = JSON.parse(window.localStorage.getItem('sr-hidden:' + (this.editKey || '')) || '[]') || []; } catch (e) { list = []; }
+    return list.filter((n) => typeof n === 'number');
+  }
+  toggleHidden(i) {
+    const list = this.getHidden();
+    const at = list.indexOf(i);
+    if (at >= 0) list.splice(at, 1); else list.push(i);
+    try { window.localStorage.setItem('sr-hidden:' + (this.editKey || ''), JSON.stringify(list)); } catch (e) {}
+    this.setState({ hiddenTick: Date.now() });
+  }
+  nextVisible(from, d) {
+    const h = this.hiddenNow || [], last = this.lastSlideIdx || 0;
+    for (let i = from + d; i >= 0 && i <= last; i += d) if (h.indexOf(i) < 0) return i;
+    return -1;
   }
   // ---- DELETE ELEMENTS (Edit text mode) ----
   // In Edit text mode a click on anything on a slide selects that element (blue outline). Delete selected (or the Delete key) hides it,
@@ -2175,9 +2214,16 @@ class Component extends DCLogic {
     const inHub = liveDeck && liveAt < 0;
     const slide = Math.min(Math.max(liveDeck ? liveAt : (this.state.slide || 0), 0), lastSlide);
     this.lastSlideIdx = lastSlide;
-    const goSlide = (d) => (liveDeck ? this.liveStep(d) : this.setState((s) => ({ slide: Math.min(Math.max((s.slide || 0) + d, 0), lastSlide) })));
+    const goSlide = (d) => (liveDeck ? this.liveStep(d) : this.step(d));
     const cur = SLIDES[slide] || { title: '', src: '', cue: '' };
     const hasDeck = SLIDES.length > 0;
+    const hid = this.getHidden().filter((n) => n >= 0 && n <= lastSlide);
+    this.hiddenNow = hid;
+    const isVis = (i) => hid.indexOf(i) < 0;
+    const nextVis = (from, d) => { for (let i = from + d; i >= 0 && i <= lastSlide; i += d) if (isVis(i)) return i; return -1; };
+    const visCount = SLIDES.filter((x, i) => isVis(i)).length;
+    const visPos = SLIDES.slice(0, slide + 1).filter((x, i) => isVis(i)).length;
+    const nextI = nextVis(slide, 1);
     const pad = (n) => String(n).padStart(2, '0');
 
     const { active, loaded, phase, from } = this.state;
@@ -2327,20 +2373,20 @@ class Component extends DCLogic {
         cls: i < slide ? 'is-past' : (i === slide ? 'is-current' : 'is-future'),
         z: i < slide ? 100 + i : 100 - (i - slide)
       })),
-      jumps: SLIDES.map((s, i) => ({ s, i })).filter((x) => x.s.cue).map((x) => ({
+      jumps: SLIDES.map((s, i) => ({ s, i })).filter((x) => x.s.cue && isVis(x.i)).map((x) => ({
         num: pad(x.i + 1),
         label: 'Go to slide ' + (x.i + 1) + ': ' + x.s.title,
         cls: x.i === slide ? 'is-on' : '',
         go: () => this.setState({ slide: x.i })
       })),
-      slideNum: inHub ? '--' : pad(slide + 1),
-      slideTotal: SLIDES.length,
+      slideNum: (inHub || !isVis(slide)) ? '--' : pad(visPos),
+      slideTotal: visCount,
       slideTitle: inHub ? 'Chapter overview' : cur.title,
       hasCue: !inHub && !!cur.cue,
       cue: cur.cue,
-      progress: (hasDeck ? (slide + 1) / SLIDES.length * 100 : 0).toFixed(2) + '%',
-      atStart: slide === 0,
-      atEnd: slide === lastSlide,
+      progress: (hasDeck && visCount ? visPos / visCount * 100 : 0).toFixed(2) + '%',
+      atStart: nextVis(slide, -1) < 0,
+      atEnd: nextI < 0,
       prevSlide: () => goSlide(-1),
       nextSlide: () => goSlide(1),
       bookKey: (e) => {
@@ -2373,11 +2419,11 @@ class Component extends DCLogic {
       popupBlocked: !!this.state.popupBlocked,
       openAudience: () => this.openAudience(),
       soloPresent: (e) => this.soloPresent(e),
-      nextIndex: Math.min(slide + 1, lastSlide),
-      hasNext: hasDeck && slide < lastSlide,
-      nextSrc: (SLIDES[slide + 1] || cur).src,
-      nextTitle: SLIDES[slide + 1] ? pad(slide + 2) + '  ' + SLIDES[slide + 1].title : '',
-      nextLabel: SLIDES[slide + 1] ? 'Go to the next slide: ' + SLIDES[slide + 1].title : 'Next slide',
+      nextIndex: nextI < 0 ? slide : nextI,
+      hasNext: hasDeck && nextI >= 0,
+      nextSrc: (SLIDES[nextI] || cur).src,
+      nextTitle: SLIDES[nextI] ? pad(visPos + 1) + '  ' + SLIDES[nextI].title : '',
+      nextLabel: SLIDES[nextI] ? 'Go to the next slide: ' + SLIDES[nextI].title : 'Next slide',
       imageNote: inHub ? 'Pick a chapter in the deck, or press the arrow keys to start.' : (cur.cue || 'No notes for this slide.'),
       pvTabs: [['notes', 'Speaker notes'], ['questions', 'Questions'], ['objections', 'Objections'], ['slides', 'All slides']].map(([key, label]) => ({
         label,
@@ -2399,7 +2445,15 @@ class Component extends DCLogic {
       undoDel: () => this.undoDelete(),
       showQTab: this.state.pvTab === 'questions',
       pvQuestions: QUESTIONS.map((text, i) => ({ id: 'pv-q' + (i + 1), num: pad(i + 1), text, value: this.state.notes[i] || '', onChange: (e) => this.setNote(i, e && e.target ? e.target.value : '') })),
-      slideList: SLIDES.map((x, i) => ({ num: pad(i + 1), title: x.title, cls: i === slide ? 'is-on' : '', current: i === slide ? 'true' : 'false', go: () => (liveDeck ? this.liveGo(i) : this.setState({ slide: i })) })),
+      slideList: SLIDES.map((x, i) => { const h = !isVis(i); return { num: pad(i + 1), title: x.title, cls: i === slide ? 'is-on' : '', current: i === slide ? 'true' : 'false', go: () => (liveDeck ? this.liveGo(i) : this.setState({ slide: i })), toggle: () => this.toggleHidden(i), toggleText: h ? 'Show' : 'Hide', toggleLabel: (h ? 'Show slide ' : 'Hide slide ') + (i + 1) + ': ' + x.title, deco: h ? 'line-through' : 'none', op: h ? '0.5' : '1', tagColor: h ? '#DFAB01' : '#9B9B97', bd: i === slide ? '#2F80C8' : '#2F2F2F', bg: i === slide ? '#1F2D38' : 'transparent' }; }),
+      liveHidden: hid,
+      slideMgr: !!this.state.slideMgr,
+      toggleMgr: () => this.setState((s) => ({ slideMgr: !s.slideMgr })),
+      mgrLabel: hid.length ? 'Slides (' + hid.length + ' hidden)' : 'Hide / show slides',
+      mgrBorder: this.state.slideMgr ? '#C6A667' : '#2F2F2F',
+      mgrBg: this.state.slideMgr ? 'rgba(198,166,103,0.18)' : '#202020',
+      mgrColor: this.state.slideMgr ? '#E6CD94' : '#E6E6E4',
+      hiddenSummary: hid.length ? hid.length + ' of ' + SLIDES.length + ' slides hidden.' : 'All ' + SLIDES.length + ' slides showing.',
       currentSrc: cur.src,
       currentAlt: 'Slide ' + (slide + 1) + ': ' + cur.title,
       startPresent: (e) => { if (!hasDeck) return; this.startPresent(e); },
