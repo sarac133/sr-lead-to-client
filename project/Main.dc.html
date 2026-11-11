@@ -128,6 +128,31 @@ a{color:#529CCA}a:hover{color:#529CCA}
 .who-rep{background-color:#529CCA !important;color:#FFFFFF !important;border-color:#529CCA !important}
 .who-lead{background-color:transparent !important;color:#529CCA !important;border-color:rgba(255,255,255,0.22) !important}
 .fill{color:#529CCA;font-style:normal;font-weight:600}
+.cslide-host section{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#142C49}
+.cslide-host p{white-space:pre-wrap}
+[data-cs-edit]{outline:1px dashed rgba(198,166,103,.65);outline-offset:3px;cursor:text !important;-webkit-user-select:text !important;user-select:text !important}
+[data-cs-edit]:focus{outline:2px solid #C6A667;background-color:rgba(198,166,103,.1)}
+.cs-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);gap:18px;align-items:start}
+.cs-side{position:sticky;top:14px;max-height:calc(100vh - 28px);overflow:auto;display:flex;flex-direction:column;gap:10px}
+@media (max-width: 980px){.cs-grid{grid-template-columns:minmax(0,1fr)}.cs-side{position:static;max-height:none}}
+.cs-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cs-btn{display:inline-flex;align-items:center;min-height:32px;box-sizing:border-box;padding:0 12px;border:1px solid #2F2F2F;border-radius:6px;background-color:#202020;color:#E6E6E4;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer}
+.cs-btn:hover{background-color:#252525}
+.cs-btn.on{border-color:#C6A667;background-color:rgba(198,166,103,.18);color:#E6CD94}
+.cs-btn.sm{min-height:26px;padding:0 8px;font-size:11px}
+.cs-btn.danger:hover{border-color:#B8443B;color:#F2A29B}
+.cs-edit-on [contenteditable]{outline:1px dashed rgba(198,166,103,.65);outline-offset:3px;cursor:text}
+.cs-edit-on [contenteditable]:focus{outline:2px solid #C6A667;background-color:rgba(198,166,103,.08)}
+.cs-ctl{display:none;gap:4px;flex:none;margin-left:auto}
+.cs-edit-on .cs-ctl{display:flex}
+.cs-edit-on .tag{cursor:pointer}
+.cs-p{white-space:pre-wrap}
+.cs-obj{border:1px solid #2F2F2F;border-radius:8px;background-color:#202020;overflow:hidden}
+.cs-obj>summary{list-style:none;display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;font-size:15px;font-weight:600;line-height:1.35;color:#E6E6E4}
+.cs-obj>summary::-webkit-details-marker{display:none}
+.cs-ans{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;border-top:1px solid #2B2B2B}
+.cs-ans-n{flex:none;margin-top:2px;padding:1px 6px;border-radius:6px;background-color:#2F80C8;color:#fff;font-size:11px;font-weight:700}
+.cs-ans p{margin:0;flex:1;min-width:0;font-size:14px;line-height:1.55;color:#E6E6E4}
 .ln{display:flex;align-items:flex-start;gap:12px;padding:9px 14px;border-radius:8px}
 .ln-you{background-color:#1F2D38;border:1px solid #2C5272}
 .ln-them{padding-top:4px;padding-bottom:4px}
@@ -259,7 +284,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <div class="card" style="flex: 1; align-self: stretch; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 16px 16px 14px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020">
 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span style="padding: 2px 5px; border-radius: 6px; background: #2B2B2B; color: #9B9B97; font-family: inherit; font-size: 11px; font-weight: 700">03</span><span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #9B9B97">Stage 03</span><span class="mobile-only" style="flex-basis: 100%; font-family: inherit; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #529CCA">24-48 hrs</span></div>
 <h2 style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 15px; font-weight: 600; line-height: 1.3; color: #E6E6E4">Intro Call</h2>
-<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97">Icebreaker, six questions, intro deck. Book the proposal call.</p>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97">Icebreaker, set the frame, the questions, intro deck. Book the proposal call.</p>
 <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 12px">
 <!-- Intro Presentation: zooms into the intro call flow and deck below -->
 <button id="btn-intro-presentation" class="btn" type="button" onClick="{{openIntro}}" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; box-sizing: border-box; padding: 6px 10px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; line-height: 1.3; letter-spacing: 0; text-transform: none; text-align: center; cursor: pointer"><span style="text-wrap: balance">Intro Presentation</span><svg aria-hidden="true" width="10" height="10" style="flex: none" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"></path></svg></button>
@@ -397,15 +422,35 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #9B9B97">Step 01 · About 5 minutes</div>
 <h2 style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; font-weight: 600; color: #E6E6E4">Icebreaker</h2>
 <p class="quote" style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.55; color: #E6E6E4">“How is it in <span class="sr-ph">{location}</span>? Busy?”</p>
-<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97">Chat naturally, then set the frame:</p>
-<p class="quote" style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.55; color: #E6E6E4">“So this call is about getting to know a bit more about you, your business and your goals in the next 3-4 months, then how, or if, we can help you achieve them.”</p>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01">
+<div style="display: flex; gap: 10px; align-items: baseline"><span style="flex: none; font-size: 12px; font-weight: 700; color: #DFAB01">1.</span><span style="font-size: 14px; font-weight: 600; line-height: 1.45; color: #E6E6E4">Get to know them as a person.</span></div>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97">Ask about:</p>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 1.5; color: #E6E6E4">
+<li>How they started the company</li>
+<li>How long they’ve been in the market</li>
+<li>What they enjoy about the business</li>
+</ul>
+</div>
 </section>
 
-<!-- STEP 02 · TRANSITION -->
+<!-- STEP 02 · SET THE FRAME -->
 <section class="step-panel kpi" style="display: flex; flex-direction: column; gap: 12px; padding: 16px 18px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; animation-delay: 0.05s">
 <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #9B9B97">Step 02</div>
-<h2 style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; font-weight: 600; color: #E6E6E4">Transition</h2>
-<p class="quote" style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.55; color: #E6E6E4">“Great, to make sure I’m actually useful, let me ask a few questions first.”</p>
+<h2 style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; font-weight: 600; color: #E6E6E4">Set the frame</h2>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 12px 14px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01">
+<div style="display: flex; gap: 10px; align-items: baseline"><span style="flex: none; font-size: 12px; font-weight: 700; color: #DFAB01">1.</span><span style="font-size: 14px; font-weight: 600; line-height: 1.45; color: #E6E6E4">Tell them</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.55; color: #E6E6E4">
+<li>I want to understand your situation and goals.</li>
+<li>I’ll show you a little bit about us at the end.</li>
+<li>If we can help you, we’ll put together a personalized strategy plan.</li>
+<li>I’ll walk you through it and a specific case study on a second call.</li>
+</ul>
+<p class="quote" style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.55; color: #E6E6E4">“Does that make sense?” <span style="color: #9B9B97">They say yes.</span></p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 8px; background-color: #252525; border-left: 2px solid #DFAB01">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #DFAB01">Then ask</span>
+<p class="quote" style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.55; color: #E6E6E4">“If we both love this, would you be able to move ahead in the next two weeks? Any travel coming up?”</p>
+</div>
 </section>
 
 <!-- STEP 03 · QUESTIONS (answers are kept in this browser until cleared) -->
@@ -424,7 +469,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
 <sc-for list="{{questions}}" as="q" hint-placeholder-count="6">
 <li class="q-row" style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 10px 24px; align-items: center; padding: 12px 0; border-top: 1px solid #2B2B2B">
-<label for="{{q.id}}" style="display: flex; gap: 12px; align-items: baseline; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.45; color: #E6E6E4"><span style="flex: none; padding: 2px 5px; border-radius: 6px; background: #2B2B2B; color: #9B9B97; font-family: inherit; font-size: 11px; font-weight: 700">{{q.num}}</span><span>{{q.text}}</span></label>
+<label for="{{q.id}}" style="display: flex; gap: 12px; align-items: baseline; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.45; color: #E6E6E4"><span style="flex: none; padding: 2px 5px; border-radius: 6px; background: #2B2B2B; color: #9B9B97; font-family: inherit; font-size: 11px; font-weight: 700">{{q.num}}</span><span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #DFAB01; display: {{q.kindShow}}">{{q.kind}}</span><span>{{q.text}}</span></span></label>
 <input id="{{q.id}}" class="note-in" type="text" value="{{q.value}}" onChange="{{q.onChange}}" placeholder="Their answer" autocomplete="off" style="width: 100%; min-height: 36px; box-sizing: border-box; padding: 10px 14px; border: 1px solid #3A3A3A; border-radius: 8px; background-color: #191919; color: #E6E6E4; font-family: inherit; font-size: 14px">
 </li>
 </sc-for>
@@ -445,17 +490,33 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <p style="margin: 8px 0 0; font-size: 13px; color: #9B9B97">{{deckLabel}}</p>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
-<button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><button class="btn" type="button" onClick="{{toggleMgr}}" aria-pressed="{{slideMgr}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{mgrBorder}}; border-radius: 6px; background-color: {{mgrBg}}; color: {{mgrColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7s2.2-4 6-4 6 4 6 4-2.2 4-6 4-6-4-6-4z"></path><circle cx="7" cy="7" r="1.6"></circle></svg>{{mgrLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button><button class="btn" type="button" onClick="{{deleteSel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete selected</button><button class="btn" type="button" onClick="{{undoDel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Undo delete</button></sc-if><sc-if value="{{showPresentBtn}}" hint-placeholder-val="{{ true }}"><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button></sc-if><sc-if value="{{hasLiveUrl}}" hint-placeholder-val="{{ false }}"><a class="btn-solid" href="{{liveUrl}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Open full-screen copy</a></sc-if>
+<button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><button class="btn" type="button" onClick="{{toggleMgr}}" aria-pressed="{{slideMgr}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{mgrBorder}}; border-radius: 6px; background-color: {{mgrBg}}; color: {{mgrColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7s2.2-4 6-4 6 4 6 4-2.2 4-6 4-6-4-6-4z"></path><circle cx="7" cy="7" r="1.6"></circle></svg>{{mgrLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button><button class="btn" type="button" onClick="{{deleteSel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete selected</button><button class="btn" type="button" onClick="{{undoDel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Undo delete</button><button class="btn" type="button" onClick="{{addText}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Add text box</button></sc-if><sc-if value="{{showPresentBtn}}" hint-placeholder-val="{{ true }}"><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button></sc-if><sc-if value="{{hasLiveUrl}}" hint-placeholder-val="{{ false }}"><a class="btn-solid" href="{{liveUrl}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Open full-screen copy</a></sc-if>
 <sc-if value="{{hasPdf}}" hint-placeholder-val="{{ true }}"><a class="btn" href="{{pdfUrl}}" download="{{pdfName}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</a></sc-if>
 <sc-if value="{{noPdf}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" disabled="{{ true }}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</button></sc-if>
 </div>
 </div>
 <sc-if value="{{slideMgr}}" hint-placeholder-val="{{ false }}">
-<div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020">
-<div style="font-size: 12px; line-height: 1.5; color: #9B9B97">{{hiddenSummary}} Click a slide to hide or show it. Hidden slides are skipped by the arrows, in Present and in the presenter view. The PDF download still has every slide.</div>
-<div style="display: flex; flex-wrap: wrap; gap: 6px">
-<sc-for list="{{slideList}}" as="sl" hint-placeholder-count="8"><button type="button" onClick="{{sl.toggle}}" aria-label="{{sl.toggleLabel}}" style="display: inline-flex; align-items: baseline; gap: 8px; max-width: 100%; min-height: 36px; box-sizing: border-box; padding: 6px 12px; border: 1px solid {{sl.bd}}; border-radius: 8px; background-color: {{sl.bg}}; color: #E6E6E4; opacity: {{sl.op}}; font-family: inherit; font-size: 13px; text-align: left; cursor: pointer"><span style="flex: none; font-size: 12px; font-weight: 700; color: #529CCA">{{sl.num}}</span><span style="text-decoration: {{sl.deco}}">{{sl.title}}</span><span style="flex: none; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: {{sl.tagColor}}">{{sl.toggleText}}</span></button></sc-for>
+<div id="sr-slide-panel" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #E6CD94">Slides</span>
+<span style="font-size: 12px; color: #9B9B97">{{hiddenSummary}}</span>
+<span style="flex: 1"></span>
+<button class="btn" type="button" onClick="{{addBlank}}" style="min-height: 32px; padding: 0 12px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #252525; color: #E6E6E4; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer">+ Blank slide</button>
+<button class="btn" type="button" onClick="{{addTitle}}" style="min-height: 32px; padding: 0 12px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #252525; color: #E6E6E4; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer">+ Title and text</button>
+<button class="btn" type="button" onClick="{{addPicture}}" style="min-height: 32px; padding: 0 12px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #252525; color: #E6E6E4; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer">+ Picture slide</button>
+<button class="btn" type="button" onClick="{{pasteSlide}}" style="min-height: 32px; padding: 0 12px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #252525; color: #E6E6E4; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Paste slide</button>
+<input id="cs-file" type="file" accept="image/*" multiple onChange="{{onFiles}}" style="display: none">
 </div>
+<div style="font-size: 12px; line-height: 1.5; color: #9B9B97">{{slideHelp}}</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{mgrRows}}" as="r" hint-placeholder-count="8"><div style="display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 1px solid {{r.bd}}; border-radius: 8px; background-color: {{r.bg}}; opacity: {{r.op}}"><button type="button" onClick="{{r.go}}" aria-label="{{r.goLabel}}" style="flex: 1; min-width: 0; display: flex; gap: 10px; align-items: baseline; padding: 6px 8px; border: none; background: transparent; color: #E6E6E4; font-family: inherit; font-size: 13px; text-align: left; cursor: pointer"><span style="flex: none; min-width: 22px; font-size: 12px; font-weight: 700; color: #529CCA">{{r.num}}</span><span style="text-decoration: {{r.deco}}; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{r.title}}</span><span style="flex: none; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #C6A667; display: {{r.newShow}}">New</span></button><button type="button" onClick="{{r.toggle}}" aria-label="{{r.toggleLabel}}" style="flex: none; min-height: 28px; padding: 0 9px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: {{r.tagColor}}; font-family: inherit; font-size: 11px; font-weight: 700; cursor: pointer">{{r.toggleText}}</button><button type="button" onClick="{{r.dup}}" aria-label="Duplicate slide {{r.num}}" title="Duplicate (makes an editable copy)" style="flex: none; min-height: 28px; padding: 0 9px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 11px; font-weight: 700; cursor: pointer; display: {{r.dupShow}}">Copy</button><button type="button" onClick="{{r.up}}" aria-label="Move slide {{r.num}} up" style="flex: none; min-height: 28px; padding: 0 8px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 12px; cursor: pointer; display: {{r.moveShow}}">↑</button><button type="button" onClick="{{r.down}}" aria-label="Move slide {{r.num}} down" style="flex: none; min-height: 28px; padding: 0 8px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 12px; cursor: pointer; display: {{r.moveShow}}">↓</button><button type="button" onClick="{{r.del}}" aria-label="Delete slide {{r.num}}" style="flex: none; min-height: 28px; padding: 0 9px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #F2A29B; font-family: inherit; font-size: 11px; font-weight: 700; cursor: pointer">Delete</button></div></sc-for>
+</div>
+<sc-if value="{{hasGone}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 4px; padding-top: 6px; border-top: 1px solid #2B2B2B">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #9B9B97">Deleted slides</span>
+<sc-for list="{{goneRows}}" as="g" hint-placeholder-count="1"><div style="display: flex; align-items: center; gap: 8px; padding: 4px 6px; opacity: 0.8"><span style="flex: 1; min-width: 0; font-size: 13px; color: #9B9B97; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{g.num}}  {{g.title}}</span><button type="button" onClick="{{g.restore}}" style="flex: none; min-height: 28px; padding: 0 10px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 11px; font-weight: 700; cursor: pointer">Restore</button></div></sc-for>
+</div>
+</sc-if>
 </div>
 </sc-if>
 <sc-if value="{{hasStaticDeck}}" hint-placeholder-val="{{ true }}">
@@ -500,7 +561,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <div style="width: 100%; max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px">
 <div id="ix-box" data-deck-root="1" class="ix-box {{lvClass}}">
 <div style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{ixScale}})">
-<sc-if value="{{liveInsTH}}" hint-placeholder-val="{{ false }}"><dc-import name="InsTHDeck" variant="{{liveVariant}}" cur="{{liveCur}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hidden="{{liveHidden}}" hint-size="1920px,1080px"></dc-import></sc-if>
+<sc-if value="{{liveInsTH}}" hint-placeholder-val="{{ false }}"><dc-import name="InsTHDeck" variant="{{liveVariant}}" cur="{{liveCur}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hidden="{{liveHidden}}" extra="{{liveExtra}}" editing="{{editing}}" hint-size="1920px,1080px"></dc-import></sc-if>
 </div>
 <sc-if value="{{livePresenting}}" hint-placeholder-val="{{ false }}"><button class="ix-exit" type="button" onClick="{{stopPresent}}" aria-label="Exit presentation" style="position: absolute; right: 14px; bottom: 14px; z-index: 5; min-height: 32px; padding: 0 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; background-color: rgba(0,0,0,0.5); color: #FFFFFF; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 600; cursor: pointer">Exit</button></sc-if>
 </div>
@@ -558,108 +619,12 @@ a{color:#529CCA}a:hover{color:#529CCA}
 </div>
 </div>
 <div style="height: 1px; background: #2F2F2F"></div>
-<p style="margin: 0; font-size: 12px; line-height: 1.6; color: #9B9B97"><span style="font-weight: 700; color: #E6E6E4">{{scriptName}}</span> · <span class="tag tag-you" style="display: inline-block; width: auto; margin: 0; padding: 1px 6px">You</span> lines are what you say. <span class="tag tag-them" style="display: inline-block; width: auto; margin: 0; padding: 1px 6px">Them</span> lines are what they say. <span class="fill">Blue words</span> fill in from the buttons above. <span class="sr-ph">{Highlighted}</span> parts you fill in on the call.</p>
+<p style="margin: 0; font-size: 12px; line-height: 1.6; color: #9B9B97"><span style="font-weight: 700; color: #E6E6E4">{{scriptName}}</span> · <span class="tag tag-you" style="display: inline-block; width: auto; margin: 0; padding: 1px 6px">You</span> lines are what you say. <span class="tag tag-them" style="display: inline-block; width: auto; margin: 0; padding: 1px 6px">Them</span> lines are what they say. <span class="fill">Blue words</span> fill in from the buttons above (cold scripts: press Edit script to change any line). <span class="sr-ph">{Highlighted}</span> parts you fill in on the call.</p>
 </section>
 
-<!-- COLD CALL · REAL ESTATE FRAMEWORK -->
-<sc-if value="{{showColdRE}}" hint-placeholder-val="{{ true }}">
-<section class="script kpi" style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; animation-delay: 0.2s">
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Hi <span class="sr-ph">{name}</span>, how’s it going? It’s <span class="sr-ph">{your name}</span> from Sarac Ramsay.”</p></div>
-<div class="ln ln-cue"><span class="tag tag-cue">Cue</span><p class="t-cue">Wait.</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Who?” / “Yes, how can I help you?”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Sorry, I can’t hear you very well; there’s a bit of noise on my end. Is this a good time to talk?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yes, I can talk.” / “Can you hear me now?”</p></div>
-<div class="ab ab-test">
-<div class="ab-col"><span class="ab-label">Version A · Event referral</span>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Hey, so I’m calling because I emailed you a couple of weeks back about some investors who mentioned you at an event. Did you get a chance to see it?”</p></div>
-</div>
-<div class="ab-col"><span class="ab-label">Version B · One-agency partnership</span>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“So I sent you an email a week or so back about partnering with one <span class="fill">{{fv.location}}</span> agency to bring in more foreign investor buyers over the next 90 days. Any chance it slipped past you?”</p></div>
-</div>
-</div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“No, I don’t remember an email.” / “Yeah, sorry, I get a lot of emails.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“No problem. So I was at a networking event in <span class="sr-ph">{place}</span> about 5 weeks ago, talking with some high-net-worth investors about <span class="fill">{{fv.location}}</span> opportunities, and your name came up as one of the agencies they recommended. You do work with a lot of investors, right?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yes, we do.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Nice. And are you still actively looking to bring in more foreign investors at the moment, or are you pretty full?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“No, we’re always looking for more investors.”</p></div>
-<div class="ab ab-test">
-<div class="ab-col"><span class="ab-label">Version A · Event referral</span>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Perfect, that’s exactly why I wanted to reach you. So I’m not an investor myself, but I do run a property investment company in Thailand, and off the back of that, we work with real estate companies to help them bring in more foreign investors. We recently helped one agency do <span class="sr-ph">{X in new commissions}</span> in <span class="sr-ph">{Y days}</span>, and I wanted to walk you through how we did it and show you how you could build the same kind of strategy. Would <span class="sr-ph">{day}</span> or <span class="sr-ph">{day}</span> work?”</p></div>
-</div>
-<div class="ab-col"><span class="ab-label">Version B · One-agency partnership</span>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Perfect, that’s exactly why I wanted to reach you. So I’m not an investor myself, but I run a property investment company in Thailand, and off the back of that, we’ve built a system that pulls in over 25 qualified investor leads a week consistently. Now we’re looking to set the same thing up for one real estate company in <span class="fill">{{fv.location}}</span>. I wanted to walk you through how we did it and show you how it could work for your company. Would <span class="sr-ph">{day}</span> or <span class="sr-ph">{day}</span> work?”</p></div>
-</div>
-</div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“<span class="sr-ph">{day}</span> works.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Perfect. And is this the best email to send the invite to: <span class="sr-ph">{email address}</span>?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yes, it is.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Great, I’ve just sent it across. Can you check it came through and hit accept so it’s locked for both of us?”</p></div>
-<div class="ln ln-cue"><span class="tag tag-cue">Cue</span><p class="t-cue">Send the invite now, while they’re on the line.</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yeah, got it, accepted.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Amazing. So I can count on you for <span class="sr-ph">{day}</span> at <span class="sr-ph">{time}</span>, yeah?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yes.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Perfect, looking forward to it. Speak then.”</p></div>
-<div class="ln ln-cue"><span class="tag tag-cue">Cue</span><p class="t-cue">If they push back, go to objection handling. [Cold call objection handling not written yet.]</p></div>
-</section>
-</sc-if>
-
-<!-- COLD CALL · INSURANCE -->
-<sc-if value="{{showColdIns}}" hint-placeholder-val="{{ false }}">
-<section class="script kpi" style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; animation-delay: 0.2s">
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Hey <span class="sr-ph">{first name}</span>, it’s <span class="sr-ph">{your name}</span> from Sarac Ramsay. I know I’m calling out of the blue. Can I have 30 seconds to tell you why I’m calling, and then you can tell me if it’s worth carrying on?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Okay, go ahead.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“We work with <span class="fill">{{fv.industryPlural}}</span> in <span class="fill">{{fv.location}}</span> on their marketing. Quick question: when <span class="fill">{{fv.audience}}</span> in <span class="fill">{{fv.location}}</span> search Google or ask ChatGPT for <span class="fill">{{fv.category}}</span>, does <span class="sr-ph">{company}</span> come up?”</p></div>
-<div class="ab ab3">
-<div class="ab-col"><span class="ab-label">If: not sure</span>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“I’m not sure, to be honest.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“No problem, that’s exactly what I’d like to show you. Before we speak, I’ll check where <span class="sr-ph">{company}</span> comes up on Google, Google Maps and ChatGPT, and where your competitors do. It takes 30 minutes to walk you through it.”</p></div>
-</div>
-<div class="ab-col"><span class="ab-label">If: we have an agency</span>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“We already have someone doing our marketing.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Makes sense. Are you happy with the number of <span class="fill">{{fv.leads}}</span> you’re getting from it?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“It could be better.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“That’s why I’d like 30 minutes. I’ll show you where <span class="sr-ph">{company}</span> comes up today and what we’d change. If it’s no better than what you have, you’ve lost nothing.”</p></div>
-</div>
-<div class="ab-col"><span class="ab-label">If: not interested</span>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Not interested.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Understood. Can I ask, is that because you’re happy with the <span class="fill">{{fv.leads}}</span> you’re getting, or because now isn’t the right time?”</p></div>
-<div class="ln ln-cue"><span class="tag tag-cue">Cue</span><p class="t-cue">If it’s timing, ask when to call back. If they’re happy, thank them and end the call.</p></div>
-</div>
-</div>
-<div class="ln ln-cue"><span class="tag tag-cue">Cue</span><p class="t-cue">Interested answers continue below.</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“So <span class="sr-ph">{first name}</span>, when would be a good time for a quick 30-minute call? I’ve got some time <span class="sr-ph">{day, 24h}</span> or <span class="sr-ph">{day, 48h}</span>. Would either of those work?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yes, that works.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Great. I’ll send you a video call invite. Is this the best email to send it to?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yes, it is.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“And one more thing, <span class="sr-ph">{first name}</span>: can I rely on you to be on this? It’s very important to me that we have this conversation.”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yes, you can.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Perfect, I’ll speak to you on <span class="sr-ph">{day}</span>. Thanks, <span class="sr-ph">{first name}</span>.”</p></div>
-</section>
-</sc-if>
-
-<!-- COLD CALL · LAW FRAMEWORK -->
-<sc-if value="{{showColdLaw}}" hint-placeholder-val="{{ false }}">
-<section class="script kpi" style="display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020; animation-delay: 0.2s">
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Hi <span class="sr-ph">{name}</span>, how’s it going? It’s <span class="sr-ph">{your name}</span> from Sarac Ramsay. Have I caught you at an okay time?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Who?” / “What’s this about?”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“So I sent you an email a week or so back; I wasn’t sure it reached you or got buried. Any chance it slipped past you?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yeah, sorry, I get a lot of emails.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“No worries, happens to everyone. So the short version: right now most foreign investors buying in <span class="fill">{{fv.locationIn}}</span> find their lawyer through their estate agent or a quick Google search. But we’ve been at a few networking events across Europe and Asia recently, speaking with investors looking at <span class="fill">{{fv.country}}</span>, and what they’re telling us is they’re now researching and shortlisting firms through AI like ChatGPT before they pick anyone. Are you guys still actively looking to bring in more foreign clients?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yes, we are.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Got it. And right now, would you say most of your foreign clients still come through agent referrals?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yeah, mostly.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“I figured as much. So what we do is make sure your firm is the one AI recommends when those investors search for a property lawyer in <span class="fill">{{fv.country}}</span>, so you’re not fully dependent on referrals from agents who could send that client anywhere. We used this same approach to bring <span class="sr-ph">{proof}</span>. I had a couple of ideas specific to <span class="sr-ph">{firm}</span>, so it’s worth 15 minutes to show you where you stand right now versus other firms in these AI searches. Would <span class="sr-ph">{day}</span> or <span class="sr-ph">{day}</span> work?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“<span class="sr-ph">{day}</span> works.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Perfect. And is this the best email to send the invite to: <span class="sr-ph">{email address}</span>?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yes, it is.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Great, I’ve just sent it across. Can you check it came through and hit accept so it’s locked for both of us?”</p></div>
-<div class="ln ln-cue"><span class="tag tag-cue">Cue</span><p class="t-cue">Send the invite now, while they’re on the line.</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yeah, got it, accepted.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Amazing. So I can count on you for <span class="sr-ph">{day}</span> at <span class="sr-ph">{time}</span>, yeah?”</p></div>
-<div class="ln ln-them"><span class="tag tag-them">Them</span><p class="t-them">“Yes.”</p></div>
-<div class="ln ln-you"><span class="tag tag-you">You</span><p class="t-you">“Perfect, looking forward to it. Speak then.”</p></div>
-<div class="ln ln-cue"><span class="tag tag-cue">Cue</span><p class="t-cue">If they push back, go to objection handling. [Cold call objection handling not written yet.]</p></div>
-</section>
+<!-- COLD CALLING SCRIPTS: built and edited by the script at the bottom (renderCalling). Script on the left, objections on the right. -->
+<sc-if value="{{showColdScripts}}" hint-placeholder-val="{{ true }}">
+<div id="cs-root" data-no-edit="1"></div>
 </sc-if>
 
 <!-- POSITIVE REPLY SCRIPT (all industries) -->
@@ -730,18 +695,34 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <p style="margin: 8px 0 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 600; font-size: 15px; color: #E6E6E4">{{deckLabel}}</p>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap">
-<button class="btn" type="button" onClick="{{openObjections}}" aria-label="Open objection handling (only you can see it)" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h10v6.5H7L4 12V9.5H2z"></path><path d="M5 5.5h4M5 7.3h2.5"></path></svg>Objections</button><button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><button class="btn" type="button" onClick="{{toggleMgr}}" aria-pressed="{{slideMgr}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{mgrBorder}}; border-radius: 6px; background-color: {{mgrBg}}; color: {{mgrColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7s2.2-4 6-4 6 4 6 4-2.2 4-6 4-6-4-6-4z"></path><circle cx="7" cy="7" r="1.6"></circle></svg>{{mgrLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button><button class="btn" type="button" onClick="{{deleteSel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete selected</button><button class="btn" type="button" onClick="{{undoDel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Undo delete</button></sc-if><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button>
+<button class="btn" type="button" onClick="{{openObjections}}" aria-label="Open objection handling (only you can see it)" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h10v6.5H7L4 12V9.5H2z"></path><path d="M5 5.5h4M5 7.3h2.5"></path></svg>Objections</button><button class="btn" type="button" onClick="{{toggleEdit}}" aria-pressed="{{editing}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{editBorder}}; border-radius: 6px; background-color: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l.6-2.6L9.5 2.5l2 2-6.9 6.9z"></path></svg>{{editLabel}}</button><button class="btn" type="button" onClick="{{toggleMgr}}" aria-pressed="{{slideMgr}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid {{mgrBorder}}; border-radius: 6px; background-color: {{mgrBg}}; color: {{mgrColor}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7s2.2-4 6-4 6 4 6 4-2.2 4-6 4-6-4-6-4z"></path><circle cx="7" cy="7" r="1.6"></circle></svg>{{mgrLabel}}</button><sc-if value="{{editing}}" hint-placeholder-val="{{ false }}"><button class="btn" type="button" onClick="{{resetEdits}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Reset text</button><button class="btn" type="button" onClick="{{deleteSel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete selected</button><button class="btn" type="button" onClick="{{undoDel}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Undo delete</button><button class="btn" type="button" onClick="{{addText}}" style="display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Add text box</button></sc-if><button class="btn-solid" type="button" onClick="{{startPresent}}" disabled="{{noDeck}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 22px; border: none; border-radius: 6px; background-color: #2F80C8; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; cursor: pointer"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2" width="11" height="7.5" rx="1"></rect><path d="M7 9.5V12M4.5 12h5"></path></svg>Present</button>
 <sc-if value="{{hasPdf}}" hint-placeholder-val="{{ false }}"><a class="btn" href="{{pdfUrl}}" download="{{pdfName}}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</a></sc-if>
 <sc-if value="{{noPdf}}" hint-placeholder-val="{{ true }}"><button class="btn" type="button" disabled="{{ true }}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 36px; box-sizing: border-box; padding: 0 20px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v8M3.5 6L7 9.5 10.5 6M2 12.5h10"></path></svg>Download PDF</button></sc-if>
 </div>
 </div>
 
 <sc-if value="{{slideMgr}}" hint-placeholder-val="{{ false }}">
-<div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020">
-<div style="font-size: 12px; line-height: 1.5; color: #9B9B97">{{hiddenSummary}} Click a slide to hide or show it. Hidden slides are skipped by the arrows, in Present and in the presenter view. The PDF download still has every slide.</div>
-<div style="display: flex; flex-wrap: wrap; gap: 6px">
-<sc-for list="{{slideList}}" as="sl" hint-placeholder-count="8"><button type="button" onClick="{{sl.toggle}}" aria-label="{{sl.toggleLabel}}" style="display: inline-flex; align-items: baseline; gap: 8px; max-width: 100%; min-height: 36px; box-sizing: border-box; padding: 6px 12px; border: 1px solid {{sl.bd}}; border-radius: 8px; background-color: {{sl.bg}}; color: #E6E6E4; opacity: {{sl.op}}; font-family: inherit; font-size: 13px; text-align: left; cursor: pointer"><span style="flex: none; font-size: 12px; font-weight: 700; color: #529CCA">{{sl.num}}</span><span style="text-decoration: {{sl.deco}}">{{sl.title}}</span><span style="flex: none; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: {{sl.tagColor}}">{{sl.toggleText}}</span></button></sc-for>
+<div id="sr-slide-panel" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 1px solid #2F2F2F; border-radius: 8px; background-color: #202020">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #E6CD94">Slides</span>
+<span style="font-size: 12px; color: #9B9B97">{{hiddenSummary}}</span>
+<span style="flex: 1"></span>
+<button class="btn" type="button" onClick="{{addBlank}}" style="min-height: 32px; padding: 0 12px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #252525; color: #E6E6E4; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer">+ Blank slide</button>
+<button class="btn" type="button" onClick="{{addTitle}}" style="min-height: 32px; padding: 0 12px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #252525; color: #E6E6E4; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer">+ Title and text</button>
+<button class="btn" type="button" onClick="{{addPicture}}" style="min-height: 32px; padding: 0 12px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #252525; color: #E6E6E4; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer">+ Picture slide</button>
+<button class="btn" type="button" onClick="{{pasteSlide}}" style="min-height: 32px; padding: 0 12px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #252525; color: #E6E6E4; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Paste slide</button>
+<input id="cs-file" type="file" accept="image/*" multiple onChange="{{onFiles}}" style="display: none">
 </div>
+<div style="font-size: 12px; line-height: 1.5; color: #9B9B97">{{slideHelp}}</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{mgrRows}}" as="r" hint-placeholder-count="8"><div style="display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 1px solid {{r.bd}}; border-radius: 8px; background-color: {{r.bg}}; opacity: {{r.op}}"><button type="button" onClick="{{r.go}}" aria-label="{{r.goLabel}}" style="flex: 1; min-width: 0; display: flex; gap: 10px; align-items: baseline; padding: 6px 8px; border: none; background: transparent; color: #E6E6E4; font-family: inherit; font-size: 13px; text-align: left; cursor: pointer"><span style="flex: none; min-width: 22px; font-size: 12px; font-weight: 700; color: #529CCA">{{r.num}}</span><span style="text-decoration: {{r.deco}}; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{r.title}}</span><span style="flex: none; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #C6A667; display: {{r.newShow}}">New</span></button><button type="button" onClick="{{r.toggle}}" aria-label="{{r.toggleLabel}}" style="flex: none; min-height: 28px; padding: 0 9px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: {{r.tagColor}}; font-family: inherit; font-size: 11px; font-weight: 700; cursor: pointer">{{r.toggleText}}</button><button type="button" onClick="{{r.dup}}" aria-label="Duplicate slide {{r.num}}" title="Duplicate (makes an editable copy)" style="flex: none; min-height: 28px; padding: 0 9px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 11px; font-weight: 700; cursor: pointer; display: {{r.dupShow}}">Copy</button><button type="button" onClick="{{r.up}}" aria-label="Move slide {{r.num}} up" style="flex: none; min-height: 28px; padding: 0 8px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 12px; cursor: pointer; display: {{r.moveShow}}">↑</button><button type="button" onClick="{{r.down}}" aria-label="Move slide {{r.num}} down" style="flex: none; min-height: 28px; padding: 0 8px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 12px; cursor: pointer; display: {{r.moveShow}}">↓</button><button type="button" onClick="{{r.del}}" aria-label="Delete slide {{r.num}}" style="flex: none; min-height: 28px; padding: 0 9px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #F2A29B; font-family: inherit; font-size: 11px; font-weight: 700; cursor: pointer">Delete</button></div></sc-for>
+</div>
+<sc-if value="{{hasGone}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 4px; padding-top: 6px; border-top: 1px solid #2B2B2B">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #9B9B97">Deleted slides</span>
+<sc-for list="{{goneRows}}" as="g" hint-placeholder-count="1"><div style="display: flex; align-items: center; gap: 8px; padding: 4px 6px; opacity: 0.8"><span style="flex: 1; min-width: 0; font-size: 13px; color: #9B9B97; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{g.num}}  {{g.title}}</span><button type="button" onClick="{{g.restore}}" style="flex: none; min-height: 28px; padding: 0 10px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 11px; font-weight: 700; cursor: pointer">Restore</button></div></sc-for>
+</div>
+</sc-if>
 </div>
 </sc-if>
 <sc-if value="{{hasDeck}}" hint-placeholder-val="{{ false }}">
@@ -762,6 +743,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}">
 <!-- Editable HTML deck: the slides live in their own artboards (GAds<Location>.dc.html) on this canvas. Edit text and numbers there. -->
 <div class="book" data-deck-root="1" tabIndex="0" role="region" aria-label="Proposal deck. Use the left and right arrow keys to change slides." onKeyDown="{{bookKey}}" style="position: relative; width: 100%; overflow: hidden; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #191919; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.9)">
+<sc-if value="{{origSlide}}" hint-placeholder-val="{{ true }}">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlInsUK}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsDubai" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
@@ -774,6 +756,8 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{htmlInsThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+</sc-if>
+<sc-if value="{{isCustomSlide}}" hint-placeholder-val="{{ false }}"><div class="cslide-host" data-cfill="main" data-no-edit="1" data-cid="{{customId}}" style="width: 100%"></div></sc-if>
 </div>
 </sc-if>
 </div>
@@ -1137,9 +1121,10 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <span style="font-size: 15px; font-weight: 600; color: #E6E6E4">{{slideTitle}}</span>
 </div>
 <div id="pv-current" data-deck-root="1" style="position: relative; width: 100%; max-width: calc((100vh - 240px) * 16 / 9); aspect-ratio: 16 / 9; overflow: hidden; border: 2px solid #2F80C8; border-radius: 8px; background-color: #000000">
-<sc-if value="{{isLivePv}}" hint-placeholder-val="{{ false }}"><div id="pv-live" data-deck-root="1" style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{pvScale}})"><dc-import name="InsTHDeck" variant="{{liveVariant}}" cur="{{liveCur}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hidden="{{liveHidden}}" hint-size="1920px,1080px"></dc-import></div></sc-if>
+<sc-if value="{{isLivePv}}" hint-placeholder-val="{{ false }}"><div id="pv-live" data-deck-root="1" style="position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale({{pvScale}})"><dc-import name="InsTHDeck" variant="{{liveVariant}}" cur="{{liveCur}}" on-move="{{onLiveMove}}" cmd="{{liveCmd}}" hidden="{{liveHidden}}" extra="{{liveExtra}}" editing="{{editing}}" hint-size="1920px,1080px"></dc-import></div></sc-if>
 <sc-if value="{{isImageDeck}}" hint-placeholder-val="{{ false }}"><img src="{{currentSrc}}" alt="{{currentAlt}}" style="display: block; width: 100%; height: 100%; object-fit: contain"></sc-if>
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}">
+<sc-if value="{{origSlide}}" hint-placeholder-val="{{ true }}">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlInsUK}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsDubai" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
@@ -1152,6 +1137,8 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{htmlInsThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+</sc-if>
+<sc-if value="{{isCustomSlide}}" hint-placeholder-val="{{ false }}"><div class="cslide-host" data-cfill="main" data-no-edit="1" data-cid="{{customId}}" style="width: 100%"></div></sc-if>
 </sc-if>
 </div>
 <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
@@ -1180,6 +1167,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{htmlInsThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsThailand" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 <sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
 <sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{nextIndex}}" mode="deck" hint-size="100%,200px"></dc-import></sc-if>
+<sc-if value="{{nextIsCustom}}" hint-placeholder-val="{{ false }}"><div class="cslide-host" data-cfill="main" data-no-edit="1" data-cid="{{nextCustomId}}" style="position: absolute; left: 0; top: 0; width: 100%; z-index: 2; background-color: #000000; pointer-events: none"></div></sc-if>
 </sc-if>
 </button>
 <span style="font-size: 13px; color: #9B9B97">{{nextTitle}}</span>
@@ -1194,6 +1182,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{showNotesTab}}" hint-placeholder-val="{{ true }}">
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}">
 <!-- Speaker notes come from the deck artboard: they sit under each slide there, edit them on the canvas. -->
+<sc-if value="{{origSlide}}" hint-placeholder-val="{{ true }}">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlInsUK}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsUK" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsDubai" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
@@ -1207,13 +1196,14 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 <sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="notes" hint-size="100%,160px"></dc-import></sc-if>
 </sc-if>
+</sc-if>
 <sc-if value="{{showImageNote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 17px; line-height: 1.55; color: #E6E6E4">{{imageNote}}</p></sc-if>
 </sc-if>
 <sc-if value="{{showQTab}}" hint-placeholder-val="{{ false }}">
 <!-- Questions tab: the same answers as Step 03 on the page, so you can type them while presenting. -->
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; flex-direction: column; gap: 6px"><label for="pv-prospect" style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9B9B97">Prospect and company</label><input id="pv-prospect" class="note-in" type="text" value="{{prospect}}" onChange="{{onProspect}}" placeholder="[NAME, COMPANY]" autocomplete="off" style="width: 100%; min-height: 36px; box-sizing: border-box; padding: 8px 10px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 14px"></div>
-<sc-for list="{{pvQuestions}}" as="q" hint-placeholder-count="6"><div style="display: flex; flex-direction: column; gap: 6px"><label for="{{q.id}}" style="display: flex; gap: 8px; font-size: 13px; line-height: 1.4; color: #E6E6E4"><span style="flex: none; font-weight: 700; color: #529CCA">{{q.num}}</span><span>{{q.text}}</span></label><input id="{{q.id}}" class="note-in" type="text" value="{{q.value}}" onChange="{{q.onChange}}" placeholder="Their answer" autocomplete="off" style="width: 100%; min-height: 36px; box-sizing: border-box; padding: 8px 10px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 14px"></div></sc-for>
+<sc-for list="{{pvQuestions}}" as="q" hint-placeholder-count="6"><div style="display: flex; flex-direction: column; gap: 6px"><label for="{{q.id}}" style="display: flex; gap: 8px; font-size: 13px; line-height: 1.4; color: #E6E6E4"><span style="flex: none; font-weight: 700; color: #529CCA">{{q.num}}</span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #DFAB01; display: {{q.kindShow}}">{{q.kind}}</span><span>{{q.text}}</span></span></label><input id="{{q.id}}" class="note-in" type="text" value="{{q.value}}" onChange="{{q.onChange}}" placeholder="Their answer" autocomplete="off" style="width: 100%; min-height: 36px; box-sizing: border-box; padding: 8px 10px; border: 1px solid #2F2F2F; border-radius: 6px; background-color: #202020; color: #E6E6E4; font-family: inherit; font-size: 14px"></div></sc-for>
 </div>
 </sc-if>
 <sc-if value="{{showObjTab}}" hint-placeholder-val="{{ false }}">
@@ -1353,6 +1343,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <div class="present" tabIndex="0" autoFocus="{{ true }}" onKeyDown="{{presentKey}}" role="dialog" aria-modal="true" aria-label="Presenting the intro deck" style="position: fixed; inset: 0; z-index: 1000; background-color: #000000; display: flex; align-items: center; justify-content: center">
 <sc-if value="{{isImageDeck}}" hint-placeholder-val="{{ false }}"><img src="{{currentSrc}}" alt="{{currentAlt}}" onClick="{{nextSlide}}" style="display: block; width: 100vw; height: 100vh; object-fit: contain; cursor: pointer"></sc-if>
 <sc-if value="{{isHtmlDeck}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Next slide" onClick="{{nextSlide}}" style="display: block; width: min(100vw, 177.78vh); padding: 0; border: none; background: transparent; cursor: pointer">
+<sc-if value="{{origSlide}}" hint-placeholder-val="{{ true }}">
 <sc-if value="{{htmlUK}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlInsUK}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsUK" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlDubai}}" hint-placeholder-val="{{ false }}"><dc-import name="GAdsDubai" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
@@ -1365,6 +1356,8 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <sc-if value="{{htmlInsThailand}}" hint-placeholder-val="{{ false }}"><dc-import name="InsGAdsThailand" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlMeta}}" hint-placeholder-val="{{ false }}"><dc-import name="MetaAdsDeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
 <sc-if value="{{htmlSEO}}" hint-placeholder-val="{{ false }}"><dc-import name="SEOAEODeck" slide="{{slideIndex}}" mode="deck" hint-size="100%,540px"></dc-import></sc-if>
+</sc-if>
+<sc-if value="{{isCustomSlide}}" hint-placeholder-val="{{ false }}"><div class="cslide-host" data-cfill="main" data-no-edit="1" data-cid="{{customId}}" style="width: 100%"></div></sc-if>
 </button></sc-if>
 <div class="present-bar" style="position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; background-color: rgba(25,25,25,0.94); border: 1px solid #3A3A3A">
 <button class="nav-btn" type="button" aria-label="Previous slide" onClick="{{prevSlide}}" disabled="{{atStart}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #529CCA; background-color: transparent; color: #E6E6E4; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3.5L5.5 9l5.5 5.5"></path></svg></button>
@@ -1379,17 +1372,19 @@ a{color:#529CCA}a:hover{color:#529CCA}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":810}}'>
+const COLD_DEFAULTS = {"RE-JR": [{"t": "you", "x": "“Hi {name}, how’s it going? It’s {your name} from Sarac Ramsay.”"}, {"t": "cue", "x": "Wait."}, {"t": "them", "x": "“Who?” / “Yes, how can I help you?”"}, {"t": "you", "x": "“Yes, it’s {your name}. I’m giving you a quick call because I sent you an email, maybe a week or 2 ago, about some property investors and wondered if you managed to take a look at it by any chance?”"}, {"t": "them", "x": "“No, what’s it about?”"}, {"t": "you", "x": "“Sure, let me give you a quick overview. So basically, I run a property investment company in Thailand, but I also run a business consulting company where we work with real estate companies around the world to help them get more investors. Right now we’re working with some big brands like Savills and Sotheby’s in the Asian market, but we’re also looking to expand to [[location]].\n\nSo what I was wondering is if you’d be open to me walking you through what we have done in the past and how we could potentially bring you more investors to invest in [[location]] with you in the next 2 to 3 months.”"}, {"t": "cue", "x": "Once they agree, book it: ask for the best email, send the invite now, then confirm the day and time (same close as the MS script)."}, {"t": "cue", "x": "If they push back, use the objections on the right."}], "RE-MS": [{"t": "you", "x": "“Hi {name}, how’s it going? It’s {your name} from Sarac Ramsay.”"}, {"t": "cue", "x": "Wait."}, {"t": "them", "x": "“Who?” / “Yes, how can I help you?”"}, {"t": "you", "x": "“Yeah, it’s {your name} from Sarac Ramsay. Sorry, I can’t hear you very well; there’s a bit of noise on my end. Is this a good time to talk?”"}, {"t": "them", "x": "“Yes, I can talk.” / “Can you hear me now?”"}, {"t": "you", "x": "“Hey yeah, so I’m calling because I sent you an email about a week or 2 ago about some property investors who mentioned you. Did you get a chance to see it?”"}, {"t": "them", "x": "“No, I don’t remember an email.” / “Yeah, sorry, I get a lot of emails.”"}, {"t": "you", "x": "“No problem at all, let me just give you a quick overview. So I was at a networking event recently where I had a chance to speak with some high-net-worth investors about property investment opportunities, and one of them actually mentioned your company. Are you guys looking to bring in more foreign investors at the moment, or are you pretty full?”"}, {"t": "them", "x": "“Yes, we’re always looking for more investors.”"}, {"t": "ab", "test": true, "cols": [{"label": "Version A", "lines": [{"t": "you", "x": "“Perfect, so I’m not an investor myself, but I do run a property investment company in Thailand, and also a business consulting company where we work with real estate companies to help them bring in more investors. Usually, most of our clients see a return of 6 figures within the first month, and I wanted to walk you through our process and show you how you could get more investors yourself. Would {day} or {day} work?”"}]}, {"label": "Version B", "lines": [{"t": "you", "x": "“Perfect, that’s exactly why I wanted to reach you. So I’m not an investor myself, but I run a property investment company in Thailand, and off the back of that, we’ve built a system that pulls in over 25 qualified investor leads a week consistently. Now we’re looking to set the same thing up for one real estate company in [[location]]. I wanted to walk you through how we did it and show you how it could work for your company. Would {day} or {day} work?”"}]}]}, {"t": "them", "x": "“{day} works.”"}, {"t": "you", "x": "“Perfect. And is this the best email to send the invite to {email address}?”"}, {"t": "them", "x": "“Yes, it is.”"}, {"t": "you", "x": "“Great, I’ve just sent it across. Can you check it came through and hit accept so it’s locked for both of us?”"}, {"t": "cue", "x": "Send the invite now, while they’re on the line."}, {"t": "them", "x": "“Yeah, got it, accepted.”"}, {"t": "you", "x": "“Amazing. So I can count on you for {day} at {time}, yeah?”"}, {"t": "them", "x": "“Yes.”"}, {"t": "you", "x": "“Perfect, looking forward to it. Speak then.”"}, {"t": "cue", "x": "If they push back, use the objections on the right."}], "INS": [{"t": "you", "x": "“Hey {first name}, it’s {your name} from Sarac Ramsay. I know I’m calling out of the blue. Can I have 30 seconds to tell you why I’m calling, and then you can tell me if it’s worth carrying on?”"}, {"t": "them", "x": "“Okay, go ahead.”"}, {"t": "you", "x": "“We work with [[industryPlural]] in [[location]] on their marketing. Quick question: when [[audience]] in [[location]] search Google or ask ChatGPT for [[category]], does {company} come up?”"}, {"t": "ab", "test": false, "cols": [{"label": "If: not sure", "lines": [{"t": "them", "x": "“I’m not sure, to be honest.”"}, {"t": "you", "x": "“No problem, that’s exactly what I’d like to show you. Before we speak, I’ll check where {company} comes up on Google, Google Maps and ChatGPT, and where your competitors do. It takes 30 minutes to walk you through it.”"}]}, {"label": "If: we have an agency", "lines": [{"t": "them", "x": "“We already have someone doing our marketing.”"}, {"t": "you", "x": "“Makes sense. Are you happy with the number of [[leads]] you’re getting from it?”"}, {"t": "them", "x": "“It could be better.”"}, {"t": "you", "x": "“That’s why I’d like 30 minutes. I’ll show you where {company} comes up today and what we’d change. If it’s no better than what you have, you’ve lost nothing.”"}]}, {"label": "If: not interested", "lines": [{"t": "them", "x": "“Not interested.”"}, {"t": "you", "x": "“Understood. Can I ask, is that because you’re happy with the [[leads]] you’re getting, or because now isn’t the right time?”"}, {"t": "cue", "x": "If it’s timing, ask when to call back. If they’re happy, thank them and end the call."}]}]}, {"t": "cue", "x": "Interested answers continue below."}, {"t": "you", "x": "“So {first name}, when would be a good time for a quick 30-minute call? I’ve got some time {day, 24h} or {day, 48h}. Would either of those work?”"}, {"t": "them", "x": "“Yes, that works.”"}, {"t": "you", "x": "“Great. I’ll send you a video call invite. Is this the best email to send it to?”"}, {"t": "them", "x": "“Yes, it is.”"}, {"t": "you", "x": "“And one more thing, {first name}: can I rely on you to be on this? It’s very important to me that we have this conversation.”"}, {"t": "them", "x": "“Yes, you can.”"}, {"t": "you", "x": "“Perfect, I’ll speak to you on {day}. Thanks, {first name}.”"}], "LAW": [{"t": "you", "x": "“Hi {name}, how’s it going? It’s {your name} from Sarac Ramsay. Have I caught you at an okay time?”"}, {"t": "them", "x": "“Who?” / “What’s this about?”"}, {"t": "you", "x": "“So I sent you an email a week or so back; I wasn’t sure it reached you or got buried. Any chance it slipped past you?”"}, {"t": "them", "x": "“Yeah, sorry, I get a lot of emails.”"}, {"t": "you", "x": "“No worries, happens to everyone. So the short version: right now most foreign investors buying in [[locationIn]] find their lawyer through their estate agent or a quick Google search. But we’ve been at a few networking events across Europe and Asia recently, speaking with investors looking at [[country]], and what they’re telling us is they’re now researching and shortlisting firms through AI like ChatGPT before they pick anyone. Are you guys still actively looking to bring in more foreign clients?”"}, {"t": "them", "x": "“Yes, we are.”"}, {"t": "you", "x": "“Got it. And right now, would you say most of your foreign clients still come through agent referrals?”"}, {"t": "them", "x": "“Yeah, mostly.”"}, {"t": "you", "x": "“I figured as much. So what we do is make sure your firm is the one AI recommends when those investors search for a property lawyer in [[country]], so you’re not fully dependent on referrals from agents who could send that client anywhere. We used this same approach to bring {proof}. I had a couple of ideas specific to {firm}, so it’s worth 15 minutes to show you where you stand right now versus other firms in these AI searches. Would {day} or {day} work?”"}, {"t": "them", "x": "“{day} works.”"}, {"t": "you", "x": "“Perfect. And is this the best email to send the invite to: {email address}?”"}, {"t": "them", "x": "“Yes, it is.”"}, {"t": "you", "x": "“Great, I’ve just sent it across. Can you check it came through and hit accept so it’s locked for both of us?”"}, {"t": "cue", "x": "Send the invite now, while they’re on the line."}, {"t": "them", "x": "“Yeah, got it, accepted.”"}, {"t": "you", "x": "“Amazing. So I can count on you for {day} at {time}, yeah?”"}, {"t": "them", "x": "“Yes.”"}, {"t": "you", "x": "“Perfect, looking forward to it. Speak then.”"}, {"t": "cue", "x": "If they push back, go to objection handling. [Cold call objection handling not written yet.]"}]};
+const COLD_OBJS = [{"q": "“Send me an email”", "a": ["“Ha, well you missed the last one, right? I’d hate for it to get buried again. It’s genuinely easier if we schedule a 10-minute conversation to go through it and figure out if this is beneficial for both of us, don’t you agree? How does {specific day} look?”", "“Sure, do you want me to send it straight to your spam folder?”", "“No problem, I’ll even send it right now. But tell you what though, I know how emails go, so let me put 15 minutes in for {specific day} as a placeholder time for us to talk more about this. If you’ve read the email by then and think it’s not something for you, we’ll cancel. How about that?”"]}];
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { active: null, loaded: false, view: 'timeline', phase: null, from: 1, industry: 1, location: 0, slide: 0, presenting: false, notes: ['', '', '', '', '', ''], prospect: '', generating: false, overviewMsg: '', showObjections: false, objCat: 'all', presentMode: null, audienceOpen: false, popupBlocked: false, pvTab: 'notes', slideMgr: false, hiddenTick: 0 };
+    this.state = { active: null, loaded: false, view: 'timeline', phase: null, from: 1, industry: 1, location: 0, slide: 0, presenting: false, notes: ['', '', '', '', '', '', '', ''], prospect: '', generating: false, overviewMsg: '', showObjections: false, objCat: 'all', presentMode: null, audienceOpen: false, popupBlocked: false, pvTab: 'notes', slideMgr: false, hiddenTick: 0 };
   }
   componentDidMount() {
     this.timer = setTimeout(() => this.setState({ loaded: true }), 250);
-    // INTRO NOTES: answers to the six questions are remembered in this browser only, until cleared.
+    // INTRO NOTES: answers to the questions are remembered in this browser only, until cleared.
     try {
-      const saved = JSON.parse(window.localStorage.getItem('sr-intro-notes') || 'null');
-      if (Array.isArray(saved)) this.setState({ notes: [0, 1, 2, 3, 4, 5].map((i) => String(saved[i] || '')) });
+      const saved = JSON.parse(window.localStorage.getItem('sr-intro-notes-v2') || 'null');
+      if (Array.isArray(saved)) this.setState({ notes: [0, 1, 2, 3, 4, 5, 6, 7].map((i) => String(saved[i] || '')) });
       const savedProspect = window.localStorage.getItem('sr-intro-prospect');
       if (savedProspect) this.setState({ prospect: String(savedProspect) });
     } catch (e) {}
@@ -1415,6 +1410,8 @@ class Component extends DCLogic {
   componentDidUpdate() {
     this.watchLiveBox();
     this.syncEdit();
+    this.syncCalling();
+    this.csWire(); this.csFillAll(false);
     // Keep the audience window showing exactly the slide on your screen.
     if (!(this.state.presenting && this.state.presentMode === 'presenter')) return;
     const box = document.getElementById('pv-current');
@@ -1432,15 +1429,15 @@ class Component extends DCLogic {
     const notes = this.state.notes.slice();
     notes[i] = value;
     this.setState({ notes });
-    try { window.localStorage.setItem('sr-intro-notes', JSON.stringify(notes)); } catch (e) {}
+    try { window.localStorage.setItem('sr-intro-notes-v2', JSON.stringify(notes)); } catch (e) {}
   }
   setProspect(value) {
     this.setState({ prospect: value });
     try { window.localStorage.setItem('sr-intro-prospect', value); } catch (e) {}
   }
   clearAll(msg) {
-    this.setState({ notes: ['', '', '', '', '', ''], prospect: '', overviewMsg: msg || '' });
-    try { window.localStorage.removeItem('sr-intro-notes'); window.localStorage.removeItem('sr-intro-prospect'); } catch (e) {}
+    this.setState({ notes: ['', '', '', '', '', '', '', ''], prospect: '', overviewMsg: msg || '' });
+    try { window.localStorage.removeItem('sr-intro-notes-v2'); window.localStorage.removeItem('sr-intro-prospect'); } catch (e) {}
   }
   // GENERATE OVERVIEW: builds a branded PDF of the answers, offers it as a download, then clears the answers.
   async generateOverview(deckName, questions) {
@@ -1677,7 +1674,7 @@ class Component extends DCLogic {
   }
   // Interactive deck: the presenter view sends the deck a command (next, back or jump) and it moves like a click would.
   liveStep(d) { this.setState({ liveCmd: { id: Date.now() + Math.random(), step: d } }); }
-  liveGo(i) { const p = (this.livePos || [])[i]; if (p) this.setState({ liveCmd: { id: Date.now() + Math.random(), sec: p[0], pos: p[1] } }); }
+  liveGo(i) { const p = (this.livePos || [])[i]; if (p) this.setState({ liveCmd: { id: Date.now() + Math.random(), sec: p[0], pos: p[1] } }); else if (i >= (this.livePos || []).length) this.setState({ liveCmd: { id: Date.now() + Math.random(), extra: i - (this.livePos || []).length } }); }
   step(d) {
     if (this.liveNow) { this.liveStep(d); return; }
     const last = this.lastSlideIdx || 0;
@@ -1695,24 +1692,443 @@ class Component extends DCLogic {
       }
     } catch (err) {}
   }
-  // ---- HIDE / SHOW SLIDES (every deck) ----
-  // Hidden slides are skipped by the arrows, Present, the presenter view and the audience window. Saved in this browser per deck, like text edits.
-  getHidden() {
-    let list = [];
-    try { list = JSON.parse(window.localStorage.getItem('sr-hidden:' + (this.editKey || '')) || '[]') || []; } catch (e) { list = []; }
-    return list.filter((n) => typeof n === 'number');
+  // ---- COLD CALLING SCRIPTS (editable, saved in this browser) ----
+  // Scripts are lists of lines ({t: you|them|cue, x: text}) and A/B blocks. Words in {braces} are gold fill-ins; [[location]] style words fill in
+  // from the industry and location buttons. Edit script turns every line into a text field and shows add / move / delete buttons.
+  csDefaults() { return COLD_DEFAULTS; }
+  csId() {
+    const ind = this.callINDNow || 'Real Estate';
+    if (ind === 'Insurance') return 'INS';
+    if (ind === 'Law') return 'LAW';
+    return this.csVer === 'MS' ? 'RE-MS' : 'RE-JR';
   }
-  toggleHidden(i) {
-    const list = this.getHidden();
-    const at = list.indexOf(i);
-    if (at >= 0) list.splice(at, 1); else list.push(i);
-    try { window.localStorage.setItem('sr-hidden:' + (this.editKey || ''), JSON.stringify(list)); } catch (e) {}
-    this.setState({ hiddenTick: Date.now() });
+  csLoad(id) {
+    try { const v = JSON.parse(window.localStorage.getItem('sr-script:' + id) || 'null'); if (Array.isArray(v)) return v; } catch (e) {}
+    return JSON.parse(JSON.stringify(COLD_DEFAULTS[id]));
+  }
+  csSave() { try { window.localStorage.setItem('sr-script:' + this.csCurId, JSON.stringify(this.csItems)); } catch (e) {} }
+  csLoadObjs() {
+    try { const v = JSON.parse(window.localStorage.getItem('sr-cold-objs') || 'null'); if (Array.isArray(v)) return v; } catch (e) {}
+    return JSON.parse(JSON.stringify(COLD_OBJS));
+  }
+  csSaveObjs() { try { window.localStorage.setItem('sr-cold-objs', JSON.stringify(this.csObjs)); } catch (e) {} }
+  csEsc(t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  csFmt(t) {
+    const fv = this.fvNow || {};
+    return this.csEsc(t)
+      .replace(/\[\[(\w+)\]\]/g, (m, k) => '<span class="fill">' + this.csEsc(fv[k] != null ? fv[k] : k) + '</span>')
+      .replace(/\{([^{}]+)\}/g, '<span class="sr-ph">{$1}</span>');
+  }
+  csLine(l, path) {
+    const tag = { you: 'You', them: 'Them', cue: 'Cue' }[l.t] || 'You';
+    const ed = this.csEdit;
+    const txt = ed ? this.csEsc(l.x) : this.csFmt(l.x);
+    return '<div class="ln ln-' + l.t + '" data-path="' + path + '"><span class="tag tag-' + l.t + '" data-act="type" title="Click to change who says it">' + tag + '</span>' +
+      '<p class="t-' + l.t + ' cs-p"' + (ed ? ' contenteditable="plaintext-only" data-f="x" spellcheck="false"' : '') + '>' + txt + '</p>' +
+      '<span class="cs-ctl"><button type="button" class="cs-btn sm" data-act="up" title="Move up">↑</button><button type="button" class="cs-btn sm" data-act="down" title="Move down">↓</button><button type="button" class="cs-btn sm" data-act="addAfter" title="Add a line below">+</button><button type="button" class="cs-btn sm danger" data-act="del" title="Delete line">×</button></span></div>';
+  }
+  csRenderScript() {
+    const ed = this.csEdit, items = this.csItems;
+    let h = '';
+    items.forEach((it, i) => {
+      if (it.t === 'ab') {
+        h += '<div class="ab ' + (it.test ? 'ab-test' : 'ab3') + '" data-path="' + i + '">';
+        it.cols.forEach((c, ci) => {
+          h += '<div class="ab-col"><span class="ab-label"' + (ed ? ' contenteditable="plaintext-only" data-f="label" data-col="' + ci + '" spellcheck="false"' : '') + '>' + this.csEsc(c.label) + '</span>';
+          c.lines.forEach((l, li) => { h += this.csLine(l, i + '.' + ci + '.' + li); });
+          if (ed) h += '<div class="cs-bar"><button type="button" class="cs-btn sm" data-act="addColLine" data-path="' + i + '.' + ci + '">+ line</button>' + (it.cols.length > 1 ? '<button type="button" class="cs-btn sm danger" data-act="delCol" data-path="' + i + '.' + ci + '">Remove this option</button>' : '') + '</div>';
+          h += '</div>';
+        });
+        if (ed) h += '<div class="cs-bar" style="grid-column:1 / -1;padding:8px 14px;border-top:1px solid #2C5272"><button type="button" class="cs-btn sm" data-act="addCol" data-path="' + i + '">+ option</button><button type="button" class="cs-btn sm" data-act="up" data-path="' + i + '">↑</button><button type="button" class="cs-btn sm" data-act="down" data-path="' + i + '">↓</button><button type="button" class="cs-btn sm danger" data-act="del" data-path="' + i + '">Delete this A/B block</button></div>';
+        h += '</div>';
+      } else h += this.csLine(it, String(i));
+    });
+    if (ed) h += '<div class="cs-bar" style="padding-top:6px"><button type="button" class="cs-btn" data-act="addEnd" data-kind="you">+ You line</button><button type="button" class="cs-btn" data-act="addEnd" data-kind="them">+ Them line</button><button type="button" class="cs-btn" data-act="addEnd" data-kind="cue">+ Cue</button><button type="button" class="cs-btn" data-act="addAB">+ Options (A/B)</button></div>';
+    return h;
+  }
+  csRenderObjs() {
+    const ed = this.csEdit;
+    let h = '<div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px"><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#DFAB01">Objections</div><div style="font-size:11px;color:#9B9B97">Each arrow is another way to say it</div></div>';
+    this.csObjs.forEach((o, i) => {
+      h += '<details class="cs-obj" open data-oi="' + i + '"><summary><span style="flex:none;color:#DFAB01">“</span><span style="flex:1"' + (ed ? ' contenteditable="plaintext-only" data-of="q" spellcheck="false"' : '') + '>' + this.csEsc(o.q.replace(/^[“"]|[”"]$/g, '')) + '</span>' + (ed ? '<button type="button" class="cs-btn sm danger" data-oact="delObj" title="Delete this objection">×</button>' : '') + '</summary>';
+      o.a.forEach((a, ai) => {
+        h += '<div class="cs-ans" data-ai="' + ai + '"><span class="cs-ans-n">→</span><p class="cs-p"' + (ed ? ' contenteditable="plaintext-only" data-of="a" spellcheck="false"' : '') + '>' + (ed ? this.csEsc(a) : this.csFmt(a)) + '</p>' + (ed ? '<button type="button" class="cs-btn sm danger" data-oact="delAns" title="Delete this answer">×</button>' : '') + '</div>';
+      });
+      if (ed) h += '<div class="cs-bar" style="padding:8px 14px;border-top:1px solid #2B2B2B"><button type="button" class="cs-btn sm" data-oact="addAns">+ another way to say it</button></div>';
+      h += '</details>';
+    });
+    if (ed) h += '<button type="button" class="cs-btn" data-oact="addObj">+ Add objection</button>';
+    if (!this.csObjs.length) h += '<div style="font-size:13px;color:#9B9B97">No objections yet. Press Edit script, then Add objection.</div>';
+    return h;
+  }
+  renderCalling() {
+    const root = document.getElementById('cs-root');
+    if (!root) return;
+    const id = this.csId();
+    if (this.csCurId !== id || !this.csItems) { this.csCurId = id; this.csItems = this.csLoad(id); }
+    if (!this.csObjs) this.csObjs = this.csLoadObjs();
+    const ed = this.csEdit, re = (this.callINDNow || 'Real Estate') === 'Real Estate';
+    root.className = ed ? 'cs-edit-on' : '';
+    root.innerHTML = '<div class="cs-grid"><div style="display:flex;flex-direction:column;gap:12px;min-width:0">' +
+      '<div class="cs-bar">' +
+      (re ? '<button type="button" class="cs-btn' + (this.csVer !== 'MS' ? ' on' : '') + '" data-ver="JR">JR script</button><button type="button" class="cs-btn' + (this.csVer === 'MS' ? ' on' : '') + '" data-ver="MS">MS script</button>' : '') +
+      '<span style="flex:1"></span><button type="button" class="cs-btn' + (ed ? ' on' : '') + '" data-act="toggleEdit">' + (ed ? 'Done editing' : 'Edit script') + '</button>' +
+      (ed ? '<button type="button" class="cs-btn" data-act="reset" title="Put this script back to the original">Reset script</button>' : '') + '</div>' +
+      '<section class="script kpi" style="display:flex;flex-direction:column;gap:10px;padding:18px;border:1px solid #2F2F2F;border-radius:8px;background-color:#202020">' + this.csRenderScript() + '</section></div>' +
+      '<aside class="cs-side" aria-label="Objection handling">' + this.csRenderObjs() + '</aside></div>';
+    root.__sig = this.csSig();
+  }
+  csSig() { const fv = this.fvNow || {}; return [this.csId(), this.csEdit ? 1 : 0, this.csVer, fv.location, fv.industryPlural, fv.audience, fv.leads, fv.country, fv.locationIn, fv.category].join('|'); }
+  syncCalling() {
+    const root = document.getElementById('cs-root');
+    if (!root) return;
+    if (!root.__wired) {
+      root.__wired = true;
+      root.addEventListener('click', (e) => this.csClick(e));
+      root.addEventListener('focusout', (e) => this.csBlur(e));
+      root.addEventListener('keydown', (e) => { if (e.target && e.target.isContentEditable) { e.stopPropagation(); if (e.key === 'Escape') e.target.blur(); } });
+    }
+    if (root.__sig !== this.csSig() || !root.firstChild) this.renderCalling();
+  }
+  csGet(path) {
+    const p = String(path).split('.').map(Number);
+    if (p.length === 1) return { arr: this.csItems, i: p[0], item: this.csItems[p[0]] };
+    const col = this.csItems[p[0]].cols[p[1]];
+    if (p.length === 2) return { col, ab: this.csItems[p[0]], ci: p[1] };
+    return { arr: col.lines, i: p[2], item: col.lines[p[2]] };
+  }
+  csClick(e) {
+    const t = e.target && e.target.closest ? e.target.closest('[data-act],[data-oact],[data-ver]') : null;
+    if (!t) return;
+    e.preventDefault();
+    const root = document.getElementById('cs-root');
+    if (t.dataset.ver) { this.csVer = t.dataset.ver; this.renderCalling(); return; }
+    if (t.dataset.oact) {
+      const card = t.closest('[data-oi]'), oi = card ? Number(card.dataset.oi) : -1;
+      const act = t.dataset.oact;
+      if (act === 'addObj') this.csObjs.push({ q: 'New objection', a: ['“Type what you say here.”'] });
+      else if (act === 'delObj') this.csObjs.splice(oi, 1);
+      else if (act === 'addAns') this.csObjs[oi].a.push('“Another way to say it.”');
+      else if (act === 'delAns') { const ai = Number(t.closest('[data-ai]').dataset.ai); this.csObjs[oi].a.splice(ai, 1); }
+      this.csSaveObjs(); this.renderCalling(); return;
+    }
+    const act = t.dataset.act;
+    if (act === 'toggleEdit') { this.csEdit = !this.csEdit; this.renderCalling(); return; }
+    if (act === 'reset') { try { window.localStorage.removeItem('sr-script:' + this.csCurId); } catch (er) {} this.csItems = this.csLoad(this.csCurId); this.renderCalling(); return; }
+    if (act === 'addEnd') { this.csItems.push({ t: t.dataset.kind, x: t.dataset.kind === 'cue' ? 'Type a cue here.' : '“Type here.”' }); }
+    else if (act === 'addAB') { this.csItems.push({ t: 'ab', test: true, cols: [{ label: 'Version A', lines: [{ t: 'you', x: '“Type here.”' }] }, { label: 'Version B', lines: [{ t: 'you', x: '“Type here.”' }] }] }); }
+    else {
+      const holder = t.closest('[data-path]');
+      const path = t.dataset.path || (holder && holder.dataset.path);
+      if (path == null) return;
+      const g = this.csGet(path);
+      if (act === 'type') { const order = ['you', 'them', 'cue']; g.item.t = order[(order.indexOf(g.item.t) + 1) % 3]; }
+      else if (act === 'up' && g.arr && g.i > 0) { const a = g.arr; [a[g.i - 1], a[g.i]] = [a[g.i], a[g.i - 1]]; }
+      else if (act === 'down' && g.arr && g.i < g.arr.length - 1) { const a = g.arr; [a[g.i + 1], a[g.i]] = [a[g.i], a[g.i + 1]]; }
+      else if (act === 'del' && g.arr) g.arr.splice(g.i, 1);
+      else if (act === 'addAfter' && g.arr) g.arr.splice(g.i + 1, 0, { t: g.item.t === 'you' ? 'them' : 'you', x: '“Type here.”' });
+      else if (act === 'addColLine') g.col.lines.push({ t: 'you', x: '“Type here.”' });
+      else if (act === 'delCol') g.ab.cols.splice(g.ci, 1);
+      else if (act === 'addCol') this.csItems[Number(path)].cols.push({ label: 'Version ' + String.fromCharCode(65 + this.csItems[Number(path)].cols.length), lines: [{ t: 'you', x: '“Type here.”' }] });
+    }
+    this.csSave(); this.renderCalling();
+  }
+  csBlur(e) {
+    const el = e.target;
+    if (!el || !el.isContentEditable) return;
+    const val = (el.innerText != null ? el.innerText : el.textContent).replace(/ /g, ' ').replace(/\s+$/g, '');
+    if (el.dataset.of) {
+      const card = el.closest('[data-oi]'); if (!card) return;
+      const o = this.csObjs[Number(card.dataset.oi)];
+      if (el.dataset.of === 'q') o.q = '“' + val + '”'; else o.a[Number(el.closest('[data-ai]').dataset.ai)] = val;
+      this.csSaveObjs(); return;
+    }
+    const holder = el.closest('[data-path]'); if (!holder) return;
+    if (el.dataset.f === 'label') { const g = this.csGet(holder.dataset.path); this.csItems[Number(holder.dataset.path)].cols[Number(el.dataset.col)].label = val; }
+    else { const g = this.csGet(holder.dataset.path); g.item.x = val; }
+    this.csSave();
+  }
+  // ---- SLIDES: order, hide, delete, add, duplicate, paste (every deck) ----
+  // Saved in this browser per deck. Tokens: "o3" = original slide 3 of the deck, "c..." = a slide you added.
+  dsRead(name, fallback) {
+    const key = 'sr-' + name + ':' + (this.editKey || '');
+    let raw = null;
+    try { raw = window.localStorage.getItem(key); } catch (e) {}
+    if (!this.dsCache) this.dsCache = {};
+    const c = this.dsCache[key];
+    if (c && c.raw === raw) return c.val;
+    let val = fallback;
+    try { if (raw != null) val = JSON.parse(raw); } catch (e) { val = fallback; }
+    if (val == null) val = fallback;
+    this.dsCache[key] = { raw, val };
+    return val;
+  }
+  dsWrite(name, value) {
+    const key = 'sr-' + name + ':' + (this.editKey || '');
+    const raw = JSON.stringify(value);
+    try { window.localStorage.setItem(key, raw); this.dsCache = this.dsCache || {}; this.dsCache[key] = { raw, val: value }; return true; }
+    catch (e) { this.setState({ overviewMsg: '' }); try { window.alert('The browser has no space left to save this. Delete a picture slide and try again.'); } catch (e2) {} return false; }
+  }
+  deckState(n) {
+    const customs = this.dsRead('custom', {}) || {};
+    const gone = (this.dsRead('gone', []) || []).map(String);
+    const hidden = (this.dsRead('hidden', []) || []).map((x) => (typeof x === 'number' ? 'o' + x : String(x)));
+    const valid = (t) => (/^o\d+$/.test(t) ? (Number(t.slice(1)) < n && gone.indexOf(t) < 0) : !!customs[t]);
+    const order = [];
+    ((this.dsRead('order', []) || [])).forEach((t) => { if (valid(t) && order.indexOf(t) < 0) order.push(t); });
+    for (let i = 0; i < n; i++) { const t = 'o' + i; if (order.indexOf(t) < 0 && gone.indexOf(t) < 0) order.push(t); }
+    Object.keys(customs).forEach((t) => { if (order.indexOf(t) < 0) order.push(t); });
+    return { order, gone, hidden, customs };
+  }
+  dsCommit(patch, slideTok) {
+    const d = this.dsNow || this.deckState(0);
+    const next = Object.assign({ order: d.order, gone: d.gone, hidden: d.hidden, customs: d.customs }, patch);
+    if (patch.customs) this.dsWrite('custom', next.customs);
+    if (patch.order) this.dsWrite('order', next.order);
+    if (patch.gone) this.dsWrite('gone', next.gone);
+    if (patch.hidden) this.dsWrite('hidden', next.hidden);
+    const st = { deckTick: Date.now() };
+    if (slideTok && !this.liveNow) { const at = next.order.indexOf(slideTok); if (at >= 0) st.slide = at; }
+    this.setState(st);
+  }
+  toggleHidden(tok) {
+    const h = (this.dsNow ? this.dsNow.hidden : []).slice();
+    const at = h.indexOf(tok);
+    if (at >= 0) h.splice(at, 1); else h.push(tok);
+    this.dsCommit({ hidden: h });
+  }
+  deleteSlide(tok) {
+    const d = this.dsNow;
+    if (tok[0] === 'c') {
+      const customs = Object.assign({}, d.customs); delete customs[tok];
+      this.dsCommit({ customs, order: d.order.filter((t) => t !== tok), hidden: d.hidden.filter((t) => t !== tok) });
+    } else {
+      this.dsCommit({ gone: d.gone.concat([tok]), order: d.order.filter((t) => t !== tok) });
+    }
+  }
+  restoreSlide(tok) {
+    const d = this.dsNow;
+    const i = Number(tok.slice(1));
+    const order = d.order.slice();
+    let at = order.length;
+    for (let k = 0; k < order.length; k++) { if (/^o\d+$/.test(order[k]) && Number(order[k].slice(1)) > i) { at = k; break; } }
+    order.splice(at, 0, tok);
+    this.dsCommit({ gone: d.gone.filter((t) => t !== tok), order }, tok);
+  }
+  moveSlide(tok, dir) {
+    const d = this.dsNow;
+    const order = d.order.slice();
+    const at = order.indexOf(tok), to = at + dir;
+    if (at < 0 || to < 0 || to >= order.length) return;
+    if (this.liveNow) { // only the added slides move in the interactive deck: swap with the neighbouring added slide
+      const cs = order.filter((t) => t[0] === 'c'); const ci = cs.indexOf(tok), cj = ci + dir;
+      if (cj < 0 || cj >= cs.length) return;
+      const a = order.indexOf(cs[ci]), b = order.indexOf(cs[cj]);
+      [order[a], order[b]] = [order[b], order[a]];
+    } else { [order[at], order[to]] = [order[to], order[at]]; }
+    this.dsCommit({ order }, this.liveNow ? null : tok);
   }
   nextVisible(from, d) {
     const h = this.hiddenNow || [], last = this.lastSlideIdx || 0;
     for (let i = from + d; i >= 0 && i <= last; i += d) if (h.indexOf(i) < 0) return i;
     return -1;
+  }
+  newId() { return 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5); }
+  insertAfterTok() {
+    const sl = this.slidesNow || [];
+    if (this.liveNow) { const last = sl.filter((x) => x.custom).pop(); return last ? last.tok : null; }
+    const cur = sl[Math.min(Math.max(this.state.slide || 0, 0), Math.max(sl.length - 1, 0))];
+    return cur ? cur.tok : null;
+  }
+  addCustom(slide) {
+    const d = this.dsNow;
+    const id = this.newId();
+    const customs = Object.assign({}, d.customs); customs[id] = slide;
+    const order = d.order.slice();
+    const after = this.insertAfterTok();
+    const at = after ? order.indexOf(after) : -1;
+    if (this.liveNow) order.push(id); else order.splice(at < 0 ? order.length : at + 1, 0, id);
+    this.dsCommit({ customs, order }, id);
+    if (this.liveNow) { const idx = (this.baseNow || []).length + order.filter((t) => t[0] === 'c').indexOf(id); setTimeout(() => this.liveGo(idx), 120); }
+    return id;
+  }
+  csStyle(bg) { return 'position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; container-type: inline-size; background-color: ' + bg; }
+  addSlide(kind) {
+    if (kind === 'title') {
+      this.addCustom({ title: 'New slide', style: this.csStyle('#142C49'), html:
+        '<div style="position: absolute; left: 7%; top: 11%; width: 86%; height: 17%; box-sizing: border-box"><p style="margin: 0; font-family: \'Newsreader\', Georgia, serif; font-size: 4.4cqw; line-height: 1.15; color: #FFFFFF">Slide title</p></div>' +
+        '<div style="position: absolute; left: 7%; top: 34%; width: 86%; height: 56%; box-sizing: border-box"><p style="margin: 0 0 1.2cqw; font-size: 2cqw; line-height: 1.5; color: rgba(255,255,255,0.88)">First point</p><p style="margin: 0 0 1.2cqw; font-size: 2cqw; line-height: 1.5; color: rgba(255,255,255,0.88)">Second point</p><p style="margin: 0; font-size: 2cqw; line-height: 1.5; color: rgba(255,255,255,0.88)">Third point</p></div>' });
+    } else {
+      this.addCustom({ title: 'Blank slide', style: this.csStyle('#FFFFFF'), html: '' });
+    }
+  }
+  addTextBox() {
+    const host = this.activeCustomHost();
+    if (!host) return;
+    const sec = host.querySelector('section'); if (!sec) return;
+    const d = document.createElement('div');
+    d.setAttribute('style', 'position: absolute; left: 12%; top: 40%; width: 60%; height: 12%; box-sizing: border-box');
+    d.innerHTML = '<p style="margin: 0; font-size: 2.4cqw; line-height: 1.4; color: #142C49">Text</p>';
+    sec.appendChild(d);
+    this.csSaveHost(host); this.csFillAll(true);
+  }
+  activeCustomHost() {
+    const hs = Array.prototype.slice.call(document.querySelectorAll('.cslide-host[data-cid]'));
+    return hs.find((h) => h.dataset.cid && h.getClientRects().length && !h.closest('#pv-next')) || null;
+  }
+  // Picture slides: downscale so many of them fit in the browser's storage.
+  imageToSlide(src, name) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        const max = 1920, k = Math.min(1, max / Math.max(img.width, img.height));
+        const c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+        const g = c.getContext('2d'); g.fillStyle = '#FFFFFF'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
+        let url = ''; try { url = c.toDataURL('image/jpeg', 0.86); } catch (e) { url = src; }
+        resolve({ title: name || 'Picture slide', style: this.csStyle('#000000'), html: '<img alt="" src="' + url + '" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain">' });
+      };
+      img.onerror = () => resolve(null);
+      img.src = src;
+    });
+  }
+  async addImageFiles(files) {
+    for (const f of files) {
+      if (!/^image\//.test(f.type)) continue;
+      const src = await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.onerror = () => r(''); fr.readAsDataURL(f); });
+      if (!src) continue;
+      const nm = (f.name || '').replace(/\.[a-z0-9]+$/i, '');
+      const sl = await this.imageToSlide(src, (!nm || /^(image|x|pasted)/i.test(nm)) ? 'Pasted slide' : nm);
+      if (sl) { this.dsNow = this.deckState((this.baseNow || []).length); this.addCustom(sl); await new Promise((r) => setTimeout(r, 60)); }
+    }
+  }
+  onFiles(e) {
+    const input = e && e.target; if (!input || !input.files) return;
+    const files = Array.prototype.slice.call(input.files);
+    this.addImageFiles(files).then(() => { try { input.value = ''; } catch (er) {} });
+  }
+  async pasteSlide() {
+    try {
+      const items = await navigator.clipboard.read();
+      const files = [];
+      for (const it of items) { for (const type of it.types) { if (/^image\//.test(type)) { const blob = await it.getType(type); files.push(new File([blob], 'Pasted slide', { type })); break; } } }
+      if (files.length) { await this.addImageFiles(files); return; }
+      const text = await navigator.clipboard.readText();
+      if (text && text.trim()) { this.addTextSlide(text); return; }
+    } catch (e) {}
+    try { window.alert('Press Ctrl/Cmd+V on this page to paste a slide picture or text from PowerPoint.'); } catch (e) {}
+  }
+  addTextSlide(text) {
+    const lines = String(text).replace(/\r/g, '').split('\n').map((l) => l.trim()).filter(Boolean);
+    if (!lines.length) return;
+    const esc = (t) => this.csEsc(t);
+    const title = lines[0].slice(0, 90);
+    const body = lines.slice(1).map((l) => '<p style="margin: 0 0 1.2cqw; font-size: 2cqw; line-height: 1.5; color: rgba(255,255,255,0.88)">' + esc(l) + '</p>').join('');
+    this.addCustom({ title: title.slice(0, 40), style: this.csStyle('#142C49'), html:
+      '<div style="position: absolute; left: 7%; top: 11%; width: 86%; height: 17%; box-sizing: border-box"><p style="margin: 0; font-family: \'Newsreader\', Georgia, serif; font-size: 4.4cqw; line-height: 1.15; color: #FFFFFF">' + esc(title) + '</p></div>' +
+      '<div style="position: absolute; left: 7%; top: 34%; width: 86%; height: 56%; box-sizing: border-box">' + body + '</div>' });
+  }
+  // Duplicate: the copy is a picture-perfect, fully editable slide of its own (changes to it never touch the original).
+  duplicateSlide(tok) {
+    const d = this.dsNow;
+    if (tok[0] === 'c') {
+      const src = d.customs[tok]; if (!src) return;
+      this.addCustomAfter(tok, { title: src.title + ' (copy)', style: src.style, html: src.html });
+      return;
+    }
+    const idx = (this.slidesNow || []).findIndex((x) => x.tok === tok);
+    if (idx < 0) return;
+    const go = () => {
+      const roots = Array.prototype.slice.call(document.querySelectorAll('.book[data-deck-root]'));
+      const sec = roots.map((r) => r.querySelector('section[aria-label^="Slide"]')).find((x) => x && x.getClientRects().length);
+      if (!sec) { try { window.alert('Open the slide first, then press Copy.'); } catch (e) {} return; }
+      const clone = sec.cloneNode(true);
+      clone.querySelectorAll('[data-sr-deleted]').forEach((x) => x.remove());
+      clone.querySelectorAll('[data-sr-edit],[data-sr-sel],[contenteditable]').forEach((x) => { x.removeAttribute('data-sr-edit'); x.removeAttribute('data-sr-sel'); x.removeAttribute('contenteditable'); x.removeAttribute('spellcheck'); });
+      const bg = (sec.getAttribute('style') || '').match(/background(?:-color)?:\s*([^;]+)/);
+      const title = (this.slidesNow[idx].title || 'Slide') + ' (copy)';
+      this.addCustomAfter(tok, { title, style: this.csStyle(bg ? bg[1] : '#FFFFFF'), html: clone.innerHTML });
+    };
+    if ((this.state.slide || 0) === idx) go(); else { this.setState({ slide: idx }); setTimeout(go, 450); }
+  }
+  addCustomAfter(tok, slide) {
+    const d = this.dsNow;
+    const id = this.newId();
+    const customs = Object.assign({}, d.customs); customs[id] = slide;
+    const order = d.order.slice();
+    const at = order.indexOf(tok);
+    if (this.liveNow) order.push(id); else order.splice(at < 0 ? order.length : at + 1, 0, id);
+    this.dsCommit({ customs, order }, id);
+    if (this.liveNow) { const idx = (this.baseNow || []).length + order.filter((t) => t[0] === 'c').indexOf(id); setTimeout(() => this.liveGo(idx), 120); }
+  }
+  // ---- Added slides on screen: filled in by script (they are plain HTML), made editable in Edit text mode ----
+  csHostHtml(cid) {
+    const c = (this.dsNow && this.dsNow.customs[cid]) || null;
+    if (!c) return '';
+    const n = (this.slidesNow || []).findIndex((x) => x.tok === cid);
+    return '<section aria-label="Added slide ' + (n + 1) + ': ' + this.csEsc(c.title) + '" style="' + this.csEsc(c.style) + '">' + c.html + '</section>';
+  }
+  csFillAll(force) {
+    const editing = !!this.state.editing;
+    document.querySelectorAll('.cslide-host[data-cfill="main"]').forEach((host) => {
+      const cid = host.dataset.cid || '';
+      const c = this.dsNow && this.dsNow.customs[cid];
+      const sig = cid + '|' + (c ? c.html.length + ':' + c.style : '');
+      if (host.__sig === sig && host.firstChild && host.__ed === editing) return;
+      if (host.contains(document.activeElement) && document.activeElement.isContentEditable) return;
+      if (host.__sig !== sig || !host.firstChild) host.innerHTML = this.csHostHtml(cid);
+      host.__sig = sig; host.__ed = editing;
+      this.csTag(host, editing && !host.closest('.cslide-thumb'));
+    });
+  }
+  csTag(host, on) {
+    const sec = host.querySelector('section'); if (!sec) return;
+    const w = document.createTreeWalker(sec, NodeFilter.SHOW_TEXT, { acceptNode: (n) => (n.nodeValue && n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT) });
+    const els = []; let n; while ((n = w.nextNode())) { if (n.parentElement && els.indexOf(n.parentElement) < 0) els.push(n.parentElement); }
+    els.forEach((el) => {
+      if (on) { el.setAttribute('data-cs-edit', '1'); try { el.contentEditable = 'plaintext-only'; } catch (e) {} if (el.contentEditable !== 'plaintext-only') el.contentEditable = 'true'; el.setAttribute('spellcheck', 'false'); }
+      else { el.removeAttribute('data-cs-edit'); el.removeAttribute('contenteditable'); }
+    });
+  }
+  csSerialize(host) {
+    const sec = host.querySelector('section'); if (!sec) return null;
+    const clone = sec.cloneNode(true);
+    clone.querySelectorAll('[data-cs-edit],[data-sr-sel],[contenteditable]').forEach((x) => { x.removeAttribute('data-cs-edit'); x.removeAttribute('data-sr-sel'); x.removeAttribute('contenteditable'); x.removeAttribute('spellcheck'); });
+    return clone.innerHTML;
+  }
+  csSaveHost(host) {
+    const cid = host && host.dataset.cid; if (!cid || !this.dsNow || !this.dsNow.customs[cid]) return;
+    const html = this.csSerialize(host); if (html == null) return;
+    const customs = Object.assign({}, this.dsNow.customs);
+    const first = host.querySelector('[data-cs-edit]');
+    let title = customs[cid].title;
+    const t1 = host.querySelector('section p'); if (t1 && t1.textContent.trim()) title = t1.textContent.trim().slice(0, 40);
+    customs[cid] = Object.assign({}, customs[cid], { html, title });
+    this.dsNow.customs = customs;
+    this.dsWrite('custom', customs);
+    host.__sig = cid + '|' + html.length + ':' + customs[cid].style;
+  }
+  csWire() {
+    if (this.csWired) return; this.csWired = true;
+    document.addEventListener('focusout', (e) => { const h = e.target && e.target.closest && e.target.closest('.cslide-host'); if (h && e.target.isContentEditable) { this.csSaveHost(h); this.setState({ deckTick: Date.now() }); } }, true);
+    document.addEventListener('keydown', (e) => { if (e.target && e.target.closest && e.target.closest('.cslide-host') && e.target.isContentEditable) { e.stopPropagation(); if (e.key === 'Escape') e.target.blur(); } }, true);
+    document.addEventListener('keyup', (e) => { if (e.target && e.target.closest && e.target.closest('.cslide-host') && e.target.isContentEditable) e.stopPropagation(); }, true);
+    document.addEventListener('click', (e) => {
+      if (!this.state.editing) return;
+      const sh = e.target && e.target.closest ? e.target.closest('.cslide-host section > *') : null;
+      if (sh) { this.selectEl(sh); }
+    }, true);
+    // Paste a slide picture (or text) from PowerPoint: Ctrl/Cmd+V while the Slides panel is open.
+    document.addEventListener('paste', (e) => {
+      if (!this.state.slideMgr) return;
+      const a = document.activeElement;
+      if (a && (a.isContentEditable || /^(INPUT|TEXTAREA)$/.test(a.tagName))) return;
+      const cd = e.clipboardData; if (!cd) return;
+      const files = [];
+      for (const it of Array.prototype.slice.call(cd.items || [])) { if (it.kind === 'file' && /^image\//.test(it.type)) { const f = it.getAsFile(); if (f) files.push(f); } }
+      if (files.length) { e.preventDefault(); this.addImageFiles(files); return; }
+      const text = cd.getData('text/plain');
+      if (text && text.trim()) { e.preventDefault(); this.addTextSlide(text); }
+    });
   }
   // ---- DELETE ELEMENTS (Edit text mode) ----
   // In Edit text mode a click on anything on a slide selects that element (blue outline). Delete selected (or the Delete key) hides it,
@@ -1734,12 +2150,43 @@ class Component extends DCLogic {
     if (!m) return null;
     return m[1] + ':' + Array.prototype.indexOf.call(sec.children, el);
   }
+  // Interactive intro deck: each slide is one 1920x1080 box; its direct children are the shapes you can select and delete.
+  introRoots(box) {
+    return Array.prototype.filter.call(box.querySelectorAll('div'), (d) => { const st = d.getAttribute('style') || ''; return /width: 1920px/.test(st) && /height: 1080px/.test(st) && /overflow: hidden/.test(st); });
+  }
+  introShape(t) {
+    const box = t.closest ? t.closest('#ix-box, #pv-live') : null;
+    if (!box) return null;
+    const roots = this.introRoots(box);
+    let root = null;
+    for (let n = t.parentElement; n && n !== box; n = n.parentElement) { if (roots.indexOf(n) >= 0) { root = n; break; } }
+    if (!root) return null;
+    let el = t; while (el && el.parentElement !== root) el = el.parentElement;
+    return el || null;
+  }
+  shapeIdIx(el) {
+    const box = el.closest ? el.closest('#ix-box, #pv-live') : null;
+    const root = el.parentElement;
+    if (!box || !root) return null;
+    const ri = this.introRoots(box).indexOf(root);
+    if (ri < 0) return null;
+    return 'ix:' + ri + ':' + Array.prototype.indexOf.call(root.children, el);
+  }
   applyDeleted() {
     const set = new Set(this.getDeleted());
     document.querySelectorAll('[data-deck-root] section[aria-label^="Slide"] > *').forEach((el) => {
       const id = this.shapeId(el), gone = !!id && set.has(id);
       if (gone && !el.hasAttribute('data-sr-deleted')) { el.setAttribute('data-sr-deleted', '1'); el.style.setProperty('display', 'none', 'important'); }
       else if (!gone && el.hasAttribute('data-sr-deleted')) { el.removeAttribute('data-sr-deleted'); el.style.removeProperty('display'); }
+    });
+    document.querySelectorAll('#ix-box, #pv-live').forEach((box) => {
+      this.introRoots(box).forEach((root, ri) => {
+        Array.prototype.forEach.call(root.children, (el, ci) => {
+          const gone = set.has('ix:' + ri + ':' + ci);
+          if (gone && !el.hasAttribute('data-sr-deleted')) { el.setAttribute('data-sr-deleted', '1'); el.style.setProperty('display', 'none', 'important'); }
+          else if (!gone && el.hasAttribute('data-sr-deleted')) { el.removeAttribute('data-sr-deleted'); el.style.removeProperty('display'); }
+        });
+      });
     });
   }
   selectEl(el) {
@@ -1750,7 +2197,15 @@ class Component extends DCLogic {
   deleteSelected() {
     const el = this.selEl;
     if (!el || !el.isConnected) return;
-    const id = this.shapeId(el);
+    const chost = el.closest && el.closest('.cslide-host');
+    if (chost) {
+      if (!this.csUndo) this.csUndo = [];
+      this.csUndo.push({ cid: chost.dataset.cid, html: this.csSerialize(chost) });
+      this.selectEl(null); el.remove(); this.csSaveHost(chost); this.lastDelCustom = true; this.setState({ deckTick: Date.now() });
+      return;
+    }
+    this.lastDelCustom = false;
+    const id = this.shapeId(el) || this.shapeIdIx(el);
     if (!id) return;
     const list = this.getDeleted();
     if (list.indexOf(id) < 0) list.push(id);
@@ -1758,6 +2213,12 @@ class Component extends DCLogic {
     this.saveDeleted(); this.applyDeleted();
   }
   undoDelete() {
+    if (this.lastDelCustom && this.csUndo && this.csUndo.length) {
+      const u = this.csUndo.pop();
+      const customs = Object.assign({}, this.dsNow.customs);
+      if (customs[u.cid]) { customs[u.cid] = Object.assign({}, customs[u.cid], { html: u.html }); this.dsNow.customs = customs; this.dsWrite('custom', customs); this.csFillAll(true); this.setState({ deckTick: Date.now() }); }
+      return;
+    }
     const list = this.getDeleted();
     if (!list.length) return;
     list.pop();
@@ -1905,7 +2366,7 @@ class Component extends DCLogic {
         },
         // While editing, clicks and keys inside a text field must not drive the deck (open a card, change slide) or the page.
         click: (e) => {
-          if (this.state.editing && e.target && e.target.closest) { const sh = e.target.closest('section[aria-label^="Slide"] > *'); if (sh) this.selectEl(sh); }
+          if (this.state.editing && e.target && e.target.closest) { const sh = e.target.closest('section[aria-label^="Slide"] > *') || this.introShape(e.target); if (sh) this.selectEl(sh); }
           if (e.target && e.target.closest && e.target.closest('[data-sr-edit]')) { e.stopPropagation(); }
         },
         keydown: (e) => { if (e.target && e.target.closest && e.target.closest('[data-sr-edit]')) { if (e.key === 'Escape') { e.target.blur(); } e.stopPropagation(); } },
@@ -2194,22 +2655,35 @@ class Component extends DCLogic {
     const COUNTRY = { 'UK': 'the UK', 'Dubai': 'the UAE', 'Marbella': 'Spain', 'Hong Kong': 'Hong Kong', 'Thailand': 'Thailand' };
     const fv = Object.assign({ location: LOC, locationIn: LOC_IN[LOC] || LOC, country: COUNTRY[LOC] || LOC }, INDUSTRY_COPY[callIND]);
     const isCold = view === 'cold';
+    this.fvNow = fv; this.callINDNow = callIND;
     const liveDeck = !!(deck && deck.live);
     // The interactive deck has 9 slides in 6 chapters. Insurance and Generic decks share the Insurance · Thailand wording for notes.
-    const SLIDES = liveDeck ? (deck.variant === 're' ? deck.slides : INSURANCE_THAILAND_DECK.slides) : (deck && deck.slides ? deck.slides : []);
+    const BASE = liveDeck ? (deck.variant === 're' ? deck.slides : INSURANCE_THAILAND_DECK.slides) : (deck && deck.slides ? deck.slides : []);
+    // Slide order, hidden, deleted and added slides for this deck (saved in this browser).
+    const DS = this.deckState(BASE.length);
+    this.dsNow = DS; this.baseNow = BASE;
+    const entryOf = (t) => (t[0] === 'o' ? Object.assign({}, BASE[Number(t.slice(1))], { tok: t, orig: Number(t.slice(1)) }) : { title: (DS.customs[t] && DS.customs[t].title) || 'New slide', src: '', cue: '', tok: t, orig: -1, custom: true });
+    const SLIDES = liveDeck
+      ? BASE.map((x, i) => entryOf('o' + i)).concat(DS.order.filter((t) => t[0] === 'c').map(entryOf))
+      : DS.order.map(entryOf);
+    this.slidesNow = SLIDES;
     this.liveNow = liveDeck;
     const LIVE_POS = [[0, 0], [1, 0], [1, 1], [2, 0], [3, 0], [4, 0], [4, 1], [4, 2], [5, 0]];
     this.livePos = LIVE_POS;
     const lastSlide = Math.max(SLIDES.length - 1, 0);
-    // INTRO CALL: the six questions in step 03.
-    const QUESTIONS = [
-      'Who are these people you’re selling to?',
-      'How many sales are you doing per month?',
-      'How many sales would you like to get to in the next 3-4 months, and why?',
-      'So how many extra qualified leads do you need to hit this goal?',
-      'What marketing are you currently running to do this?',
-      'How has the performance been?'
+    // INTRO CALL: the questions in step 03 (Situation, Problem, Implication, Need-payoff).
+    const QDATA = [
+      ['Situation', 'Most real estate companies I talk to focus on off-plan or the secondary market for British expats. Is that the case for you, or do you work with someone different?'],
+      ['Problem', 'What goal are you working towards at the moment? (sales, revenue, etc.) / How many sales are you doing per month?'],
+      ['Problem', 'Where are you in relation to that goal right now? / How many sales would you like to get to in the next 3-4 months?'],
+      ['Problem', 'How have you tried to fix this? Why do you think it didn’t work? / What marketing are you currently running to do this?'],
+      ['Problem', 'How much are you currently spending on marketing?'],
+      ['Problem', 'How satisfied are you with the marketing performance?'],
+      ['Implication', 'Where do you want the business to be 3 to 4 months from now?'],
+      ['Need-payoff', 'If we solve that, what does your company look like four months from now?']
     ];
+    // Plain strings (kind first) for the overview PDF and the presenter list.
+    const QUESTIONS = QDATA.map((d) => d[0] + ': ' + d[1]);
     const liveAt = this.state.liveAt == null ? 0 : this.state.liveAt;
     const inHub = liveDeck && liveAt < 0;
     const slide = Math.min(Math.max(liveDeck ? liveAt : (this.state.slide || 0), 0), lastSlide);
@@ -2217,7 +2691,8 @@ class Component extends DCLogic {
     const goSlide = (d) => (liveDeck ? this.liveStep(d) : this.step(d));
     const cur = SLIDES[slide] || { title: '', src: '', cue: '' };
     const hasDeck = SLIDES.length > 0;
-    const hid = this.getHidden().filter((n) => n >= 0 && n <= lastSlide);
+    const hideSet = new Set(DS.hidden.concat(DS.gone));
+    const hid = SLIDES.map((x, i) => (hideSet.has(x.tok) ? i : -1)).filter((i) => i >= 0);
     this.hiddenNow = hid;
     const isVis = (i) => hid.indexOf(i) < 0;
     const nextVis = (from, d) => { for (let i = from + d; i >= 0 && i <= lastSlide; i += d) if (isVis(i)) return i; return -1; };
@@ -2268,9 +2743,7 @@ class Component extends DCLogic {
         pressed: label === callIND ? 'true' : 'false',
         go: () => this.setState({ industry: INDUSTRIES.indexOf(label) })
       })),
-      showColdRE: isCold && callIND === 'Real Estate',
-      showColdIns: isCold && callIND === 'Insurance',
-      showColdLaw: isCold && callIND === 'Law',
+      showColdScripts: isCold,
       showReply: view === 'calling',
       scriptName: isCold ? (callIND === 'Real Estate' ? 'Real Estate Framework' : (callIND === 'Law' ? 'Law Framework' : 'Insurance cold calling script')) : 'Positive reply script',
       // PROPOSAL, CONTRACTS, ONBOARDING
@@ -2336,7 +2809,13 @@ class Component extends DCLogic {
       objKey: (e) => { if (e.key === 'Escape') this.setState({ showObjections: false }); },
       isHtmlDeck: hasDeck && !!(deck && deck.html),
       isImageDeck: hasDeck && !(deck && deck.html) && !liveDeck,
-      slideIndex: slide,
+      slideIndex: cur.orig >= 0 && !liveDeck ? cur.orig : (liveDeck ? slide : 0),
+      origSlide: liveDeck || !cur.custom,
+      isCustomSlide: !liveDeck && !!cur.custom,
+      customId: !liveDeck && cur.custom ? cur.tok : '',
+      nextIsCustom: !liveDeck && !!(SLIDES[nextI] && SLIDES[nextI].custom),
+      nextCustomId: !liveDeck && SLIDES[nextI] && SLIDES[nextI].custom ? SLIDES[nextI].tok : '',
+      liveExtra: liveDeck ? SLIDES.slice(BASE.length).map((x) => ({ id: x.tok, title: x.title, style: (DS.customs[x.tok] || {}).style || '', html: (DS.customs[x.tok] || {}).html || '' })) : [],
       htmlUK: !!(deck && deck.html === 'GAdsUK'),
       htmlDubai: !!(deck && deck.html === 'GAdsDubai'),
       htmlMarbella: !!(deck && deck.html === 'GAdsMarbella'),
@@ -2352,9 +2831,10 @@ class Component extends DCLogic {
       noPdf: !(deck && deck.pdf),
       pdfUrl: deck && deck.pdf ? deck.pdf : '#',
       pdfName: deck && deck.pdfName ? deck.pdfName : 'Sarac-Ramsay-Intro.pdf',
-      questions: QUESTIONS.map((text, i) => ({
+      questions: QDATA.map(([kind, text], i) => ({
         id: 'intro-q' + (i + 1),
         num: pad(i + 1),
+        kind, kindShow: 'block',
         text,
         value: this.state.notes[i] || '',
         onChange: (e) => this.setNote(i, e && e.target ? e.target.value : '')
@@ -2419,7 +2899,7 @@ class Component extends DCLogic {
       popupBlocked: !!this.state.popupBlocked,
       openAudience: () => this.openAudience(),
       soloPresent: (e) => this.soloPresent(e),
-      nextIndex: nextI < 0 ? slide : nextI,
+      nextIndex: nextI < 0 ? (SLIDES[slide] && SLIDES[slide].orig >= 0 ? SLIDES[slide].orig : 0) : (SLIDES[nextI].orig >= 0 ? SLIDES[nextI].orig : 0),
       hasNext: hasDeck && nextI >= 0,
       nextSrc: (SLIDES[nextI] || cur).src,
       nextTitle: SLIDES[nextI] ? pad(visPos + 1) + '  ' + SLIDES[nextI].title : '',
@@ -2443,17 +2923,30 @@ class Component extends DCLogic {
       resetEdits: () => this.resetTextEdits(),
       deleteSel: () => this.deleteSelected(),
       undoDel: () => this.undoDelete(),
+      addText: () => { if (this.activeCustomHost()) this.addTextBox(); else { try { window.alert('Text boxes can be added on slides you added, or on a copy: open the Slides panel and press Copy on a slide first.'); } catch (e) {} } },
       showQTab: this.state.pvTab === 'questions',
-      pvQuestions: QUESTIONS.map((text, i) => ({ id: 'pv-q' + (i + 1), num: pad(i + 1), text, value: this.state.notes[i] || '', onChange: (e) => this.setNote(i, e && e.target ? e.target.value : '') })),
-      slideList: SLIDES.map((x, i) => { const h = !isVis(i); return { num: pad(i + 1), title: x.title, cls: i === slide ? 'is-on' : '', current: i === slide ? 'true' : 'false', go: () => (liveDeck ? this.liveGo(i) : this.setState({ slide: i })), toggle: () => this.toggleHidden(i), toggleText: h ? 'Show' : 'Hide', toggleLabel: (h ? 'Show slide ' : 'Hide slide ') + (i + 1) + ': ' + x.title, deco: h ? 'line-through' : 'none', op: h ? '0.5' : '1', tagColor: h ? '#DFAB01' : '#9B9B97', bd: i === slide ? '#2F80C8' : '#2F2F2F', bg: i === slide ? '#1F2D38' : 'transparent' }; }),
+      pvQuestions: QDATA.map(([kind, text], i) => ({ id: 'pv-q' + (i + 1), num: pad(i + 1), kind, kindShow: 'block', text, value: this.state.notes[i] || '', onChange: (e) => this.setNote(i, e && e.target ? e.target.value : '') })),
+      slideList: SLIDES.map((x, i) => ({ x, i })).filter((o) => DS.gone.indexOf(o.x.tok) < 0).map(({ x, i }) => { const h = !isVis(i); return { num: pad(i + 1), title: x.title, cls: i === slide ? 'is-on' : '', current: i === slide ? 'true' : 'false', go: () => (liveDeck ? this.liveGo(i) : this.setState({ slide: i })), toggle: () => this.toggleHidden(x.tok), toggleText: h ? 'Show' : 'Hide', toggleLabel: (h ? 'Show slide ' : 'Hide slide ') + (i + 1) + ': ' + x.title, deco: h ? 'line-through' : 'none', op: h ? '0.5' : '1', tagColor: h ? '#DFAB01' : '#9B9B97' }; }),
+      mgrRows: SLIDES.map((x, i) => ({ x, i })).filter((o) => DS.gone.indexOf(o.x.tok) < 0).map(({ x, i }) => {
+        const h = !isVis(i), mv = !liveDeck || x.custom;
+        return { num: pad(i + 1), title: x.title, goLabel: 'Go to slide ' + (i + 1) + ': ' + x.title, go: () => (liveDeck ? this.liveGo(i) : this.setState({ slide: i })), toggle: () => this.toggleHidden(x.tok), toggleText: h ? 'Show' : 'Hide', toggleLabel: (h ? 'Show slide ' : 'Hide slide ') + (i + 1) + ': ' + x.title, deco: h ? 'line-through' : 'none', op: h ? '0.55' : '1', tagColor: h ? '#DFAB01' : '#9B9B97', bd: i === slide ? '#2F80C8' : '#2F2F2F', bg: i === slide ? '#1F2D38' : 'transparent', newShow: x.custom ? 'inline' : 'none', del: () => this.deleteSlide(x.tok), dup: () => this.duplicateSlide(x.tok), dupShow: (!liveDeck || x.custom) ? 'inline-block' : 'none', up: () => this.moveSlide(x.tok, -1), down: () => this.moveSlide(x.tok, 1), moveShow: mv ? 'inline-block' : 'none' };
+      }),
+      goneRows: DS.gone.filter((t) => /^o\d+$/.test(t) && Number(t.slice(1)) < BASE.length).map((t) => ({ num: pad(Number(t.slice(1)) + 1), title: BASE[Number(t.slice(1))].title, restore: () => this.restoreSlide(t) })),
+      hasGone: DS.gone.some((t) => /^o\d+$/.test(t) && Number(t.slice(1)) < BASE.length),
+      addBlank: () => this.addSlide('blank'),
+      addTitle: () => this.addSlide('title'),
+      addPicture: () => { const f = document.getElementById('cs-file'); if (f) f.click(); },
+      onFiles: (e) => this.onFiles(e),
+      pasteSlide: () => this.pasteSlide(),
+      slideHelp: liveDeck ? 'Hide skips a slide, Delete removes it (you can restore it). New slides are added at the end, after the last chapter, and can be reordered. To paste from PowerPoint: copy the slide or pictures, click here, then press Ctrl/Cmd+V. The PDF download still has every slide.' : 'Hide skips a slide, Delete removes it (you can restore it), Copy makes an editable duplicate. To paste from PowerPoint: copy the slide or pictures, click here, then press Ctrl/Cmd+V (or use Paste slide). New slides go after the slide you are on. The PDF download still has every slide.',
       liveHidden: hid,
       slideMgr: !!this.state.slideMgr,
       toggleMgr: () => this.setState((s) => ({ slideMgr: !s.slideMgr })),
-      mgrLabel: hid.length ? 'Slides (' + hid.length + ' hidden)' : 'Hide / show slides',
+      mgrLabel: 'Slides',
       mgrBorder: this.state.slideMgr ? '#C6A667' : '#2F2F2F',
       mgrBg: this.state.slideMgr ? 'rgba(198,166,103,0.18)' : '#202020',
       mgrColor: this.state.slideMgr ? '#E6CD94' : '#E6E6E4',
-      hiddenSummary: hid.length ? hid.length + ' of ' + SLIDES.length + ' slides hidden.' : 'All ' + SLIDES.length + ' slides showing.',
+      hiddenSummary: (SLIDES.length - DS.gone.filter((t) => t[0] === 'o').length) + ' slides' + (hid.length - DS.gone.filter((t) => t[0] === 'o').length > 0 ? ', ' + (hid.length - DS.gone.filter((t) => t[0] === 'o').length) + ' hidden' : '') + '.',
       currentSrc: cur.src,
       currentAlt: 'Slide ' + (slide + 1) + ': ' + cur.title,
       startPresent: (e) => { if (!hasDeck) return; this.startPresent(e); },

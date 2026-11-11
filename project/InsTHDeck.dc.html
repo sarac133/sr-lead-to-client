@@ -289,6 +289,10 @@ body{margin:0}
 </div>
 </div>
 
+<sc-for list="{{extras}}" as="x" hint-placeholder-count="0">
+<div style="position: absolute; left: 0px; top: 0px; width: 1920px; height: 1080px; z-index: 40; display: {{x.show}}; background: #0B1A2E"><div class="cslide-host" data-cid="{{x.id}}" data-no-edit="1" style="width: 1920px; height: 1080px"></div></div>
+</sc-for>
+
 <div class="prog" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; height: 4px; width: {{progW}}%; background: #C6A667"></div>
 
 <div style="position: absolute; left: 0px; top: 22px; width: 1920px; display: flex; justify-content: center; pointer-events: none">
@@ -311,7 +315,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":null},"cur":{"editor":null},"onMove":{"editor":null},"cmd":{"editor":null},"hidden":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":null},"cur":{"editor":null},"onMove":{"editor":null},"cmd":{"editor":null},"hidden":{"editor":null},"extra":{"editor":null},"editing":{"editor":null},"$preview":{"width":1920,"height":1080}}'>
 class Component extends DCLogic {
 constructor(props) {
 super(props);
@@ -326,7 +330,7 @@ this.SECS = [
 { n: '06', t: 'Before we build your proposal', s: 1 }
 ];
 this.POS = [[720, 1000], [2880, 1000], [5040, 1000], [720, 2560], [2880, 2560], [5040, 2560]];
-this.state = { view: 'slide', sec: 0, pos: [0, 0, 0, 0, 0, 0], building: false, hud: true, mv: '' };
+this.state = { view: 'slide', sec: 0, pos: [0, 0, 0, 0, 0, 0], building: false, hud: true, mv: '', xi: 0 };
 this.lockUntil = 0;
 this.BASE = [0, 1, 3, 4, 5, 8];
 this.FLAT = [[0, 0], [1, 0], [1, 1], [2, 0], [3, 0], [4, 0], [4, 1], [4, 2], [5, 0]];
@@ -352,15 +356,22 @@ pos[sec] = idx;
 this.setState({ view: 'hub', sec: sec, pos: pos, building: false });
 this.later(() => this.goTo(sec, idx), 1400);
 };
+this.nExtra = () => { const x = this.props && this.props.extra; return Array.isArray(x) ? x.length : 0; };
+this.curFlat = () => { const st = this.state; return st.view === 'extra' ? 9 + st.xi : this.BASE[st.sec] + st.pos[st.sec]; };
+this.goExtra = (k) => { this.clearAll(); this.setState({ view: 'extra', xi: k, building: false, mv: '' }); };
+this.goFlat = (i, dir) => {
+if (i >= 9) { this.goExtra(i - 9); return; }
+const t = this.FLAT[i];
+this.goTo(t[0], t[1], t[0] !== this.state.sec ? dir : undefined);
+};
 this.next = () => {
 if (Date.now() < this.lockUntil) return;
 const st = this.state;
 if (st.view === 'hub') { this.open(st.sec)(); return; }
-const cur = this.BASE[st.sec] + st.pos[st.sec];
-for (let i = cur + 1; i < this.FLAT.length; i++) {
+const total = 9 + this.nExtra();
+for (let i = this.curFlat() + 1; i < total; i++) {
 if (this.isHid(i)) continue;
-const t = this.FLAT[i];
-this.goTo(t[0], t[1], t[0] !== st.sec ? 'f' : undefined);
+this.goFlat(i, 'f');
 return;
 }
 this.clearAll();
@@ -370,11 +381,9 @@ this.prev = () => {
 if (Date.now() < this.lockUntil) return;
 const st = this.state;
 if (st.view === 'hub') return;
-const cur = this.BASE[st.sec] + st.pos[st.sec];
-for (let i = cur - 1; i >= 0; i--) {
+for (let i = this.curFlat() - 1; i >= 0; i--) {
 if (this.isHid(i)) continue;
-const t = this.FLAT[i];
-this.goTo(t[0], t[1], t[0] !== st.sec ? 'b' : undefined);
+this.goFlat(i, 'b');
 return;
 }
 };
@@ -402,13 +411,15 @@ this.rootRef = (el) => { this.rootEl = el; };
 }
 componentDidMount() {
 this.wake();
+this.fillExtras();
 if (this.rootEl && this.rootEl.focus) { try { this.rootEl.focus({ preventScroll: true }); } catch (e) {} }
 }
 componentDidUpdate() {
+this.fillExtras();
 const st = this.state;
 const hub = st.view === 'hub';
 const base = [0, 1, 3, 4, 5, 8][st.sec];
-const idx = hub ? -1 : base + st.pos[st.sec];
+const idx = hub ? -1 : (st.view === 'extra' ? 9 + st.xi : base + st.pos[st.sec]);
 const key = (hub ? 'h' : 's') + idx;
 if (key !== this.lastKey) {
 this.lastKey = key;
@@ -418,9 +429,37 @@ const cmd = this.props.cmd;
 if (cmd && cmd.id !== this.lastCmd) {
 this.lastCmd = cmd.id;
 if (cmd.hub) this.overview();
+else if (typeof cmd.extra === 'number') this.goExtra(cmd.extra);
 else if (typeof cmd.sec === 'number') this.goTo(cmd.sec, cmd.pos || 0);
 else if (typeof cmd.step === 'number') { if (cmd.step > 0) this.next(); else this.prev(); }
 }
+}
+fillExtras() {
+if (!this.rootEl) return;
+const list = (this.props && this.props.extra) || [];
+const ed = !!(this.props && this.props.editing);
+this.rootEl.querySelectorAll('.cslide-host').forEach((h) => {
+const x = list.find((e) => e.id === h.getAttribute('data-cid'));
+if (!x) { if (h.firstChild) h.innerHTML = ''; h.__sig = ''; return; }
+const sig = x.id + '|' + (x.html || '').length + ':' + (x.style || '');
+let fresh = false;
+if (h.__sig !== sig || !h.firstChild) {
+if (h.contains(document.activeElement) && document.activeElement.isContentEditable) return;
+const esc = (t) => String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+h.innerHTML = '<section aria-label="Added slide: ' + esc(x.title) + '" style="' + esc(x.style) + '">' + (x.html || '') + '</section>';
+h.__sig = sig; fresh = true;
+}
+if (fresh || h.__ed !== ed) {
+h.__ed = ed;
+const sec = h.querySelector('section'); if (!sec) return;
+const w = document.createTreeWalker(sec, NodeFilter.SHOW_TEXT, { acceptNode: (n) => (n.nodeValue && n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT) });
+const els = []; let n; while ((n = w.nextNode())) { if (n.parentElement && els.indexOf(n.parentElement) < 0) els.push(n.parentElement); }
+els.forEach((el) => {
+if (ed) { el.setAttribute('data-cs-edit', '1'); try { el.contentEditable = 'plaintext-only'; } catch (e) {} if (el.contentEditable !== 'plaintext-only') el.contentEditable = 'true'; el.setAttribute('spellcheck', 'false'); }
+else { el.removeAttribute('data-cs-edit'); el.removeAttribute('contenteditable'); }
+});
+}
+});
 }
 componentWillUnmount() {
 this.clearAll();
@@ -472,12 +511,13 @@ p1a: pip(1, 0), p1b: pip(1, 1),
 p4a: pip(4, 0), p4b: pip(4, 1), p4c: pip(4, 2),
 t0: tile(0), t1: tile(1), t2: tile(2), t3: tile(3), t4: tile(4), t5: tile(5),
 o0: this.open(0), o1: this.open(1), o2: this.open(2), o3: this.open(3), o4: this.open(4), o5: this.open(5),
-progW: hub ? 0 : ((gi + 1) / S.reduce((t, x) => t + x.s, 0)) * 100,
+progW: hub ? 0 : (st.view === 'extra' ? 100 : ((gi + 1) / S.reduce((t, x) => t + x.s, 0)) * 100),
 hudClass: (hub || st.hud) ? 'hud' : 'hud off',
-hudNum: hub ? '' : S[st.sec].n,
-hudTitle: hub ? 'Overview' : S[st.sec].t,
-hudCount: hub ? '6 chapters · choose one' : ((st.pos[st.sec] + 1) + ' / ' + S[st.sec].s),
-prevDis: hub || (st.sec === 0 && st.pos[0] === 0),
+extras: ((this.props && this.props.extra) || []).map((x, k) => ({ id: x.id, show: st.view === 'extra' && st.xi === k ? 'block' : 'none' })),
+hudNum: hub ? '' : (st.view === 'extra' ? '+' : S[st.sec].n),
+hudTitle: hub ? 'Overview' : (st.view === 'extra' ? (((this.props.extra || [])[st.xi] || {}).title || 'Added slide') : S[st.sec].t),
+hudCount: hub ? '6 chapters · choose one' : (st.view === 'extra' ? ('Added slide ' + (st.xi + 1) + ' / ' + this.nExtra()) : ((st.pos[st.sec] + 1) + ' / ' + S[st.sec].s)),
+prevDis: hub || (st.view !== 'extra' && st.sec === 0 && st.pos[0] === 0),
 overview: this.overview,
 prev: this.prev,
 next: this.next
