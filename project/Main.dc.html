@@ -222,6 +222,7 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <!-- HEADER: swap the text wordmark for the logo image when ready -->
 <header style="position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-bottom: 18px">
 <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: #E6E6E4">Sarac Ramsay</div>
+<a id="btn-eclipse" class="btn" href="{{links.eclipseUrl}}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; min-height: 34px; box-sizing: border-box; padding: 0 14px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer"><span>Open Eclipse</span><svg aria-hidden="true" width="10" height="10" style="flex: none" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h6v6M10 2L3 9"></path></svg></a>
 </header>
 
 <sc-if value="{{showTimeline}}" hint-placeholder-val="{{ true }}">
@@ -256,8 +257,8 @@ a{color:#529CCA}a:hover{color:#529CCA}
 <h2 style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 15px; font-weight: 600; line-height: 1.3; color: #E6E6E4">Outreach</h2>
 <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #9B9B97">Cold email and calls to the decision maker.</p>
 <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 12px">
-<!-- Active Email Campaigns: opens the campaigns panel (link held in LINKS.emailCampaignsUrl) -->
-<button id="btn-active-email-campaigns" class="btn" type="button" onClick="{{openCampaigns}}" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; box-sizing: border-box; padding: 6px 10px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; line-height: 1.3; letter-spacing: 0; text-transform: none; text-align: center; cursor: pointer"><span style="text-wrap: balance">Active Email Campaigns</span><svg aria-hidden="true" width="10" height="10" style="flex: none" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"></path></svg></button>
+<!-- Email campaigns: link to the campaigns doc in Google Drive (link held in LINKS.emailCampaignsUrl) -->
+<a id="btn-email-campaigns" class="btn" href="{{links.emailCampaignsUrl}}" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; box-sizing: border-box; padding: 6px 10px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; line-height: 1.3; letter-spacing: 0; text-transform: none; text-align: center; cursor: pointer; text-decoration: none"><span style="text-wrap: balance">Email Campaigns</span><svg aria-hidden="true" width="10" height="10" style="flex: none" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h6v6M10 2L3 9"></path></svg></a>
 <!-- Cold Calling Script: zooms into the cold calling script view -->
 <button id="btn-cold-calling" class="btn" type="button" onClick="{{openCold}}" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; box-sizing: border-box; padding: 6px 10px; border: 1px solid #2F2F2F; border-radius: 6px; background: #202020; color: #E6E6E4; font-family: inherit; font-size: 13px; font-weight: 600; line-height: 1.3; letter-spacing: 0; text-transform: none; text-align: center; cursor: pointer"><span style="text-wrap: balance">Cold Calling Script</span><svg aria-hidden="true" width="10" height="10" style="flex: none" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"></path></svg></button>
 </div>
@@ -2452,7 +2453,9 @@ class Component extends DCLogic {
     // BUTTON LINKS: swap '#' for the real link. Every link opens in a new tab.
     // Every other stage button opens a view on this page.
     const LINKS = {
-      callingScriptUrl: '#'
+      callingScriptUrl: '#',
+      emailCampaignsUrl: 'https://docs.google.com/document/d/1UP733HKHqTMsFZyq3gr4t9DWKeJQ0R8X5K7evTFxrkM/edit?tab=t.9k1cpd8kll5n',
+      eclipseUrl: 'https://saracramsay-os.netlify.app/'
     };
 
     // ACTIVE EMAIL CAMPAIGNS: Apollo snapshot (Sarac Ramsay sequences; Atrium client sequences and empty test sequences left out).
